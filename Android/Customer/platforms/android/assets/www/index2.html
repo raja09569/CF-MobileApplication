@@ -1,0 +1,703 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="format-detection" content="telephone=no">
+        <meta name="msapplication-tap-highlight" content="no">
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+        <!-- <link rel="stylesheet" type="text/css" href="css/index.css"> -->
+		<link rel="stylesheet" href="css/jquery.mobile-1.4.5.min.css">
+		<link href="css/font-awesome.min.css" rel="stylesheet" />
+		<!-- <script src="js/main.js"></script> -->
+		<script src="js/jquery-1.12.3.js"></script> 
+		<script src="js/jquery.mobile-1.4.5.min.js"></script>
+		<script src="js/server_variable.js"></script>
+        <title>CamerounFacile</title> 
+		<style>
+			/* Swipe 2 required styles */
+			.swipe {
+			  overflow: hidden;
+			  visibility: hidden;
+			  position: relative;
+			}
+			.swipe-wrap {
+			  overflow: hidden;
+			  position: relative;
+			}
+			.swipe-wrap > div {
+			  float:left;
+			  width:100%;
+			  position: relative;
+			}
+			/* END required styles */
+		</style>
+		
+		<link rel="stylesheet" href="build/css/intlTelInput.css" >
+		<style>
+		.iti-flag {background-image: url("build/img/flags.png");}
+		  
+		@media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min--moz-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 2 / 1), only screen and (min-device-pixel-ratio: 2), only screen and (min-resolution: 192dpi), only screen and (min-resolution: 2dppx) {
+		  .iti-flag {background-image: url("build/img/flags@2x.png");}
+		}
+		</style>
+		<script src="build/js/intlTelInput.js"></script>
+		
+    </head>
+    <body>   
+		<!-- Main page div -->
+		<div data-role="page" id="main">
+			<div data-role="header" data-position="fixed">
+				<h1></h1>
+				<div class="ui-btn-left" data-role="controlgroup" data-type="horizontal">
+					<!-- <a id="moveside" data-role="button" data-corner="false" class="titles">
+						<img src="img/menu.png" style="width:40%;"/>
+					</a>
+					<a data-role="button" data-corner="false" class="titles">
+						<p style="margin:0 !important;border-bottom:1px solid #FFFFFF;">
+							Home
+						</p>
+					</a>
+					<a id="my_bookings" data-role="button" data-corner="false" class="titles">
+						<p style="margin:0 !important;">
+							My Bookings
+						</p>
+					</a> -->
+				</div>
+				<div class="ui-btn-right" style="text-align:right;">
+					<img src="img/logo_main.jpg" style="width:62%;"/>	
+				</div>
+			</div>
+			<div data-role="main">
+				<div class="ui-grid-c module" style="padding-top:3%;padding-left:3%;padding-right:3%;">
+					<div class="ui-block-a modules" id="cabs">
+						<img src="img/cab.png" />
+						<p>Cabs/Rides</p>
+					</div>
+					<div class="ui-block-b modules" id="buses">
+						<img src="img/bus.png" />
+						<p>Buses</p>
+					</div>
+					<div class="ui-block-c modules" id="hotels">
+						<img src="img/hotel.png" />
+						<p>Hotels</p>
+					</div>
+					<div class="ui-block-d modules" id="postAd">
+						<img src="img/advt.png" />
+						<p>Advertising</p>
+					</div>
+				</div>
+				<div id="short_descri">
+					<h3>About CamerounFacile</h3>
+					<p>Launched in June 2017, camerounfacile.com is today ranked as the 
+					leading provider of consumer-direct travel services in india. 
+					CamerounFacile.com</p>
+					<a id="rdMore_comp">Read more..</a>
+				</div>
+				<div class="clear"></div>
+				<div id='mySwipe' style='max-width:500px;margin:0 auto' class='swipe'>
+				  <!--<div class='swipe-wrap'>
+					<div><img src="img/slide1.jpg" /></div>
+					<div><img src="img/slide2.jpg" /></div>
+				  </div>-->
+				</div>
+			</div>
+			<div class="footer" data-role="footer" data-position="fixed">
+				<p style="padding:4%;">copyrights@2017</p>
+			</div>
+		</div>
+		<!-- Close Main page div -->
+		
+		<!-- Menu page div -->
+		
+		<div data-role="page" id="side-menu">
+			<div data-role="header" data-position="fixed">
+				<h1></h1>
+				<div class="ui-btn-left" data-role="controlgroup" data-type="horizontal">
+					<a data-role="button" data-corner="false" class="titles">
+						<img src="img/menu.png" style="width:40%;border-bottom:1px solid #FFFFFF;"/>
+					</a>
+					<a id="movehome" data-role="button" data-corner="false" class="titles">
+						<p style="margin:0 !important;">
+							Home
+						</p>
+					</a>
+					<a id="my_bookings" data-role="button" data-corner="false" class="titles">
+						<p style="margin:0 !important;">
+							My Bookings
+						</p>
+					</a>
+				</div>
+				<div class="ui-btn-right" style="text-align:right;">
+					<img src="img/logo_main.jpg" style="width:62%;"/>	
+				</div>
+			</div>
+			<div data-role="content" style="background:#EEEEEE !important;">
+				<a style="text-decoration:none !important;" >
+					<div id="before_login" class="profile-div">
+						<img src="img/user.png"/>
+						<p style="padding:1%;font-size:4vw !important;color:#999999;">
+							Get a more personalized experience by using your CamerounFacile Account
+						</p>
+						<p>LOGIN OR  REGISTER</p>
+					</div>
+					<div id="after_login" class="profile-div">
+						<img src="img/user.png"/>
+						<p style="font-size:6vw !important;padding:1%;font-weight:bold !important;"></p>
+						<span style="font-size:4vw !important;padding:1%;color:#999999;"></span>
+					</div>
+				</a>
+				<ul data-role="listview" style="margin-bottom:20px !important;">
+					<li class="listitem" id="my_bookings">
+						<img src="img/mybooking.png" alt="My Bookings" class="ui-li-icon">
+						<p>My Bookings</p>
+						<img src="img/right.png" alt="Right" class="ui-li-icon"/>
+					</li>
+					<li class="listitem" id="my_ads">
+						<img src="img/mybooking.png" alt="My Bookings" class="ui-li-icon">
+						<p>My Ads</p>
+						<img src="img/right.png" alt="Right" class="ui-li-icon"/>
+					</li>
+					<li class="listitem-divider"></li>
+					<li class="listitem">
+						<img src="img/notification.png" alt="Notifications" class="ui-li-icon">
+						<p style="width:60% !important;">Notifications</p>
+						<div class='toggle' id='switch'>
+							<div class='toggle-text-off'>OFF</div>
+							<div class='glow-comp'></div>
+							<div class='toggle-button'></div>
+							<div class='toggle-text-on'>ON</div>
+						</div>
+					</li>
+					<li class="listitem" id="rateApp">
+						<img src="img/star.png" alt="Rate the app" class="ui-li-icon">
+						<p>Rate the app</p>
+						<img src="img/right.png" alt="Right" class="ui-li-icon"/>
+					</li>
+					<li class="listitem" id="shareApp">
+						<img src="img/share.png" alt="Share the app" class="ui-li-icon">
+						<p>Share the app</p>
+						<img src="img/right.png" alt="Right" class="ui-li-icon"/>
+					</li>
+					<li class="listitem-divider"></li>
+					<li class="listitem" id="sendFeedback">
+						<p></p>
+					</li>
+					<li class="listitem" id="aboutCF">
+						<p>About CamerounFacile</p>
+					</li>
+					<li class="listitem-divider"></li>
+					<li class="listitem" id="logout_btn" style="display:none;" >
+						<p>Logout</p>
+					</li>
+				</ul>
+			</div> 
+		</div>
+		
+		<!-- Close Menu page div -->
+		
+		<!--- Login page div -->
+		<div data-role="page" id="login">
+			<div data-role="header" data-position="fixed">
+				<h1></h1>
+				<!-- <img id="frm_Login" class="back-icon" style="display:inline-block;vertical-align:middle;" /> -->
+				<div class="ui-btn-left" data-role="controlgroup" data-type="horizontal">
+					<a id="frm_Login" data-role="button" data-corner="false" class="titles">
+						<img src="img/back.png" style="width:40%;"/>
+					</a>
+					<a data-role="button" data-corner="false" class="titles">
+						<p style="margin:0 !important;">
+							Login to CamerounFacile
+						</p>
+					</a>
+				</div>
+				
+				<!-- <span class="title" style="color:#FFF;display:inline-block;vertical-align:middle;">
+					Login to CamerounFacile
+				</span> -->
+				<!-- <img class="app-icon" class="ui-btn-right" style="position:absolute;display:inline-block;vertical-align:middle;top:0;right:0;" /> -->	
+				<div class="ui-btn-right" style="text-align:right;">
+					<img src="img/logo_main.jpg" style="width:62%;"/>	
+				</div>
+			</div>
+			<div data-role="content" class="ui-content">
+				<div id="loginform">
+					<div class="input-info">
+						<i class="fa fa-envelope"></i>
+						<input data-role="none" type="email" placeholder="E-mail" 
+							required autocomplete="off" id="login_uname" validate>
+						<i class="fa fa-lock"></i>
+						<input data-role="none" type="password" id="login_pword" placeholder="Password">
+					</div>
+					<button data-role="none" class="login" id="btn_login" form="loginform">
+						<i class="fa fa-mail-forward (alias)"></i> Login to CamerounFacile
+					</button>
+					<p class="forget-password">
+						<a href="#forgotPassword">Forgot Password</a>
+					</p>
+					<a href="#register">
+						<button data-role="none" class="signup" form="signupform">
+							<i class="fa fa-plus"></i> Register with CamerounFacile
+						</button>
+					</a>
+				</div>
+			</div>
+			<div class="footer" data-role="footer" data-position="fixed">
+				<p style="padding:3%;">
+					By logging in, you agree to CamerounFacile  <a href="">Terms&Conitions </a>
+					 and  <a href="#">privacy policy</a>
+				</p>
+			</div>
+		</div>
+		<!-- Close of Login Page div -->
+		
+		<!-- Start of Registration Page -->
+		<div data-role="page" id="register">
+			<div data-role="header" data-position="fixed">
+				<h1></h1>
+				<!-- <img id="frm_Rigister" class="back-icon" style="display:inline-block;vertical-align:middle;" /> -->
+				<!-- <a id="frm_Rigister" data-role="button" data-corner="false" class="titles">
+					<img src="img/back.png" style="width:40%;"/>
+				</a>
+				<span class="title" style="color:#FFF;display:inline-block;vertical-align:middle;">
+					Register with CamerounFacile
+				</span> -->
+				<div class="ui-btn-left" data-role="controlgroup" data-type="horizontal">
+					<a id="frm_Rigister" data-role="button" data-corner="false" class="titles">
+						<img src="img/back.png" style="width:40%;"/>
+					</a>
+					<a data-role="button" data-corner="false" class="titles">
+						<p style="margin:0 !important;">
+							Register with CamerounFacile
+						</p>
+					</a>
+				</div>
+				<!-- <img class="app-icon" class="ui-btn-right" style="position:absolute;display:inline-block;vertical-align:middle;top:0;right:0;" />	 -->
+				<div class="ui-btn-right" style="text-align:right;">
+					<img src="img/logo_main.jpg" style="width:62%;"/>	
+				</div>
+			</div>
+			<div data-role="content" class="ui-content">
+				<div id="registrationform">
+					<div class="input-info">
+						<div style="display:inline-block;margin-left:1.8%;width:45%;">
+							<input data-role="none" type="text" id="reg_fname" placeholder="First Name" 
+								required autocomplete="off" validate>
+						</div>
+						<div style="display:inline-block;margin-left:2%;width:45%;">
+							<input data-role="none" type="text" id="reg_lname" placeholder="Last Name" 
+								required autocomplete="off" validate>
+						</div>
+						<input data-role="none" type="email" placeholder="E-mail" id="reg_email"
+							style="margin-top:3%;" required autocomplete="off" validate>
+						<div>
+							<div id="dv_rgMobile">
+								<input data-role="none" type="tel" id="reg_mobile" />
+							</div>
+							<div id="dv_vrFy">
+								<img src="img/verify.png" id="verify" />
+								<img src="img/verified.png" id="verified" />
+							</div>
+						</div>
+						<input data-role="none" type="password" style="margin-top:3%;" placeholder="Create password" id="reg_pword">
+						<input data-role="none" type="password" style="margin-top:3%;" placeholder="Repeat password" id="reg_repword">
+					</div>
+
+					<div class="log-sign">
+						<button data-role="none" id="btn_register" form="signupform">
+							<i class="fa fa-plus"></i> Register
+						</button>
+					</div>
+					<p class="forget-password" style="text-align:center !important;">
+						Already have account <a href="#login" style="color:#2BA39F;font-size:5vw !important;">Login here</a>
+					</p>
+				</div>
+				<div id="otpForm">
+					<br/>
+					<p>We have sent a verification code on your number <span id="hdn_mobNumber"></span></p>
+					<br/>
+					<input data-role="none" type="text" id="verificationNumber" placeholder="Verification Number" />
+					<br/><br/>
+					<p><a id="btn_resendOTP">RESEND OTP</a></p>
+					<br/>
+					<br/>
+					<button id="btn_verifyOTP">SUBMIT</button>
+				</div>
+			</div>
+			<div class="footer" data-role="footer" data-position="fixed">
+				<p style="padding:3%;">
+					By registering, you agree to CamerounFacile  <a href="">Terms&Conitions </a>
+					 and  <a href="#">privacy policy</a>
+				</p>
+			</div>
+		</div>
+		<!-- End of Registration Page -->
+		
+		<!-- Forgot Password page Starts -->
+		<div data-role="page" id="forgotPassword">
+			<div data-role="header" data-position="fixed">
+				<h1></h1>
+				<!-- <img id="frm_frgtPassword" class="back-icon" style="display:inline-block;vertical-align:middle;" /> -->
+				<!-- <a id="frm_frgtPassword" data-role="button" data-corner="false" class="titles">
+					<img src="img/back.png" style="width:40%;"/>
+				</a>
+				<span class="title" style="color:#FFF;display:inline-block;vertical-align:middle;">
+					Reset password
+				</span> -->
+				<div class="ui-btn-left" data-role="controlgroup" data-type="horizontal">
+					<a id="frm_frgtPassword" data-role="button" data-corner="false" class="titles">
+						<img src="img/back.png" style="width:40%;"/>
+					</a>
+					<a data-role="button" data-corner="false" class="titles">
+						<p style="margin:0 !important;">
+							Reset password
+						</p>
+					</a>
+				</div>
+				<!-- <img class="app-icon" class="ui-btn-right" style="position:absolute;display:inline-block;vertical-align:middle;top:0;right:0;" />	 -->
+				<div class="ui-btn-right" style="text-align:right;">
+					<img src="img/logo_main.jpg" style="width:62%;"/>	
+				</div>		
+			</div>
+			<div data-role="content" class="ui-content">
+				<div class="input-info">
+					<i class="fa fa-envelope"></i>
+					<input data-role="none" type="email" id="f_email" placeholder="E-mail" 
+						required autocomplete="off" validate>
+				</div>
+
+				<div class="log-sign">
+					<button data-role="none" class="login" id="btn_sendMail">
+						 SUBMIT
+					</button>
+				</div>
+			</div>
+		</div>
+		<!-- End of Forgot password Page -->
+		
+		<!-- My Bookings Page -->
+		<div data-role="page" id="bookings_listPage">
+			<div data-role="header" data-position="fixed">
+				<h1></h1>
+				<!-- <img id="frm_myBookings" class="back-icon" style="display:inline-block;vertical-align:middle;" /> -->
+				<!-- <a id="frm_myBookings" data-role="button" data-corner="false" class="titles">
+					<img src="img/back.png" style="width:40%;"/>
+				</a>
+				<span class="title" style="color:#FFF;display:inline-block;vertical-align:middle;">
+					My Bookings
+				</span> -->
+				<div class="ui-btn-left" data-role="controlgroup" data-type="horizontal">
+					<a id="frm_myBookings" data-role="button" data-corner="false" class="titles">
+						<img src="img/back.png" style="width:40%;"/>
+					</a>
+					<a data-role="button" data-corner="false" class="titles">
+						<p style="margin:0 !important;">
+							My Bookings
+						</p>
+					</a>
+				</div>
+				<!-- <img class="app-icon" class="ui-btn-right" style="position:absolute;display:inline-block;vertical-align:middle;top:0;right:0;" />				 -->
+				<div class="ui-btn-right" style="text-align:right;">
+					<img src="img/logo_main.jpg" style="width:62%;"/>	
+				</div>
+			</div>
+			<div data-role="main">
+				<ul data-role="listview" id="my_bookings_list">
+					
+				</ul>
+			</div>
+		</div>
+		<!-- Close of My Bookings Page -->
+		
+		<!-- My Ads Page -->
+		<div data-role="page" id="page_myAds">
+			<div data-role="header" data-position="fixed">
+				<h1></h1>
+				<!-- <img id="back_my_ads" class="back-icon" style="display:inline-block;vertical-align:middle;" /> -->
+				<!-- <a id="back_my_ads" data-role="button" data-corner="false" class="titles">
+					<img src="img/back.png" style="width:40%;"/>
+				</a>
+				<span class="title" style="color:#FFF;display:inline-block;vertical-align:middle;">
+					My Ads
+				</span> -->
+				<div class="ui-btn-left" data-role="controlgroup" data-type="horizontal">
+					<a id="back_my_ads" data-role="button" data-corner="false" class="titles">
+						<img src="img/back.png" style="width:40%;"/>
+					</a>
+					<a data-role="button" data-corner="false" class="titles">
+						<p style="margin:0 !important;">
+							My Ads
+						</p>
+					</a>
+				</div>
+				<!-- <img class="app-icon" class="ui-btn-right" style="position:absolute;display:inline-block;vertical-align:middle;top:0;right:0;" />				 -->
+				<div class="ui-btn-right" style="text-align:right;">
+					<img src="img/logo_main.jpg" style="width:62%;"/>	
+				</div>
+			</div>
+			<div data-role="main">
+				<ul data-role="listview" id="list_myads">
+					<!--<li style='padding:"+wid*1.56+"px;'>
+						<div class='li_imgGrid'>
+							<div>
+								<img src='img/noimage.jpg' style='height:"+wid*23.4+"px;' />
+							</div>
+						</div>
+						<p style='margin:0;color:#666;font-size:14px;font-family:Arial;padding-left:5px;padding-right:5px;'>Heading</p>
+						<span style='font-size:11px;font-family:calibri;padding-left:5px;'>Hyderabad</span>
+						| <span style='font-size:11px;font-family:calibri;'>1d 4h 15m</span>
+						<div>
+							<p style='float:left;font-family:calibri;padding:5px;margin:0px;'></p>
+							<div style="float: right;text-align: right;" >
+								<img src='img/view.png' style="width:18%;padding-left:1%;padding-right:1%;" />
+								<img src='img/edit.png' style="width:18%;padding-left:1%;padding-right:1%;" />
+								<img src='img/delete.png' style="width:18%;padding-left:1%;padding-right:1%;" />
+							</div>
+						</div>
+						<div style='clear:both;'></div>
+					</li>-->
+				</ul>
+			</div>
+		</div>
+		<!-- Close of My Ads Page -->
+		
+		<!-- About CamerounFacile -->
+		<div data-role="page" id="about_CF_page">
+			<div data-role="header" data-position="fixed">
+				<h1></h1>
+				<!-- <img class="back-icon back_about_CF_page" style="display:inline-block;vertical-align:middle;" /> -->
+				<!-- <a data-role="button" data-corner="false" class="titles back_about_CF_page">
+					<img src="img/back.png" style="width:40%;"/>
+				</a>
+				<span class="title" style="color:#FFF;display:inline-block;vertical-align:middle;">
+					About CamerounFacile
+				</span> -->
+				<div class="ui-btn-left" data-role="controlgroup" data-type="horizontal">
+					<a data-role="button" data-corner="false" class="titles back_about_CF_page">
+						<img src="img/back.png" style="width:40%;"/>
+					</a>
+					<a data-role="button" data-corner="false" class="titles">
+						<p style="margin:0 !important;">
+							About CamerounFacile
+						</p>
+					</a>
+				</div>
+				<!-- <img class="app-icon" class="ui-btn-right" style="position:absolute;display:inline-block;vertical-align:middle;top:0;right:0;" />				 -->
+				<div class="ui-btn-right" style="text-align:right;">
+					<img src="img/logo_main.jpg" style="width:62%;"/>	
+				</div>
+			</div>
+			<div data-role="main">
+				<h3 style="padding:5%;font-size:5vw !important;">
+					About CamerounFacile
+				</h3>
+				<p id="abt_cntnt" style="margin:0;padding:0 5% 0 5%;font-size:4vw !important;">
+					Launched in June 2017, camerounfacile.com is today ranked as the leading provider of consumer-direct travel services in india. CamerounFacile.com has emerged as he most trusted travel brand in India, and has own three awards at the India tourism awards felicitated for 'Outstanding performance as a domestic tour operator(Rest of India)', 'Outstanding performance as a domestic tour operator in Jammu and Kashmir' and 'Outstanding performance as an Inbound to operator-CatC' and Amongst many others over the years. Positioned as a brand that believes in " Creating Happy Travellers", CamerounFacile.com provides information,Pricing, Availability, And Booking Facility for domestic andi International air travel, hotel bookings, Bus Bookings and Posting AD. We offer a host of travel services designed to make business and leisure travel easier.
+				</p>
+				<div>
+					<span style="padding:3% 5% 3% 5%;float:left;font-size:5vw !important;"><a>Terms & Conditions</a></span>
+					<span style="padding:3% 5% 3% 5%;float:right;font-size:5vw !important;"><a>Privacy Policy</a></span>
+				</div>
+				<div style="clear:both;"></div>
+				<p id="abt_note" style="margin:0;padding:0 5% 0 5%;font-size:4vw !important;">By using CamerounFacile you agree to our TnC and Privacy Policy.</p>
+			</div>
+			<div data-role="footer" data-position="fixed">
+				<p style="padding:4%;text-align:center;">App Version : 1.0.0</p>
+			</div>
+		</div>
+		<!-- Close of CamerounFacile -->
+		
+		
+		
+		<!-- My Account page div -->
+		<div data-role="page" id="my_account">
+			<div data-role="main">
+				<div data-role="header" data-position="fixed">
+					<h1></h1>
+					<!-- <img id="frm_myAcount" class="back-icon" style="display:inline-block;vertical-align:middle;" /> -->
+					<!-- <a id="frm_myAcount" data-role="button" data-corner="false" class="titles">
+						<img src="img/back.png" style="width:40%;"/>
+					</a>
+					<span class="title" style="color:#FFF;display:inline-block;vertical-align:middle;">
+						My Account
+					</span> -->
+					<div class="ui-btn-left" data-role="controlgroup" data-type="horizontal">
+						<a id="frm_myAcount" data-role="button" data-corner="false" class="titles">
+							<img src="img/back.png" style="width:40%;"/>
+						</a>
+						<a data-role="button" data-corner="false" class="titles">
+							<p style="margin:0 !important;">
+								My Account
+							</p>
+						</a>
+					</div>
+					<!-- <img class="app-icon" class="ui-btn-right" style="position:absolute;display:inline-block;vertical-align:middle;top:0;right:0;" />				 -->
+					<div class="ui-btn-right" style="text-align:right;">
+						<img src="img/logo_main.jpg" style="width:62%;"/>	
+					</div>
+				</div>
+				<ul data-role="listview" id="list_myAccount">
+					<li style="padding:0px;">
+						<div id="top_div">
+							<div>
+								<img id="user_pic" />
+								<h2 id="user_name"></h2>
+								<p id="user_email"></p>
+							</div>
+						</div>
+					</li>
+					<li id="li_myProf">
+						<div>
+							<img src="img/profile_gray_50.png" />
+							<p>My Profile</p>
+						</div>
+					</li>
+					<li id="li_myBook">
+						<div>
+							<img src="img/shop_bag.png" />
+							<p>My Bookings</p>
+						</div>
+					</li>
+					<li id="li_mylOut">
+						<p>LOG OUT</p>
+					</li>
+				</ul>
+			</div>
+		</div>
+		<!-- Close of My Account -->
+		
+		<!-- My Profile page div -->
+		<div data-role="page" id="my_profile">		
+			<div data-role="header" data-position="fixed">
+				<h1></h1>
+				<!-- <img id="bck_myProf" class="back-icon" style="display:inline-block;vertical-align:middle;" /> -->
+				<!-- <a id="bck_myProf" data-role="button" data-corner="false" class="titles">
+					<img src="img/back.png" style="width:40%;"/>
+				</a>
+				<span class="title" style="color:#FFF;display:inline-block;vertical-align:middle;">
+					My Profile
+				</span> -->
+				<div class="ui-btn-left" data-role="controlgroup" data-type="horizontal">
+					<a id="bck_myProf" data-role="button" data-corner="false" class="titles">
+						<img src="img/back.png" style="width:40%;"/>
+					</a>
+					<a data-role="button" data-corner="false" class="titles">
+						<p style="margin:0 !important;">
+							My Profile
+						</p>
+					</a>
+				</div>
+				<a id="btn_updtProf" class="ui-btn-right" style="position:absolute;display:inline-block;
+				vertical-align:middle;top:0;right:0;background:transparent !important;">
+					<img class="tick-icon"/>
+				</a>				
+			</div>
+			<div data-role="main">
+				<div id="top_div2">
+					<div>
+						<img id="user_profPic" />
+					</div>
+				</div>
+				<ul data-role="listview" id="list_Profile">
+					<!--<li class="proF-li">
+						
+					</li>-->
+					<li id="li_fName" class="proF-li">
+						<div class="dv_proF">
+							<label>First Name</label>
+							<input data-role="none" type="text" id="et_fname" />
+						</div>
+					</li>
+					<li class="proF-li" id="li_lName">
+						<div class="dv_proF">
+							<label>Last Name</label>
+							<input data-role="none" type="text" id="et_lname" />
+						</div>
+					</li>
+					<li class="proF-li" id="li_uEmail">
+						<div class="dv_proF">
+							<label>Email</label>
+							<input data-role="none" type="text" id="et_uEmail" />
+						</div>
+					</li>
+					<li class="proF-li" id="li_uMobile">
+						<div>
+							<span style="font-size:6vw !important;color:#AAAAAA;">+91</span>
+							<div>							
+								<label>Mobile</label>
+								<input data-role="none" type="text" id="et_mobile" />
+							</div>
+						</div>
+					</li>
+					<li class="proF-li" id="li_uCpwrd">
+						<div>
+							<p>CHANGE PASSWORD</p>
+						</div>
+					</li>
+				</ul>
+			</div>
+		</div>
+		<!-- Close of My Profile -->
+		
+		<!-- Choose Picture Dialog -->
+		
+		<div data-role="dialog" id="dialogPage" data-close-btn="none" >
+			
+			<div role="main" class="ui-content" style="background:#FFFFFF !important;">
+				<h1 style="font-size:6vw !important;padding:3%;color:#000000;font-weight:bold !important;">Upload Profile Picture!</h1>
+				<p style="font-size:5vw !important;padding:2%;color:#000000;" id="openCamera">Camera</p>
+				<p style="font-size:5vw !important;padding:2%;color:#000000;" id="openFileManager">Choose from Photos</p>
+				<p style="font-size:5vw !important;padding:2%;color:#000000;" id="cncl_dialog">Cancel</p>
+			</div>
+		</div>
+		
+		<!-- Close of Choose Picture Dialog -->
+		
+		<!-- My Profile page div -->
+		<div data-role="page" id="chnge_Pword">		
+			<div data-role="header" data-position="fixed">
+				<h1></h1>
+				<!-- <img id="frm_chPwrd" class="back-icon" style="display:inline-block;vertical-align:middle;" /> -->
+				<!-- <a id="frm_chPwrd" data-role="button" data-corner="false" class="titles">
+					<img src="img/back.png" style="width:40%;"/>
+				</a>
+				<span class="title" style="color:#FFF;display:inline-block;vertical-align:middle;">
+					Change Password
+				</span> -->
+				<div class="ui-btn-left" data-role="controlgroup" data-type="horizontal">
+					<a id="frm_chPwrd" data-role="button" data-corner="false" class="titles">
+						<img src="img/back.png" style="width:40%;"/>
+					</a>
+					<a data-role="button" data-corner="false" class="titles">
+						<p style="margin:0 !important;">
+							Change Password
+						</p>
+					</a>
+				</div>
+				<!-- <img class="app-icon" class="ui-btn-right" style="position:absolute;display:inline-block;vertical-align:middle;top:0;right:0;" />				 -->
+				<div class="ui-btn-right" style="text-align:right;">
+					<img src="img/logo_main.jpg" style="width:62%;"/>	
+				</div>
+			</div>
+			<div data-role="main">
+			
+				<div id="pwordForm">
+					<label>Current Password</label>
+					<input data-role="none" type="password" id="et_ucPword" />
+					
+					<label>New Password</label>
+					<input data-role="none" type="password" id="et_unPword" />
+					
+					<label>Confirm New Password</label>
+					<input data-role="none" type="password" id="et_urPword" />
+				</div>
+						
+				<button id="btn_cPword">CHANGE PASSWORD</button>
+			
+			</div>
+		</div>
+		<!-- Close of My Profile -->
+		
+		<script src='js/swipe.js'></script>
+		<script type="text/javascript" src="cordova.js"></script>
+        <!-- <script type="text/javascript" src="js/index.js"></script> -->
+    </body>
+</html>
