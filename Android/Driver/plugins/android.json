@@ -1,75 +1,73 @@
 {
-    "prepare_queue": {
-        "installed": [],
-        "uninstalled": []
+  "prepare_queue": {
+    "installed": [],
+    "uninstalled": []
+  },
+  "config_munge": {
+    "files": {}
+  },
+  "installed_plugins": {
+    "cordova-plugin-dialogs": {
+      "PACKAGE_NAME": "com.camerounfacile.driver"
     },
-    "config_munge": {
-        "files": {}
+    "cordova-plugin-device": {
+      "PACKAGE_NAME": "com.camerounfacile.driver"
     },
-    "installed_plugins": {
-        "call-number": {
-            "PACKAGE_NAME": "com.camerounfacile.driver"
-        },
-        "com.phonegap.plugins.PushPlugin": {
-            "PACKAGE_NAME": "com.camerounfacile.driver"
-        },
-        "cordova-plugin-datetimepicker": {
-            "PACKAGE_NAME": "com.camerounfacile.driver"
-        },
-        "cordova-plugin-device": {
-            "PACKAGE_NAME": "com.camerounfacile.driver"
-        },
-        "cordova-plugin-dialogs": {
-            "PACKAGE_NAME": "com.camerounfacile.driver"
-        },
-        "cordova-plugin-geolocation": {
-            "PACKAGE_NAME": "com.camerounfacile.driver"
-        },
-        "cordova-plugin-mauron85-background-geolocation": {
-            "ACCOUNT_TYPE": "$PACKAGE_NAME.account",
-            "CONTENT_AUTHORITY": "$PACKAGE_NAME",
-            "PACKAGE_NAME": "com.camerounfacile.driver"
-        },
-        "cordova-plugin-media": {
-            "PACKAGE_NAME": "com.camerounfacile.driver"
-        },
-        "cordova-plugin-network-information": {
-            "PACKAGE_NAME": "com.camerounfacile.driver"
-        },
-        "cordova-plugin-request-location-accuracy": {
-            "PACKAGE_NAME": "com.camerounfacile.driver"
-        },
-        "cordova-plugin-spinner-dialog": {
-            "PACKAGE_NAME": "com.camerounfacile.driver"
-        },
-        "cordova-plugin-splashscreen": {
-            "PACKAGE_NAME": "com.camerounfacile.driver"
-        },
-        "cordova-plugin-statusbar": {
-            "PACKAGE_NAME": "com.camerounfacile.driver"
-        },
-        "cordova-plugin-whitelist": {
-            "PACKAGE_NAME": "com.camerounfacile.driver"
-        },
-        "cordova-plugin-x-toast": {
-            "PACKAGE_NAME": "com.camerounfacile.driver"
-        },
-        "cordova.plugins.diagnostic": {
-            "PACKAGE_NAME": "com.camerounfacile.driver"
-        },
-        "uk.co.workingedge.phonegap.plugin.launchnavigator": {
-            "PACKAGE_NAME": "com.camerounfacile.driver"
-        }
+    "call-number": {
+      "PACKAGE_NAME": "com.camerounfacile.driver"
     },
-    "dependent_plugins": {
-        "cordova-plugin-compat": {
-            "PACKAGE_NAME": "com.camerounfacile.driver"
-        },
-        "cordova-plugin-file": {
-            "PACKAGE_NAME": "com.camerounfacile.driver"
-        },
-        "cordova-plugin-actionsheet": {
-            "PACKAGE_NAME": "com.camerounfacile.driver"
-        }
+    "cordova-plugin-geolocation": {
+      "PACKAGE_NAME": "com.camerounfacile.driver"
+    },
+    "cordova-plugin-mauron85-background-geolocation": {
+      "GOOGLE_PLAY_SERVICES_VERSION": "11+",
+      "ANDROID_SUPPORT_LIBRARY_VERSION": "23+",
+      "ICON": "@mipmap/icon",
+      "SMALL_ICON": "@mipmap/icon",
+      "ACCOUNT_NAME": "@string/app_name",
+      "ACCOUNT_LABEL": "@string/app_name",
+      "ACCOUNT_TYPE": "$PACKAGE_NAME.account",
+      "CONTENT_AUTHORITY": "$PACKAGE_NAME",
+      "PACKAGE_NAME": "com.camerounfacile.driver"
+    },
+    "cordova-plugin-media": {
+      "PACKAGE_NAME": "com.camerounfacile.driver"
+    },
+    "cordova-plugin-network-information": {
+      "PACKAGE_NAME": "com.camerounfacile.driver"
+    },
+    "cordova-plugin-spinner-dialog": {
+      "PACKAGE_NAME": "com.camerounfacile.driver"
+    },
+    "cordova-plugin-splashscreen": {
+      "PACKAGE_NAME": "com.camerounfacile.driver"
+    },
+    "cordova-plugin-statusbar": {
+      "PACKAGE_NAME": "com.camerounfacile.driver"
+    },
+    "cordova-plugin-x-toast": {
+      "PACKAGE_NAME": "com.camerounfacile.driver"
+    },
+    "cordova-plugin-whitelist": {
+      "PACKAGE_NAME": "com.camerounfacile.driver"
+    },
+    "cordova.plugins.diagnostic": {
+      "PACKAGE_NAME": "com.camerounfacile.driver"
+    },
+    "cordova-plugin-datetimepicker": {
+      "PACKAGE_NAME": "com.camerounfacile.driver"
+    },
+    "uk.co.workingedge.phonegap.plugin.launchnavigator": {
+      "OKHTTP_VERSION": "3.+",
+      "PACKAGE_NAME": "com.camerounfacile.driver"
     }
+  },
+  "dependent_plugins": {
+    "cordova-plugin-file": {
+      "PACKAGE_NAME": "com.camerounfacile.driver"
+    },
+    "cordova-plugin-actionsheet": {
+      "PACKAGE_NAME": "com.camerounfacile.driver"
+    }
+  }
 }

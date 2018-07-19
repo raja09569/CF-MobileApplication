@@ -1,0 +1,18 @@
+{
+  "prepare_queue": {
+    "installed": [],
+    "uninstalled": []
+  },
+  "config_munge": {
+    "files": {}
+  },
+  "installed_plugins": {
+    "call-number": {
+      "PACKAGE_NAME": "com.camerounfacile.driver"
+    },
+    "com.phonegap.plugins.PushPlugin": {
+      "PACKAGE_NAME": "com.camerounfacile.driver"
+    }
+  },
+  "dependent_plugins": {}
+}

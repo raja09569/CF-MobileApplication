@@ -1,0 +1,442 @@
+<html>
+<head>
+	<meta name="format-detection" content="telephone=no">
+    <meta name="msapplication-tap-highlight" content="no">
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" type="text/css" href="css/cabs.css">
+	<link rel="stylesheet" href="css/jquery.mobile-1.4.5.min.css">
+	<link href="css/font-awesome.min.css" rel="stylesheet" />
+	<script src="js/jquery-1.12.3.js"></script>
+    <script src="js/jquery.mobile-1.4.5.min.js"></script>
+    <script src="js/server_variable.js"></script>
+    <script src="js/main.js"></script>
+	<script src="http://maps.googleapis.com/maps/api/js?libraries=places,geometry&key=AIzaSyCPLC2WagSO9xVsvC29-CZ4xnvpfMFZ2S4"></script>
+	<script src="js/jquery.geocomplete.js"></script>
+    <title>Cameroun Facile</title>
+    <style type="text/css">
+    	@media only screen and (min-width: 768px) {     
+			.ui-btn-left.ui-controlgroup.ui-controlgroup-horizontal.ui-corner-all {
+			    margin: 0.5em 0;
+			}
+		}
+    </style>
+</head>
+<body>
+	<div id="loading" data-role="page">
+		<div data-role="header" data-position="fixed">
+		</div>
+		<div data-role="main" data-position="fixed">
+			<p class="loading">Loading</p>
+		</div>
+		<div data-role="footer" data-position="fixed">
+		</div>
+	</div>
+	<!-- Book Ride page -->
+	<div data-role="page" id="bookridePage">
+		<div id="bokrideheader" data-role="header" data-position="fixed">
+			<h1>
+				<div class="ui-btn-left" data-role="controlgroup" data-type="horizontal">
+					<a id="back" data-role="button" data-corner="false" class="titles" >
+						<p style="margin:0 !important;">
+							<i class="fa fa-arrow-left" aria-hidden="true"></i>
+						</p>
+					</a>
+					<a data-role="button" data-corner="false" class="titles">
+						<p style="margin:0 !important;">
+							Book a Ride
+						</p>
+					</a>
+				</div>
+				<div class="ui-btn-right" style="text-align:right;">
+					<img src="img/logo.png" class="img-logo"/>	
+				</div>
+			</h1>	
+		</div>		
+		<div data-role="main">
+			<div id="div_pickLocation">				
+				<label>Pickup location</label>
+				<input type="hidden" id="pickLatLng" />
+				<p id="pickLocation">Choose pickup location</p>
+			</div>
+			<div id="div_dropLocation">
+				<label>Dropoff location</label>
+				<input type="hidden" id="dropLatLng" />
+				<p id="dropLocation">Choose dropoff location</p>
+			</div>
+			<div data-role="none" id="map">				
+				<div id="map_canvas"></div>
+				<div id="cabList">
+					<div id="cab_dtls">
+						<img src="img/close.png" id="cls" />
+						<p class="heading" id="cat_name"></p>
+						<span id="cat_brands" style="font-size: 0.7em;"></span>
+						<h3 class="heading" id="cat_condition"></h3>
+						<table id="fare_table">
+							<tr>
+								<td>Min Charge</td>
+								<td id="cat_minCharge"></td>
+							</tr>
+							<tr>
+								<td>Rate/Km</td>
+								<td id="cat_rate_per_km"></td>
+							</tr>
+						</table>
+						<button id="btn_ttlFare">Get Total Fare</button>
+					</div>
+					<div id="condition_div">
+						<div id="div_ac">AC</div>
+						<div id="div_nonac">NON AC</div>
+					</div>
+					<div id="div_loader">
+						<img src="img/loader.gif" alt="Loading...." />
+						<p>Getting cab near you</p>
+					</div>
+					<div id="div_cabs">
+						<ul id="all_divs"></ul>
+						<button id="rd_ltr" class="cf-button">RIDE LATER</button>
+						<button id="rd_now" class="cf-button">RIDE NOW</button>
+					</div>
+					
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<!-- Pickup Location Page Page -->
+	<div data-role="page" id="pickupLocation">
+		<div data-role="header" data-position="fixed">
+			<!-- <img id="frm_pickupLoc" class="back-icon" style="display:inline-block;vertical-align:middle;" />
+			<span class="title" style="color:#FFF;display:inline-block;vertical-align:middle;">
+				Pickup location
+			</span>
+			<img class="app-icon" class="ui-btn-right" style="position:absolute;display:inline-block;vertical-align:middle;top:0;right:0;" />		 -->
+			<h1>
+				<div class="ui-btn-left" data-role="controlgroup" data-type="horizontal">
+					<a id="frm_pickupLoc" data-role="button" data-corner="false" class="titles" >
+						<p style="margin:0 !important;">
+							<i class="fa fa-arrow-left" aria-hidden="true"></i>
+						</p>
+					</a>
+					<a data-role="button" data-corner="false" class="titles">
+						<p style="margin:0 !important;">
+							Pickup location
+						</p>
+					</a>
+				</div>
+				<div class="ui-btn-right" style="text-align:right;">
+					<img src="img/logo.png" class="img-logo"/>	
+				</div>
+			</h1>		
+		</div>
+		<div data-role="main">
+			<i class="fa fa-search f-a" aria-hidden="true"></i>
+			<input data-role="none" type="text" value="" id="autocompletePlace" placeholder="Enter pickup location" />
+		</div>
+	</div>	
+	<!-- Close of Pickup Location  page -->
+	
+	<!-- Dropoff Location Page -->
+	<div data-role="page" id="DropoffLocation">
+		<div data-role="header" data-position="fixed">
+			<!-- <img id="frm_dropOff" class="back-icon" style="display:inline-block;vertical-align:middle;" />
+			<span class="title" style="color:#FFF;display:inline-block;vertical-align:middle;">
+				Dropoff Location
+			</span>
+			<img class="app-icon" class="ui-btn-right" style="position:absolute;display:inline-block;vertical-align:middle;top:0;right:0;" />		 -->
+			<h1>
+				<div class="ui-btn-left" data-role="controlgroup" data-type="horizontal">
+					<a id="frm_dropOff" data-role="button" data-corner="false" class="titles" >
+						<p style="margin:0 !important;">
+							<i class="fa fa-arrow-left" aria-hidden="true"></i>
+						</p>
+					</a>
+					<a data-role="button" data-corner="false" class="titles">
+						<p style="margin:0 !important;">
+							Dropoff Location
+						</p>
+					</a>
+				</div>
+				<div class="ui-btn-right" style="text-align:right;">
+					<img src="img/logo.png" class="img-logo"/>	
+				</div>
+			</h1>				
+		</div>
+		<div data-role="main">
+			<i class="fa fa-search f-a" aria-hidden="true"></i>
+			<input type="text" data-role="none" value="" id="autocompletePlace2" placeholder="Enter dropoff location" />
+			<div id="chsfrmmap">
+				<img src="img/choosefrmmap.png" />
+				<p>Choose from map</p>
+			</div>
+		</div>
+	</div>
+	<!-- Close of Dropoff Location page -->
+	
+	<!-- Show Dropoff on Google Maps -->
+	<div data-role="page" id="pagedrpMap">
+		<div data-role="main">
+			<div id="drplocation">
+				<img src="img/round.png" />
+				<p>Gettng address..</p>
+				<input type="hidden" id="drplatlng" />
+			</div>
+			<div id="drp_map">
+			</div>
+		</div>
+		<div data-role="footer" data-position="fixed" style="border:none;background:none;padding:15px;">
+			<button id="slctLocation">SELECT LOCATION</button>
+		</div>
+	</div>
+	<!-- End Dropoff on Google Maps -->
+	
+	<!-- Book details page -->
+	<div data-role="page" id="bookDetailspage">
+		<div data-role="header" data-position="fixed" id="header">
+			<!-- <img id="frm_bookDtls" class="back-icon" style="display:inline-block;vertical-align:middle;" />
+			<span class="title" id="vehicleName" style="color:#FFF;display:inline-block;vertical-align:middle;">
+				
+			</span>
+			<img class="app-icon" class="ui-btn-right" style="position:absolute;display:inline-block;vertical-align:middle;top:0;right:0;" />		 -->	<h1>
+				<div class="ui-btn-left" data-role="controlgroup" data-type="horizontal">
+					<a id="frm_bookDtls" data-role="button" data-corner="false" class="titles" >
+						<p style="margin:0 !important;">
+							<i class="fa fa-arrow-left" aria-hidden="true"></i>
+						</p>
+					</a>
+					<a data-role="button" data-corner="false" class="titles" style="padding-left: 0px;">
+						<p style="margin:0 !important;" id="vehicleName">
+							
+						</p>
+					</a>
+				</div>
+				<div class="ui-btn-right" style="text-align:right;">
+					<img src="img/logo.png" class="img-logo"/>	
+				</div>
+			</h1>		
+		</div>
+		<div data-role="main">
+			<div id="slctdpickLocation">
+				<img src="img/round.png" />
+				<p>dsakfda lklkaf klsdlkf dkld;s</p>
+				<input type="hidden" id="slctdpicklatlng" />
+			</div>
+			<div id="slctddrpLocation">
+				<img src="img/round.png" />
+				<p>sdfklas klsda flkaskl sdafdkslal</p>
+				<input type="hidden" id="slctddrplatlng" />
+			</div>
+			<div id="div_slctMap">
+				<div id="slctMap"></div>
+			</div>
+			<div id="ridFare">
+				<span style="float: left;font-weight: bold !important;">
+					Ride fare
+				</span>
+				<span style="float: right;" id="rd_fare1">
+					
+				</span>
+				<div style="clear: both"></div>
+				<span style="float: left;font-weight: bold !important;">
+					Tax
+				</span>
+				<span style="float: right;" id="rd_tx1">
+					
+				</span>
+				<div style="clear:both"></div>
+				<span style="float: left;font-weight: bold !important;">
+					Total Fare
+				</span>
+				<span style="float: right;" id="rd_ttlFare1">
+					
+				</span>
+				<div style="clear: both"></div>
+				<div id="dv_gttlFare">
+					<h2>
+						Get Total Fare
+					</h2>
+					<p>
+						Enter Drop Location
+					</p>
+				</div>
+			</div>
+			<div id="pckTime">
+				<img src="img/pickTime.png" />
+				<p>Pickup time</p>
+				<span>sdkalaslkl;aslk</span>
+				<img src="img/down.png" />
+			</div>
+		</div>
+		<div data-role="footer" data-position="fixed" id="footer" style="border:none !important;background:none !important;padding:10px;">
+			<button id="btn_cnfmbook" class="cf-button">REQUEST CAB</button>
+			<!--<button id="btn_rideltr">RIDE LATER</button>-->
+		</div>
+	</div>
+	<!-- End of Book Details page -->
+	
+	<!-- Booking final Page -->
+	<div data-role="page" id="bookeddtlsPage">
+		<div data-role="header" data-position="fixed" id="bokheader">
+			<!-- <img class="back-icon rid_back" style="display:inline-block;vertical-align:middle;" />
+			<span class="title" style="color:#FFF;display:inline-block;vertical-align:middle;">
+				
+			</span>
+			<img class="app-icon" class="ui-btn-right" style="position:absolute;display:inline-block;vertical-align:middle;top:0;right:0;" />		 -->	
+			<h1>
+				<div class="ui-btn-left" data-role="controlgroup" data-type="horizontal">
+					<a data-role="button" data-corner="false" class="titles  rid_back" >
+						<p style="margin:0 !important;">
+							<i class="fa fa-arrow-left" aria-hidden="true"></i>
+						</p>
+					</a>
+					<a data-role="button" data-corner="false" class="titles">
+						<p style="margin:0 !important;">
+							
+						</p>
+					</a>
+				</div>
+				<div class="ui-btn-right" style="text-align:right;">
+					<img src="img/logo.png" class="img-logo"/>	
+				</div>
+			</h1>		
+		</div>
+		<div data-role="main">
+			<div id="dr_map">
+				<div id="dr_locationMap"></div>
+				<p id="bookedID"></p>
+			</div>
+		</div>
+		<div data-role="footer" data-position="fixed" id="bokFooter">
+			<div>
+				<div id="dv_dst">
+					<p id="tm_left"></p>
+					<p id="dist_left"></p>
+				</div>
+				<div id="dv_drDtls">
+					<div id="vhcl_dtls">
+						<p id="vhcl_name"></p>
+						<p id="reg_no"></p>
+					</div>
+					<img id="vhcl_photo" />
+					<img id="dr_photo" />
+					<div id="dr_dtls">
+						<p id="dv_drDtls_name"></p>
+					</div>
+				</div>
+				<div id="dv_actns" style="margin-top: 10px;">
+					<div id="ctnct_dtls">
+						<img src="img/call.png" id="img_call" />
+						<input type="hidden" id="dr_number" />
+						<p>Contact</p>
+					</div>
+					<div id="cncl_ride">
+						<img src="img/cancel2.png" id="img_cancel" />
+						<p>Cancel</p>
+					</div>
+				</div>
+			</div>
+		</div>		
+	</div>
+	<!-- End of Booking final page -->
+	
+	<!-- Ride COmpletions -->
+	<div data-role="page" id="ride_completion">
+		<div data-role="header" data-position="fixed" id="bokheader">
+			<!-- <img class="back-icon rid_back" style="display:inline-block;vertical-align:middle;" />
+			<span class="title" style="color:#FFF;display:inline-block;vertical-align:middle;">
+				<div style="margin:0 !important;color:#000000;text-align:left;">
+					<p style="margin:0 !important;color:#000000;" id="rd_date"></p>
+					<span style="margin:0 !important;color:#AAAAAA;font-size: 3.5vw !important;padding:1%;" id="rd_bookedID"></span>
+				</div>
+			</span>
+			<img class="app-icon" class="ui-btn-right" style="position:absolute;display:inline-block;vertical-align:middle;top:0;right:0;" />		 -->	
+			<h1>
+				<div class="ui-btn-left" data-role="controlgroup" data-type="horizontal">
+					<a data-role="button" data-corner="false" class="titles  rid_back" >
+						<p style="margin:0 !important;">
+							<i class="fa fa-arrow-left" aria-hidden="true"></i>
+						</p>
+					</a>
+					<a data-role="button" data-corner="false" class="titles" style="padding-left:  2px;padding-top: 1vw;">
+						<p style="margin:0;font-size: 4.1vw;" id="rd_date"></p>
+						<p style="margin:0;font-size: 3vw;padding:2px;text-align: left;" id="rd_bookedID"></p>
+					</a>
+				</div>
+				<div class="ui-btn-right" style="text-align:right;">
+					<img src="img/logo.png" class="img-logo"/>	
+				</div>
+			</h1>		
+		</div>
+		<div data-role="main">
+			<div id="final_div" style="border-bottom:1px solid #DDDDDD;background:#FFFFFF;">
+				<div id="final_map"></div>
+			</div>
+			<div style="padding:5px;border-bottom:1px solid #DDDDDD;background:#FFFFFF;">
+				<img src="img/user.png" id="rd_drImage" style="width:15%;display:inline-block;vertical-align:middle;padding: 5px;" />
+				<div  style="display:inline-block;vertical-align:middle;">
+					<p style="margin:0;display:none;" id="rd_drID"></p>
+					<p style="margin:0;display:none;" id="rd_custID"></p>
+					<p style="margin:0;font-size:1em;padding-bottom: 2px;" id="rd_drName"></p>
+					<p style="margin:0;font-size:0.8em;padding-top: 2px;" id="rd_drMobile"></p>
+				</div>
+				<img src="img/cancelled.png" id="cancelled_img" style="display:none;width: 33%;vertical-align: middle;"></img>
+			</div>
+			<div style="vertical-align:middle;padding: 5px;border-bottom:1px solid #DDDDDD;background: #FFFFFF;">
+				<img src="img/cab.png"  style="width:8%;vertical-align:middle;padding: 5px 5px 5px 10px;"/>
+				<span style="padding: 10px;font-size: 1em;" id="rd_vhclName"></span>
+			</div>
+			<div id="rdpickLocation">
+				<span></span>
+				<img src="img/round.png" />
+				<p></p>
+			</div>
+			<div id="rddrpLocation">
+				<span></span>
+				<img src="img/round.png" />
+				<p></p>
+			</div>
+			<div id="rdFare">
+				<span style="float:left;padding:5px;">Total fare</span>
+				<span style="float:right;padding:5px 10px 5px 5px;" id="rd_ttlFare"></span>
+			</div>
+			<div style="clear:both;"></div>
+			<div id="dv_wrtCmnt">
+				<textarea placeholder="Leave comment here" id="rideCmnt"></textarea>
+				<button id="btn_sbmt" class="cf-button">Submit</button>
+				<div style="clear:both;"></div>
+			</div>
+			<div id="shwCmnt">
+				<p></p>
+			</div>
+		</div>
+	</div>
+	
+	<!-- close of ride completion -->
+	<div data-role="page" id="pp_requesting">
+		<div>
+			<div id="page-wrap">
+				<div class="meter red">
+					<center>
+						<p style="font-weight:100 !important;text-shadow:none !important;font-size:5vw !important;">
+							Requesting..
+						</p>
+					</center>
+					<div id="myProgress">
+						<div id="showProgress"></div>
+					</div>
+					<!--<span style="width:0%;"></span>-->
+				</div>
+			</div>
+		</div>
+		<div data-role="footer" data-position="fixed" id="pp_requesting_footer" >
+			<p>Click this to cancel Requesting</p>
+			<img src="img/cancel.png" />
+		</div>
+	</div>
+	
+	
+    <script type="text/javascript" src="cordova.js"></script>
+    <script type="text/javascript" src="js/platformOverrides.js"></script>
+    <script type="text/javascript" src="js/cabs.js"></script>
+</body>
+</html>

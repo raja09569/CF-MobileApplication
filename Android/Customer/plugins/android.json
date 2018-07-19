@@ -1,82 +1,80 @@
 {
-    "prepare_queue": {
-        "installed": [],
-        "uninstalled": []
+  "prepare_queue": {
+    "installed": [],
+    "uninstalled": []
+  },
+  "config_munge": {
+    "files": {}
+  },
+  "installed_plugins": {
+    "cordova-plugin-whitelist": {
+      "PACKAGE_NAME": "com.camerounfacile.customer"
     },
-    "config_munge": {
-        "files": {}
+    "phonegap-plugin-push": {
+      "FCM_VERSION": "11.6.2",
+      "PACKAGE_NAME": "com.camerounfacile.customer"
     },
-    "installed_plugins": {
-        "com.phonegap.plugins.PushPlugin": {
-            "PACKAGE_NAME": "com.camerounfacile.customer"
-        },
-        "cordova-plugin-apprate": {
-            "PACKAGE_NAME": "com.camerounfacile.customer"
-        },
-        "cordova-plugin-camera": {
-            "PACKAGE_NAME": "com.camerounfacile.customer"
-        },
-        "cordova-plugin-datetimepicker": {
-            "PACKAGE_NAME": "com.camerounfacile.customer"
-        },
-        "cordova-plugin-device": {
-            "PACKAGE_NAME": "com.camerounfacile.customer"
-        },
-        "cordova-plugin-file-transfer": {
-            "PACKAGE_NAME": "com.camerounfacile.customer"
-        },
-        "cordova-plugin-geolocation": {
-            "PACKAGE_NAME": "com.camerounfacile.customer"
-        },
-        "cordova-plugin-network-information": {
-            "PACKAGE_NAME": "com.camerounfacile.customer"
-        },
-        "cordova-plugin-request-location-accuracy": {
-            "PACKAGE_NAME": "com.camerounfacile.customer"
-        },
-        "cordova-plugin-spinner-dialog": {
-            "PACKAGE_NAME": "com.camerounfacile.customer"
-        },
-        "cordova-plugin-splashscreen": {
-            "PACKAGE_NAME": "com.camerounfacile.customer"
-        },
-        "cordova-plugin-statusbar": {
-            "PACKAGE_NAME": "com.camerounfacile.customer"
-        },
-        "cordova-plugin-whitelist": {
-            "PACKAGE_NAME": "com.camerounfacile.customer"
-        },
-        "cordova-plugin-x-socialsharing": {
-            "PACKAGE_NAME": "com.camerounfacile.customer"
-        },
-        "cordova-plugin-x-toast": {
-            "PACKAGE_NAME": "com.camerounfacile.customer"
-        },
-        "cordova.plugins.diagnostic": {
-            "PACKAGE_NAME": "com.camerounfacile.customer"
-        },
-        "mx.ferreyra.callnumber": {
-            "PACKAGE_NAME": "com.camerounfacile.customer"
-        }
+    "cordova.plugins.diagnostic": {
+      "PACKAGE_NAME": "com.camerounfacile.customer"
     },
-    "dependent_plugins": {
-        "cordova-plugin-dialogs": {
-            "PACKAGE_NAME": "com.camerounfacile.customer"
-        },
-        "cordova-plugin-globalization": {
-            "PACKAGE_NAME": "com.camerounfacile.customer"
-        },
-        "cordova-plugin-inappbrowser": {
-            "PACKAGE_NAME": "com.camerounfacile.customer"
-        },
-        "cordova-plugin-compat": {
-            "PACKAGE_NAME": "com.camerounfacile.customer"
-        },
-        "cordova-plugin-file": {
-            "PACKAGE_NAME": "com.camerounfacile.customer"
-        },
-        "es6-promise-plugin": {
-            "PACKAGE_NAME": "com.camerounfacile.customer"
-        }
+    "cordova-plugin-apprate": {
+      "PACKAGE_NAME": "com.camerounfacile.customer"
+    },
+    "cordova-plugin-camera": {
+      "PACKAGE_NAME": "com.camerounfacile.customer"
+    },
+    "call-number": {
+      "PACKAGE_NAME": "com.camerounfacile.customer"
+    },
+    "cordova-plugin-x-toast": {
+      "PACKAGE_NAME": "com.camerounfacile.customer"
+    },
+    "cordova-plugin-x-socialsharing": {
+      "PACKAGE_NAME": "com.camerounfacile.customer"
+    },
+    "cordova-plugin-statusbar": {
+      "PACKAGE_NAME": "com.camerounfacile.customer"
+    },
+    "cordova-plugin-splashscreen": {
+      "PACKAGE_NAME": "com.camerounfacile.customer"
+    },
+    "cordova-plugin-spinner-dialog": {
+      "PACKAGE_NAME": "com.camerounfacile.customer"
+    },
+    "cordova-plugin-network-information": {
+      "PACKAGE_NAME": "com.camerounfacile.customer"
+    },
+    "cordova-plugin-geolocation": {
+      "PACKAGE_NAME": "com.camerounfacile.customer"
+    },
+    "cordova-plugin-file-transfer": {
+      "PACKAGE_NAME": "com.camerounfacile.customer"
+    },
+    "cordova-plugin-file": {
+      "PACKAGE_NAME": "com.camerounfacile.customer"
+    },
+    "cordova-plugin-dialogs": {
+      "PACKAGE_NAME": "com.camerounfacile.customer"
+    },
+    "cordova-plugin-device": {
+      "PACKAGE_NAME": "com.camerounfacile.customer"
+    },
+    "cordova-plugin-datetimepicker": {
+      "PACKAGE_NAME": "com.camerounfacile.customer"
     }
+  },
+  "dependent_plugins": {
+    "cordova-plugin-globalization": {
+      "PACKAGE_NAME": "com.camerounfacile.customer"
+    },
+    "cordova-plugin-inappbrowser": {
+      "PACKAGE_NAME": "com.camerounfacile.customer"
+    },
+    "cordova-plugin-nativestorage": {
+      "PACKAGE_NAME": "com.camerounfacile.customer"
+    },
+    "es6-promise-plugin": {
+      "PACKAGE_NAME": "com.camerounfacile.customer"
+    }
+  }
 }

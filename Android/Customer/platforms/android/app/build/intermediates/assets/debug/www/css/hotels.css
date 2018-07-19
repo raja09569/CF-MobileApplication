@@ -1,0 +1,155 @@
+*{
+	font-weight: normal !important;
+	font-size:4.5vw !important;
+	text-shadow: none;
+}
+.ui-header .ui-btn-left{
+	top:0 !important;
+	left:0 !important;
+}
+.ui-page .ui-header {
+    background: #EA2330 !important;
+}
+.ui-btn-inner{
+	border: none !important;
+}
+.ui-bar-a{
+	/*border: none !important;*/
+}
+.titles {
+	background: transparent !important;
+	font-weight: normal !important;
+	font-size: 1rem !important;
+	color: #FFFFFF !important;
+	border:none !important;
+	border-radius: 0 !important;
+	text-shadow: none !important;
+	vertical-align: middle !important;
+}
+#divNearme {
+	text-align: center;
+	padding:3%;
+	background: #DDDDDD;
+	border-bottom: 1px solid #AAAAAA;
+}
+#divNearme img {
+	width: 6%;
+	vertical-align:middle;
+}
+#divNearme  span {
+	vertical-align:middle;
+	font-size:5vw !important;
+	font-weight: bold !important;
+}
+#slctDest {
+	padding: 3%;
+	margin-top: 1%;
+}
+#slctDest input {
+	margin-top: 2%;
+	width: 100%;
+	border: none !important;
+	background: none !important;
+	border-bottom: 1px solid #AAAAAA !important;
+	font-size: 8vw !important;
+	padding: 1%;
+}
+#dt_slctn  {
+	width: 100%;
+	padding:0% 2% 0 2%;
+}
+#dt_slctn div {
+	width: 29%;
+	display: inline-block;
+	margin: 0 1% 0 1%;
+}
+#dt_slctn div  input {
+	width: 100%;
+	border: none !important;
+	background: none !important;
+	border-bottom: 1px solid #AAAAAA !important;
+	font-size: 8vw !important;
+	padding: 1%;
+}
+
+#slctRooms {
+	padding: 3%;
+	margin-top: 1%;
+}
+#slctRooms input {
+	margin-top: 2%;
+	width: 100%;
+	border: none !important;
+	background: none !important;
+	font-size: 6vw !important;
+	padding: 1%;
+}
+
+#btn_fndHotel, #btn_doneRoom {
+	background-color:#2BA39F !important;
+	color: #FFFFFF !important;
+	box-shadow: none !important;
+	padding:3% !important;
+	width: 94% !important;
+	text-shadow: none !important;
+	margin-right: 3%;
+	margin-left: 3%;
+}
+#pckRoomFooter {
+	background: none !important;
+	border: none !important;
+	padding-bottom:5%;
+}
+#singleRoom {
+	background: #FFFFFF;
+}
+#roomHeader {
+	background: #EEEEEE !important;
+	padding: 2%;
+	color: #666666;
+	text-shadow: none !important;
+	border: none !important;
+}
+#div_adults, #div_chldrn {
+	margin-top: 1%;
+	padding: 3%;
+}
+#div_adults div, #div_chldrn div {
+	display: inline-block;
+}
+#div_adults div label , #div_chldrn div label {
+	font-size: 4.5vw !important;
+	font-weight: bold !important;
+}
+#div_adults div span, #div_chldrn div span {
+	font-size: 3.5vw !important;
+}
+#cntrlgrp {
+	width: 68%;
+	text-align: right;
+}
+#cntrlgrp input {
+	width: 10%;
+	text-align: center;
+	background: none !important;
+	border: none !important;
+	font-size: 7vw !important;
+	margin-left: 2%;
+	margin-right: 2%;
+}
+#div_1yrchld{
+	overflow: hidden
+}
+#seats {
+	margin-top: 2%;
+	margin-left: 2%;
+	margin-right: 2%;
+	width: 96%;
+	height: 3em;
+	overflow: auto !important;
+    overflow-y: hidden !important;
+    white-space: nowrap;
+}
+#seats .ui-radio {
+	width: 16.9% !important;
+}
