@@ -1,0 +1,623 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="format-detection" content="telephone=no">
+        <meta name="msapplication-tap-highlight" content="no">
+		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+		<link rel="stylesheet" type="text/css" href="css/index.css">
+		
+		<link rel="stylesheet" href="css/jquery.mobile-1.4.5.min.css">
+		<script src="js/jquery-1.11.1.min.js"></script> 
+		<script src="js/jquery.mobile-1.4.5.min.js"></script>
+		<script src="js/server_variable.js"></script>
+		
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+		<link href="css/jqm-datepicker.css" rel="stylesheet" type="text/css" />
+		<script src="js/jqm-datepicker.js"></script>
+        
+		<link rel="stylesheet" href="build/css/intlTelInput.css" >
+		<style>
+		.iti-flag {background-image: url("build/img/flags.png");} 
+		@media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min--moz-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 2 / 1), only screen and (min-device-pixel-ratio: 2), only screen and (min-resolution: 192dpi), only screen and (min-resolution: 2dppx) {
+		  .iti-flag {background-image: url("build/img/flags@2x.png");}
+		}
+		</style>
+		<script src="build/js/intlTelInput.js"></script>
+		<script type="text/javascript" src="http://maps.google.com/maps/api/js?key=AIzaSyCPLC2WagSO9xVsvC29-CZ4xnvpfMFZ2S4">
+		</script>
+		<title>CamerounFacile</title>
+	</head>
+    <body>
+	
+        <div data-role="page" id="page_start">
+			
+		</div>
+		
+		<div data-role="page" id="login">
+			<div data-role="main" style="text-align:center;">
+				<div style="margin-top:60px;margin-left: 40px;margin-right: 40px;">
+					<img src="img/logo.jpg" style="width:30%;" />
+					<div style="margin-top:20px;">
+						<input id="et_uname" type="tel" />
+						<input type="password" id="et_upwrd" placeholder="Enter Password" />
+					</div>
+					<div style="margin-top:20px;">
+						<button id="btn_signIn" class="cf-button">
+							SIGN IN
+						</button>
+						<span id="setPword">
+							Don't Have Password, <u>Click here</u>
+						</span>
+						<p id="link_frgtPword">Forgot Password</p>
+					</div>
+				</div>	
+			</div>
+		</div>
+		<!-- Close of Login Page -->
+		
+		
+		<!-- Forgot password Page -->
+		<div data-role="page" id="page_forgotpassword">
+			<div data-role="header" data-position="fixed">
+				<!-- <img id="back_fpword" class="back-icon" style="display:inline-block;vertical-align:middle;" />
+				<span class="title" style="color:#FFF;display:inline-block;vertical-align:middle;">
+					Forgot Password
+				</span>
+				<img class="app-icon" class="ui-btn-right" style="position:absolute;display:inline-block;vertical-align:middle;top:0;right:0;" /> -->
+				<h1>
+					<div class="ui-btn-left" data-role="controlgroup" data-type="horizontal">
+						<a id="back_fpword" data-role="button" data-corner="false" class="titles" >
+							<p style="margin:0 !important;">
+								<i class="fa fa-arrow-left" aria-hidden="true"></i>
+							</p>
+						</a>
+						<a data-role="button" data-corner="false" class="titles" style="padding-left: 0px;">
+							<p style="margin:0;">
+								Forgot Password
+							</p>
+						</a>
+					</div>
+					<div class="ui-btn-right" style="text-align:right;">
+						<img src="img/logo.png" class="img-logo"/>	
+					</div>
+				</h1>				
+			</div>
+			<div data-role="main" style="text-align:center;">
+				<div style="margin-top:60px;margin-right: 30px;margin-left: 30px;">
+					<input id="et_fmobile" type="tel" />
+					<button id="btn_fPword" class="cf-button">Submit</button>	
+				</div>
+			</div>
+		</div>
+		<!-- Close of Forgot password Page -->
+		
+		<!-- OTP Page -->
+		<div data-role="page" id="page_otp">
+			<div data-role="header" data-position="fixed">
+				<!-- <img id="back_otp" class="back-icon" style="display:inline-block;vertical-align:middle;" />
+				<span class="title" style="color:#FFF;display:inline-block;vertical-align:middle;">
+					Forgot Password
+				</span>
+				<img class="app-icon" class="ui-btn-right" style="position:absolute;display:inline-block;vertical-align:middle;top:0;right:0;" /> -->
+				<h1>
+					<div class="ui-btn-left" data-role="controlgroup" data-type="horizontal">
+						<a id="back_otp" data-role="button" data-corner="false" class="titles" >
+							<p style="margin:0 !important;">
+								<i class="fa fa-arrow-left" aria-hidden="true"></i>
+							</p>
+						</a>
+						<a data-role="button" data-corner="false" class="titles" style="padding-left: 0px;">
+							<p style="margin:0;">
+								Forgot Password
+							</p>
+						</a>
+					</div>
+					<div class="ui-btn-right" style="text-align:right;">
+						<img src="img/logo.png" class="img-logo"/>	
+					</div>
+				</h1>				
+			</div>
+			<div data-role="main" style="text-align:center;">
+				<div style="margin-top:60px;margin-right: 30px;margin-left: 30px;">
+					<input type="text" id="et_otp" placeholder="Enter OTP here" />
+					<button id="btn_otp" class="cf-button">Verify</button>
+					<p id="link_resendOTP">Resend OTP</p>
+				</div>
+			</div>
+		</div>
+		<!-- Close of OTP Page -->
+		
+		<!-- Set New Password Page -->
+		<div data-role="page" id="page_setNewpword">
+			<div data-role="header" data-position="fixed">
+				<!-- <img id="back_stNewPword" class="back-icon" style="display:inline-block;vertical-align:middle;" />
+				<span class="title" style="color:#FFF;display:inline-block;vertical-align:middle;">
+					Set New Password
+				</span>
+				<img class="app-icon" class="ui-btn-right" style="position:absolute;display:inline-block;vertical-align:middle;top:0;right:0;" /> -->
+				<h1>
+					<div class="ui-btn-left" data-role="controlgroup" data-type="horizontal">
+						<a id="back_stNewPword" data-role="button" data-corner="false" class="titles" >
+							<p style="margin:0 !important;">
+								<i class="fa fa-arrow-left" aria-hidden="true"></i>
+							</p>
+						</a>
+						<a data-role="button" data-corner="false" class="titles" style="padding-left: 0px;">
+							<p style="margin:0;">
+								Set New Password
+							</p>
+						</a>
+					</div>
+					<div class="ui-btn-right" style="text-align:right;">
+						<img src="img/logo.png" class="img-logo"/>	
+					</div>
+				</h1>				
+			</div>
+			<div data-role="main" style="text-align:center;">
+				<div style="margin-left: 30px;margin-right: 30px;margin-top: 30px;">
+					<input type="password" id="et_stnpword" placeholder="Enter New Password" />
+					<input type="password" id="et_strpword" placeholder="Repeat New Password" />
+					
+					<button id="btn_stNewPword" class="cf-button" >Submit</button>
+				</div>
+			</div>
+		</div>
+		<!-- Close of Set New Password Page -->
+		
+		<!-- Main Page -->
+		<div data-role="page" id="page_main">
+			<div data-role="header" data-position="fixed">
+				<!-- <img id="open_menu" class="menu-icon" style="display:inline-block;vertical-align:middle;" />
+				<span class="title" style="color:#FFF;display:inline-block;vertical-align:middle;">
+					CamerounFacile
+				</span>
+				<img class="app-icon" class="ui-btn-right" style="position:absolute;display:inline-block;vertical-align:middle;top:0;right:0;" /> -->
+				<h1>
+					<div class="ui-btn-left" data-role="controlgroup" data-type="horizontal">
+						<a id="open_menu" data-role="button" data-corner="false" class="titles" >
+							<p style="margin:0 !important;">
+								<i class="fa fa-bars" aria-hidden="true"></i>
+							</p>
+						</a>
+						<a data-role="button" data-corner="false" class="titles" style="padding-left: 0px;">
+							<p style="margin:0;">
+								CamerounFacile
+							</p>
+						</a>
+					</div>
+					<div class="ui-btn-right" style="text-align:right;">
+						<img src="img/logo.png" class="img-logo"/>	
+					</div>
+				</h1>				
+			</div>
+			<div data-role="main" class="ui-content" style="padding: 0;">
+				<div data-role="none" id="div_mp">
+					<div id="mp"></div>
+					<div id="c_dtls">
+						<div id='rd_timings'>
+							<span id='rd_bokId'></span>
+						</div>
+						<div id="c_dtls1">
+							<img src="img/user.png" id="cst_pc" />
+							<div id="c_dtlsA">
+								<p id="p_cName"></p>
+								<p>
+									<!-- <img src="img/call.png" /> -->
+									<i class="fa fa-phone" aria-hidden="true" style="font-size: 1.2em;color: #00C853;"></i>
+									<span id="p_Mobile"></span>
+								</p>
+							</div>
+						</div>
+						<div id="c_dtls2">
+							<img id="d_marker" src="img/greenmarker.png" />
+							<p></p>
+							<a id="navigate"><img src="img/navigation.png" /></a>
+						</div>
+					</div>
+				</div>
+				<div id="dialog_vCode" data-role="popup" data-position-to="window" data-dismissible="true">
+					<div data-role="main" class="ui-content">
+						<input type="text" placeholder="Enter OTP" id="vcode" />
+						<center>
+							<button id="verify_bookOTP" class="cf-button">OK</button>
+						</center>
+					</div>
+				</div>
+			</div>
+			<div data-role="footer" id="page_main_footr" data-position="fixed">
+				<button id="btn_On" class="cf-button">GO ONLINE</button>
+				<button id="btn_Off" class="cf-button">GO OFFLINE</button>
+				<button id="reached" class="cf-button">ARRIVED</button>
+			</div>
+			<div data-role="panel" id="panel">
+				<ul data-role="listview" id="menu_list">
+					<li>
+						<div id="dr_prof">
+							<img src="img/user.png" id="dr_img" ></img>
+							<p id="dr_name"></p>
+							<p id="dr_vhclNo"></p>
+							<p id="dr_vhclEmail"></p>
+						</div>
+					</li>
+					<li id="li_myRides">
+						<p>
+							<i class="fa fa-taxi" aria-hidden="true"></i>
+							&nbsp;
+							My Rides
+						</p>
+						<!-- <img src="img/right.png" /> -->
+						<i class="fa fa-chevron-right" aria-hidden="true"></i>
+					</li>
+					<li id="li_amntDtls">
+						<p>
+							<i class="fa fa-money" aria-hidden="true"></i>
+							&nbsp;
+							Amount Details
+						</p>
+						<!-- <img src="img/right.png" /> -->
+						<i class="fa fa-chevron-right" aria-hidden="true"></i>
+					</li>
+					<li id="li_myCmnts">
+						<p>
+							<i class="fa fa-comments" aria-hidden="true"></i>
+							&nbsp;
+							Comments
+						</p>
+						<!-- <img src="img/right.png" /> -->
+						<i class="fa fa-chevron-right" aria-hidden="true"></i>
+					</li>
+					<li id="li_logout">
+						<p>
+							<i class="fa fa-sign-out" aria-hidden="true"></i>
+							&nbsp;
+							Logout
+						</p>
+						<!-- <img src="img/right.png" /> -->
+						<i class="fa fa-chevron-right" aria-hidden="true"></i>
+					</li>
+				</ul>
+			</div>
+
+		</div>
+		<!-- Close of Main Page -->
+		
+		
+		
+		<!-- My Rides Page -->
+		<div data-role="page" id="page_myRides">
+			<div data-role="header" data-position="fixed">
+				<!-- <img id="back_myRides" class="back-icon" style="display:inline-block;vertical-align:middle;" />
+				<span class="title" style="color:#FFF;display:inline-block;vertical-align:middle;">
+					My Rides
+				</span>
+				<img class="app-icon" class="ui-btn-right" style="position:absolute;display:inline-block;vertical-align:middle;top:0;right:0;" /> -->
+				<h1>
+					<div class="ui-btn-left" data-role="controlgroup" data-type="horizontal">
+						<a id="back_myRides" data-role="button" data-corner="false" class="titles" >
+							<p style="margin:0 !important;">
+								<i class="fa fa-arrow-left" aria-hidden="true"></i>
+							</p>
+						</a>
+						<a data-role="button" data-corner="false" class="titles" style="padding-left: 0px;">
+							<p style="margin:0;">
+								My Rides
+							</p>
+						</a>
+					</div>
+					<div class="ui-btn-right" style="text-align:right;">
+						<img src="img/logo.png" class="img-logo"/>	
+					</div>
+				</h1>				
+			</div>
+			<div data-role="main">
+				<ul data-role="listview" id="list_myRides">
+					
+				</ul>
+			</div>
+		</div>
+		<!-- Close of My Rides Page -->
+		
+		<!-- My Rides Page -->
+		<div data-role="page" id="page_myRideDtls">
+			<div data-role="header" data-position="fixed">
+				<!-- <img id="back_myRideDtls" class="back-icon" style="display:inline-block;vertical-align:middle;" />
+				<span class="title" style="color:#FFF;display:inline-block;vertical-align:middle;">
+					
+				</span>
+				<img class="app-icon" class="ui-btn-right" style="position:absolute;display:inline-block;vertical-align:middle;top:0;right:0;" /> -->
+				<h1>
+					<div class="ui-btn-left" data-role="controlgroup" data-type="horizontal">
+						<a id="back_myRideDtls" data-role="button" data-corner="false" class="titles" >
+							<p style="margin:0;">
+								<i class="fa fa-arrow-left" aria-hidden="true"></i>
+							</p>
+						</a>
+						<a data-role="button" data-corner="false" class="titles" style="padding-left:  2px;padding-top: 0.85vw;">
+							<p style="margin:0;font-size: 4.1vw;" id="rd_date"></p>
+							<p style="margin:0;font-size: 3vw;padding:2px;text-align: left;" id="rd_bookedID"></p>
+						</a>
+					</div>
+					<div class="ui-btn-right" style="text-align:right;">
+						<img src="img/logo.png" class="img-logo"/>	
+					</div>
+				</h1>								
+			</div>
+			<div data-role="main">
+				<div id="map_div">
+					<div id="rideDtlMap"></div>
+				</div>
+				<div id="rdpickLocation">
+					<span></span>
+					<img src="img/round.png" />
+					<p></p>
+				</div>
+				<div id="rddrpLocation">
+					<span></span>
+					<img src="img/round.png" />
+					<p></p>
+				</div>
+				<div style="padding:5px;width:97%;border-bottom:1px solid #DDDDDD;background:#FFFFFF;">
+					<img src="img/user.png" id="rd_csImage"
+						style="width:13%;display:inline-block;vertical-align:middle;padding:5px;" />
+					<div  style="display:inline-block;vertical-align:middle;width:75%;">
+						<p style="margin:0;padding:2px;font-size:1em;" id="rd_csName"></p>
+						<p style="margin:0;padding:2px;font-size:0.7em;" id="rd_csMobile"></p>
+					</div>
+				</div>
+				<div id="rdFare">
+					<span class="rdLabel">Ride fare</span>
+					<span class="rdValue" id="rd_ridefare"></span>
+					<div style="clear:both;"></div>
+					<span class="rdLabel">Tax</span>
+					<span class="rdValue" id="rd_ttltx"></span>
+					<div style="clear:both;"></div>
+					<span class="rdLabel">Total Fare</span>
+					<span class="rdValue" id="rd_ttlFare"></span>
+					<div style="clear:both;"></div>
+					<span class="rdLabel" id="pymnt_lable">Payment</span>
+					<span class="rdValue" id="rd_amntBy"></span>
+					<div style="clear:both;"></div>
+				</div>
+				<button id="btn_receive" class="cf-button" style="margin-left: 20px;margin-right: 20px;width: 88%;">Receive</button>
+			</div>
+		</div>
+		<!-- Close of My Ride Details Page -->
+		
+		<!-- Amount Details Page -->
+		<div data-role="page" id="page_amntDtls">
+			<div data-role="header" data-position="fixed">
+				<!-- <img id="back_amntDtls" class="back-icon" style="display:inline-block;vertical-align:middle;" />
+				<span class="title" style="color:#FFF;display:inline-block;vertical-align:middle;">
+					Amount Details
+				</span>
+				<img class="app-icon" class="ui-btn-right" style="position:absolute;display:inline-block;vertical-align:middle;top:0;right:0;" /> -->
+				<h1>
+					<div class="ui-btn-left" data-role="controlgroup" data-type="horizontal">
+						<a id="back_amntDtls" data-role="button" data-corner="false" class="titles" >
+							<p style="margin:0 !important;">
+								<i class="fa fa-arrow-left" aria-hidden="true"></i>
+							</p>
+						</a>
+						<a data-role="button" data-corner="false" class="titles" style="padding-left: 0px;">
+							<p style="margin:0;">
+								Amount Details
+							</p>
+						</a>
+					</div>
+					<div class="ui-btn-right" style="text-align:right;">
+						<img src="img/logo.png" class="img-logo"/>	
+					</div>
+				</h1>				
+			</div>
+			<div data-role="main" style="/*padding:0 !important;margin:-0.6% 0 0 0 !important;*/">
+				<div data-role="tabs" style="padding:0;">
+					<div data-role="navbar">
+						<ul>
+							<li><a href="#date_wise" class="ui-btn-active" id="amountdtlsDate">Date wise</a></li>
+							<li><a href="#month_wise" id="amountdtlsMonth">Month wise</a></li>
+						</ul>
+					</div>
+					<div id="date_wise">
+						<div class="dv_dt">
+							<input type='text' id='slctdDate' data-role="none" onfocus="blur()" />
+							<button id="btn_dtshow" class="cf-button">show</button>
+						</div>
+						<ul data-role="listview" id="list_amntdtls"></ul>
+					</div>
+					<div id="month_wise">
+						<div class="dv_dt">
+							<input type='text' id='slctdMonth' data-role="none" onfocus="blur()" />
+							<button id="btn_mnthshow" class="cf-button">show</button>
+						</div>
+						<table style="width: 100%;padding: 5px;" id="tbl_amntDtls"></table>
+					</div>
+				</div>
+			</div>
+			<div data-role="footer" data-position="fixed">
+				<table style="width: 97%;p;padding: 5px;margin: 5px;" id="tbl_total">
+					<tr id="tr_totalAmount">
+						<td style="width:68%;padding: 5px;font-size: 1em;color: #555555;font-weight:  bold;">Total Amount</td>
+						<td style="width:28%;padding: 5px;font-size: 1em;color: #666666;" id="td_totalAmount"></td>
+					</tr>
+					<tr id="tr_totalComm">
+						<td style="width:68%;padding: 5px;font-size: 1em;color: #555555;font-weight:  bold;">Owner Commission</td>
+						<td style="width:28%;padding: 5px;font-size: 1em;color: #666666;" id="td_totalCom"></td>
+					</tr>
+				</table>
+			</div>
+		</div>
+		<!-- Close of Amount Details Page -->
+
+		<!-- Comments Page -->
+		<div data-role="page" id="page_Cmnts">
+			<div data-role="header" data-position="fixed">
+				<!-- <img id="back_cmnts" class="back-icon" style="display:inline-block;vertical-align:middle;" />
+				<span class="title" style="color:#FFF;display:inline-block;vertical-align:middle;">
+					Comments
+				</span>
+				<img class="app-icon" class="ui-btn-right" style="position:absolute;display:inline-block;vertical-align:middle;top:0;right:0;" /> -->
+				<h1>
+					<div class="ui-btn-left" data-role="controlgroup" data-type="horizontal">
+						<a id="back_cmnts" data-role="button" data-corner="false" class="titles" >
+							<p style="margin:0 !important;">
+								<i class="fa fa-arrow-left" aria-hidden="true"></i>
+							</p>
+						</a>
+						<a data-role="button" data-corner="false" class="titles" style="padding-left: 0px;">
+							<p style="margin:0;">
+								Comments
+							</p>
+						</a>
+					</div>
+					<div class="ui-btn-right" style="text-align:right;">
+						<img src="img/logo.png" class="img-logo"/>	
+					</div>
+				</h1>				
+			</div>
+			<div data-role="main">
+				<ul data-role="listview" id="list_Cmnts" >
+					
+				</ul>
+			</div>
+		</div>
+		<!-- Close of Comments Page -->
+		
+		<!-- Comment Detail Page -->
+		<div data-role="page" id="page_cmntDtls">
+			<div data-role="header" data-position="fixed">
+				<!-- <img id="back_cmntDtls" class="back-icon" style="display:inline-block;vertical-align:middle;" />
+				<span class="title" style="color:#FFF;display:inline-block;vertical-align:middle;">
+					Customer Name
+				</span>
+				<img class="app-icon" class="ui-btn-right" style="position:absolute;display:inline-block;vertical-align:middle;top:0;right:0;" /> -->
+				<h1>
+					<div class="ui-btn-left" data-role="controlgroup" data-type="horizontal">
+						<a id="back_cmntDtls" data-role="button" data-corner="false" class="titles" >
+							<p style="margin:0 !important;">
+								<i class="fa fa-arrow-left" aria-hidden="true"></i>
+							</p>
+						</a>
+						<a data-role="button" data-corner="false" class="titles" style="padding-left: 0px;">
+							<p style="margin:0;">
+								Customer Name
+							</p>
+						</a>
+					</div>
+					<div class="ui-btn-right" style="text-align:right;">
+						<img src="img/logo.png" class="img-logo"/>	
+					</div>
+				</h1>					
+			</div>
+			<div data-role="main">
+				<ul data-role="listview" id="list_cmntDtls">
+					<li style="float:left;">
+						<p></p>
+						<span id="cmnt_time"></span>
+					</li>
+					<br/>
+					<li style="float:right;margin-top:2%;">
+						<p> </p>
+						<span id="cmnt_time"></span>
+					</li>
+				</ul>
+			</div>
+			<div data-role="footer" data-position="fixed" style="padding:4%;background:none !important;border:none !important;">
+				<input data-role="none" type="text" id="et_cmnt" />
+				<img src="img/right.png" id="btn_snd" alt="Send" />
+			</div>
+		</div>
+		<!-- Close of Comment Details Page -->
+		
+		<!-- Cab Request Page -->
+		<div data-role="page" id="page_cbReq" style="background:bisque !important;">
+			<div style="background:#FFFFFF;margin:45% 15% 15% 15%;border-radius:50%;text-align:center;">
+				<p style="font-size:6vw !important;padding:35%;">Booking Arrived</p>
+			</div>
+			<div data-role="footer" data-position="fixed" style="background:transparent !important;border:none !important;">
+				<button id="btn_cancel">CANCEL</button>
+				<button id="btn_ok">OK</button>
+			</div>
+		</div>
+		<!-- Close of Cab Request Page -->
+		
+		<div data-role="page" id="final_page">
+			<div data-role="header" data-position="fixed">
+				<!-- <img id="open_menu" class="back-icon" style="display:inline-block;vertical-align:middle;" />
+				<span class="title" style="color:#FFF;display:inline-block;vertical-align:middle;">
+					CamerounFacile
+				</span>
+				<img class="app-icon" class="ui-btn-right" style="position:absolute;display:inline-block;vertical-align:middle;top:0;right:0;" /> -->
+
+				<h1>
+					<div class="ui-btn-left" data-role="controlgroup" data-type="horizontal">
+						<a id="open_menu" data-role="button" data-corner="false" class="titles" >
+							<p style="margin:0 !important;">
+								<i class="fa fa-arrow-left" aria-hidden="true"></i>
+							</p>
+						</a>
+						<a data-role="button" data-corner="false" class="titles" style="padding-left: 0px;">
+							<p style="margin:0;">
+								CamerounFacile
+							</p>
+						</a>
+					</div>
+					<div class="ui-btn-right" style="text-align:right;">
+						<img src="img/logo.png" class="img-logo"/>	
+					</div>
+				</h1>									
+			</div>
+			<div data-role="main" class="ui-content" style="padding: 0;">
+				<!-- <div id="div_finalMap">
+					<div id="final_map"></div>
+				</div>
+				<div id="rdpickLocation">
+					<span></span>
+					<img src="img/round.png" />
+					<p></p>
+				</div>
+				<div id="rddrpLocation">
+					<span></span>
+					<img src="img/round.png" />
+					<p></p>
+				</div>
+				<div id="rdFare">
+					<span class="rdLabel">Total fare</span>
+					<span class="rdValue" id="rd_ttlAmnt"></span>
+					<div style="clear:both;"></div>
+					<span class="rdLabel">Tax</span>
+					<span class="rdValue" id="rd_ttlTax"></span>
+					<div style="clear:both;"></div>
+					<span class="rdLabel">Total</span>
+					<span class="rdValue" id="rd_ttl"></span>
+					<div style="clear:both;"></div>
+				</div>
+				<button id="btn_receive" class="cf-button" style="margin-right: 20px;margin-left: 20px;width: 88%;">Receive</button> -->
+			</div>
+		</div>
+		
+		<!-- popups -->
+		<div data-role="popup" id="regPop" data-dismissible="false">
+			<div style="display:  table; width: 100%;">
+				<p id="crntTime"></p>
+				<p id="crntDate"></p>
+			</div>
+			<p id="timeLeft">30 Seconds</p>
+			<div id="mapPopDiv">
+				<!--<img src="img/map.png" id="rq_imgMap" />-->
+				<img src="img/man_marker.png" id="rq_manMarker" />
+			</div>
+			<p id="pckLoc">PICKUPLOCATION</p>
+			<p id="pckLocVal"></p>
+			<p id="rqBokId">Booking ID: <span style="font-size: 0.9em;"></span></p>
+			<div style="display: table;width: 100%;">
+				<button id="btn_accept" class="cf-button">ACCEPT</button>
+				<button id="btn_reject" class="cf-button">REJECT</button>
+			</div>
+		</div>
+		
+        <script type="text/javascript" src="cordova.js"></script>
+        <script type="text/javascript" src="js/index.js"></script>
+    
+	</body>
+</html>

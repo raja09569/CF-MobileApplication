@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		
+		<meta name="format-detection" content="telephone=no">
+        <meta name="msapplication-tap-highlight" content="no">
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+        <link rel="stylesheet" type="text/css" href="css/style.css">
+        <link rel="stylesheet" type="text/css" href="css/ads.css">
+		<link rel="stylesheet" href="css/jquery.mobile-1.4.5.min.css">
+		<link href="css/font-awesome.min.css" rel="stylesheet" />
+		<script src="js/main.js"></script>
+		<!--<script src="js/jquery-1.11.1.min.js"></script>-->
+		<script src="js/jquery-1.12.3.js"></script> 
+		<script src="js/jquery.mobile-1.4.5.min.js"></script>
+		<script src="js/server_variable.js"></script>
+        <script src="js/countryName.js"></script>
+        <title>CamerounFacile</title>
+		<style type="text/css">
+			#leftBtn .ui-btn-inner {
+                width: 30px;
+                height: 30px;
+                margin: -3px;/*Modify to change icon position wrt the header*/
+                border: none !important;
+            }
+			.transparentButton {
+				background-color: transparent !important;
+				border: 0 !important;
+				-webkit-box-shadow: none;
+				box-shadow: none ;
+			}
+            .ui-icon-custom {
+                background: url(img/back.png) 30% 30% no-repeat;
+                background-size: 30px 30px;
+                width: 30px;
+                height: 30px;
+                box-shadow: none;
+                -webkit-box-shadow: none;
+                margin: 0 !important;
+            }
+
+			/* Swipe 2 required styles */
+			.swipe {
+			  overflow: hidden;
+			  visibility: hidden;
+			  position: relative;
+			}
+			.swipe-wrap {
+			  overflow: hidden;
+			  position: relative;
+			}
+			.swipe-wrap > div {
+			  float:left;
+			  width:100%;
+			  position: relative;
+			}
+
+			/* END required styles */
+			.iti-flag {background-image: url("build/img/flags.png");}
+
+		</style>
+		
+		<link rel="stylesheet" href="build/css/intlTelInput.css" >
+		<style>
+		  
+		/*@media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min--moz-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 2 / 1), only screen and (min-device-pixel-ratio: 2), only screen and (min-resolution: 192dpi), only screen and (min-resolution: 2dppx) {
+		  .iti-flag {background-image: url("build/img/flags@2x.png");}
+		}*/
+		</style>
+		<script src="build/js/intlTelInput.js"></script>
+	</head>
+	<body>
+	
+		<div id="loading" data-role="page">
+			<div data-role="header" data-position="fixed">
+			</div>
+			<div data-role="main" data-position="fixed">
+				<p class="loading">Loading</p>
+			</div>
+			<div data-role="footer" data-position="fixed">
+			</div>
+		</div>
+			
+		<!-- Main page div -->
+		<div data-role="page" id="main">
+			<div data-role="header" data-position="fixed">
+				<!-- <img id="back" class="back-icon" style="display:inline-block;vertical-align:middle;" />
+				<img class="app-icon" style="display:inline-block;vertical-align:middle;" />
+				<div class="div_slctCity" style="color:#FFF;display:inline-block;vertical-align:middle;">
+					<span id="slctCity">Select City</span>
+					<img src="img/down_white_20.png" />
+				</div>
+				<img class="search-icon" id="openSearch" class="ui-btn-right" style="position:absolute;display:inline-block;vertical-align:middle;top:0;right:0;" />		 -->
+				<h1>
+					<div class="ui-btn-left" data-role="controlgroup" data-type="horizontal">
+						<a id="back" data-role="button" data-corner="false" class="titles" >
+							<p style="margin:0 !important;">
+								<i class="fa fa-arrow-left" aria-hidden="true"></i>
+							</p>
+						</a>
+						<a data-role="button" data-corner="false" class="titles div_slctCity" style="padding-left: 0px;">
+							<p style="margin:0 !important;">
+								Select City &nbsp;<i class="fa fa-caret-down" aria-hidden="true"></i>
+							</p>
+						</a>
+					</div>
+					<div class="ui-btn-right" id="openSearch">
+						<i class="fa fa-search" aria-hidden="true"></i>
+					</div>
+					<div class="ui-btn-right" style="text-align:right;">
+						<img src="img/logo.png" class="img-logo"/>	
+					</div>
+				</h1>		
+			</div>
+			<div data-role="main">
+				<div id="div_categories">
+					<div class="div-no-categories">
+						<img src="img/sad_smiley_50.png" />
+						<p>Seems to be no categories found!</p>
+					</div>
+				</div>
+				<div id="div_latestAds">
+					<ul id="latestAds" data-role="listview" >
+						
+					</ul>
+				</div>
+				<div class="float-button" id="btn_adPost">
+					<span class="height-fix">
+						<a class="content">
+							POST AD
+						</a>
+					</span>
+				</div>
+				<!--<a class="kc_fab_wrapper" href="#page_postAd" id="btn_adPost">
+					<p>POST AD</p>
+				</a>-->
+			</div>
+		</div>
+		<!-- Close Main page div -->
+		
+		<!-- City Selectio -->
+		<div data-role="page" id="page_selectCity">
+			<div data-role="header" data-position="fixed">
+				<!-- <img id="back_selectCity" class="back-icon" style="display:inline-block;vertical-align:middle;" />
+				<input type="search" data-role="none" id="search-city" 
+						placeholder="Search for your city" style="color:#FFF;display:inline-block;
+				vertical-align:middle;" data-mini="true" />				 -->
+				<h1>
+					<div class="ui-btn-left" data-role="controlgroup" data-type="horizontal" style="/*width: 65%;*/">
+						<a id="back_selectCity" data-role="button" data-corner="false" class="titles" >
+							<p style="margin:0 !important;">
+								<i class="fa fa-arrow-left" aria-hidden="true"></i>
+							</p>
+						</a>
+						<a data-role="button" data-corner="false" class="titles" style="padding-left: 0px;/*width: 100%;*/">
+							<input type="search" data-role="none" id="search-city" placeholder="Search for your city" style="color:#FFF;" data-mini="true" />
+						</a>
+					</div>
+					<div class="ui-btn-right" style="text-align:right;">
+						<img src="img/logo.png" class="img-logo"/>	
+					</div>
+				</h1>		
+			</div>
+			<div data-role="main">
+				<ul id="list_cities" data-role="listview">
+					
+				</ul>
+			</div>
+		</div>
+		<!-- End of City Selection -->
+		
+		<!-- search page -->
+		<div data-role="page" id="page_search">
+			<div data-role="header" data-position="fixed">
+				<!-- <img id="back_search" class="back-icon" style="display:inline-block;vertical-align:middle;" />
+				<input type="search" data-role="none" style="color:#FFF;display:inline-block;
+				vertical-align:middle;" id="search" placeholder="Search" data-mini="true" /> -->
+				<h1>
+					<div class="ui-btn-left" data-role="controlgroup" data-type="horizontal" style="/*width: 65%;*/">
+						<a id="back_search" data-role="button" data-corner="false" class="titles" >
+							<p style="margin:0 !important;">
+								<i class="fa fa-arrow-left" aria-hidden="true"></i>
+							</p>
+						</a>
+						<a data-role="button" data-corner="false" class="titles" style="padding-left: 0px;/*width: 100%;*/">
+							<input type="search" data-role="none" id="search" placeholder="Search for your city" style="color:#FFF;" data-mini="true" />
+						</a>
+					</div>
+					<div class="ui-btn-right" style="text-align:right;">
+						<img src="img/logo.png" class="img-logo"/>	
+					</div>
+				</h1>
+			</div>
+			<div data-role="main">
+				<ul id="list_search" data-role="listview">
+					
+				</ul>
+			</div>
+		</div>
+		<!-- End of search page -->
+		
+		<!-- Sub Categories page -->
+		<div data-role="page" id="page_subCats">
+			<div data-role="header" data-position="fixed">
+				<!-- <img id="frm_subCat" class="back-icon" style="display:inline-block;vertical-align:middle;" />
+				<span class="title" style="color:#FFF;display:inline-block;vertical-align:middle;">
+					SubCategories
+				</span>
+				<img class="app-icon" class="ui-btn-right" style="position:absolute;display:inline-block;vertical-align:middle;top:0;right:0;" />-->		
+				<h1>
+					<div class="ui-btn-left" data-role="controlgroup" data-type="horizontal" style="/*width: 65%;*/">
+						<a id="frm_subCat" data-role="button" data-corner="false" class="titles" >
+							<p style="margin:0 !important;">
+								<i class="fa fa-arrow-left" aria-hidden="true"></i>
+							</p>
+						</a>
+						<a data-role="button" data-corner="false" class="titles" style="padding-left: 0px;/*width: 100%;*/">
+							<p style="margin:0 !important;">
+								SubCategories
+							</p>
+						</a>
+					</div>
+					<div class="ui-btn-right" style="text-align:right;">
+						<img src="img/logo.png" class="img-logo"/>	
+					</div>
+				</h1>
+			</div>
+			<div data-role="main">
+				<ul data-role="listview" id="list_subcategory" data-inset="true">
+					
+				</ul>
+			</div>
+		</div>
+		<!-- End of SubCategories page -->
+		
+		<!-- Ads page -->
+		<div data-role="page" id="page_ads">
+			<div data-role="header" data-position="fixed">
+				<!-- <img id="frm_ads" class="back-icon" style="display:inline-block;vertical-align:middle;" />
+				<span class="title" style="color:#FFF;display:inline-block;vertical-align:middle;">
+					Ads
+				</span>
+				<img class="app-icon" class="ui-btn-right" style="position:absolute;display:inline-block;vertical-align:middle;top:0;right:0;" /> -->
+				<h1>
+					<div class="ui-btn-left" data-role="controlgroup" data-type="horizontal" style="/*width: 65%;*/">
+						<a id="frm_ads" data-role="button" data-corner="false" class="titles" >
+							<p style="margin:0 !important;">
+								<i class="fa fa-arrow-left" aria-hidden="true"></i>
+							</p>
+						</a>
+						<a data-role="button" data-corner="false" class="titles" style="padding-left: 0px;/*width: 100%;*/">
+							<p style="margin:0 !important;">
+								Ads
+							</p>
+						</a>
+					</div>
+					<div class="ui-btn-right" style="text-align:right;">
+						<img src="img/logo.png" class="img-logo"/>	
+					</div>
+				</h1>			
+			</div>
+			<div data-role="main">
+				<ul data-role="listview" id="list_ads" data-inset="true">
+					
+				</ul>
+			</div>
+		</div>
+		<!-- End of Ads page -->
+		
+		<!-- Ad Details page -->
+		<div data-role="page" id="page_addetails">
+			<div data-role="header" data-position="fixed">
+				<!-- <img id="back_addetails" class="back-icon" style="display:inline-block;vertical-align:middle;" />
+				<span class="title" style="color:#FFF;display:inline-block;vertical-align:middle;">
+					Ad Details
+				</span>
+				<img class="app-icon" class="ui-btn-right" style="position:absolute;display:inline-block;vertical-align:middle;top:0;right:0;" />-->			
+				<h1>
+					<div class="ui-btn-left" data-role="controlgroup" data-type="horizontal" style="/*width: 65%;*/">
+						<a id="back_addetails" data-role="button" data-corner="false" class="titles" >
+							<p style="margin:0 !important;">
+								<i class="fa fa-arrow-left" aria-hidden="true"></i>
+							</p>
+						</a>
+						<a data-role="button" data-corner="false" class="titles" style="padding-left: 0px;/*width: 100%;*/">
+							<p style="margin:0 !important;">
+								Ad Details
+							</p>
+						</a>
+					</div>
+					<div class="ui-btn-right" style="text-align:right;">
+						<img src="img/logo.png" class="img-logo"/>	
+					</div>
+				</h1>				
+			</div>
+			<div data-role="main">
+				<!--<div class="container-outer" style="overflow:scroll;width:500px;height:105px;">
+				   <div class="container-inner" style="width:1750px;">
+						<img src="img/noimage.jpg" style="width:100px;height:120px;" />
+						<img src="img/noimage.jpg" style="width:100px;height:120px;" />
+						<img src="img/noimage.jpg" style="width:100px;height:120px;" />
+						<img src="img/noimage.jpg" style="width:100px;height:120px;" />
+						<img src="img/noimage.jpg" style="width:100px;height:120px;" />
+						<img src="img/noimage.jpg" style="width:100px;height:120px;" />
+						<img src="img/noimage.jpg" style="width:100px;height:120px;" />
+						<img src="img/noimage.jpg" style="width:100px;height:120px;" />
+						<img src="img/noimage.jpg" style="width:100px;height:120px;" />
+						<img src="img/noimage.jpg" style="width:100px;height:120px;" />
+						<img src="img/noimage.jpg" style="width:100px;height:120px;" />
+						<img src="img/noimage.jpg" style="width:100px;height:120px;" />
+						<img src="img/noimage.jpg" style="width:100px;height:120px;" />
+						<img src="img/noimage.jpg" style="width:100px;height:120px;" />
+						<img src="img/noimage.jpg" style="width:100px;height:120px;" />
+				   </div>
+				</div>-->
+				<div class="container-outer">
+				   
+				</div>
+				<div style="padding:2%;">
+					<div style="background:#FFFFFF;padding:1% 0 1% 0;">
+						<p id="ad_dtls_heading" style="margin:0;font-weight:bold;padding:5px;text-transform: capitalize;">
+							
+						</p>
+						<span id="ad_dtls_location" style="float:left;color:#999;padding:5px;font-size: 0.9em;"></span>
+						<span id="ad_dtls_time" style="float:right;color:#999;padding:5px;font-size: 0.9em;"></span>
+						<div style="clear:both;"></div>
+					</div>
+					<p id="ad_dtls_prdctDtlsLabel" style="margin:0;font-weight:bold;padding: 5px;font-size: 1em;">Description</p>
+					<div style="background:#FFFFFF;padding:1% 0 1% 0;">
+						<p id="ad_dtls_prdctDtls" style="margin:0;padding: 5px;font-size:  0.7em;"></p>
+					</div>
+					<p id="cntctInform" style="margin:0;font-weight:bold;padding: 5px;font-size: 1em;">Contact Information</p>
+					<div id="dv_cntcInform" style="background:#FFFFFF;padding:1% 0 1% 0;">
+						<div class="cd_element">
+							<div class="cd_element_img">
+								<img src="img/name_50.png" style="" />
+							</div>
+							<div class="cd_element_dts">
+								<p id="ad_dtls_name" class="cd_element_dts_1"></p>
+								<p id="ad_dtls_nameLabel" class="cd_element_dts_2">Name</p>
+							</div>
+						</div>
+						<div class="cd_element">
+							<div class="cd_element_img">
+								<img src="img/phone_50.png" style="" />
+							</div>
+							<div class="cd_element_dts">
+								<p id="ad_dtls_mobile" class="cd_element_dts_1"></p>
+								<p id="ad_dtls_mobileLable" class="cd_element_dts_2">Mobile Number</p>
+							</div>
+						</div>
+						<div class="cd_element">
+							<div class="cd_element_img">
+								<img src="img/email_50.png" style="" />
+							</div>
+							<div class="cd_element_dts">
+								<p id="ad_dtls_email" class="cd_element_dts_1"></p>
+								<p id="ad_dtls_emailLable" class="cd_element_dts_2">Email</p>
+							</div>
+						</div>
+						<div class="cd_element">
+							<div class="cd_element_img">
+								<img src="img/address_50.png" style="" />
+							</div>
+							<div class="cd_element_dts" >
+								<p id="ad_dtls_address" class="cd_element_dts_1"></p>
+								<p id="ad_dtls_adrslabel" class="cd_element_dts_2" >Address</p>
+							</div>
+						</div>
+						<p id="ad_dtls_cmpName" style="margin:0;font-weight:bold;padding: 5px;font-size: 1em;"></p>
+						<p id="ad_dtls_cmpDescri" style="margin:0;padding: 5px;font-size: 0.8em;"></p>
+					</div>
+					<p id="ad_dtls_adID" style="margin:0;text-align:right;color:#777;padding:5px;"></p>
+				</div>
+				
+			</div>
+		</div>
+		<!-- End of Ad Details page -->
+		
+		<!-- Ad Post Form -->
+		<div data-role="page" id="page_postAd">
+			<div data-role="header" data-position="fixed">
+				<!-- <img id="back_postAd" class="back-icon" style="display:inline-block;vertical-align:middle;" />
+				<span class="title" style="color:#FFF;display:inline-block;vertical-align:middle;">
+					Post Free Ad
+				</span>
+				<img class="app-icon" class="ui-btn-right" style="position:absolute;display:inline-block;vertical-align:middle;top:0;right:0;" /> -->
+				<h1>
+					<div class="ui-btn-left" data-role="controlgroup" data-type="horizontal" style="/*width: 65%;*/">
+						<a id="back_postAd" data-role="button" data-corner="false" class="titles" >
+							<p style="margin:0 !important;">
+								<i class="fa fa-arrow-left" aria-hidden="true"></i>
+							</p>
+						</a>
+						<a data-role="button" data-corner="false" class="titles" style="padding-left: 0px;/*width: 100%;*/">
+							<p style="margin:0 !important;">
+								Post Free Ad
+							</p>
+						</a>
+					</div>
+					<div class="ui-btn-right" style="text-align:right;">
+						<img src="img/logo.png" class="img-logo"/>	
+					</div>
+				</h1>	
+			</div>
+			<div data-role="main">
+				<div>
+					<div class="div_category">
+						<p>Category Details</p>
+						<div>
+							<label>Category</label>
+							<select data-role="none" id="slct_ctgies"></select>
+						</div>
+						<div>
+							<label>Sub-Category</label>
+							<select data-role="none" id="slct_sbctgies">
+								<option selected="selected" disabled="disabled">Select SubCategory</option>
+							</select>
+						</div>
+					</div>
+					<div class="div_adDtls">
+						<p>Ad Details</p>
+						<div style="padding-bottom: 20px;">
+							<div>
+								<label>Name: </label>
+								<input data-role="none" type="text" id="usrName" />
+							</div>
+							<div>
+								<label>Company Name: </label>
+								<input data-role="none" type="text" id="cmpnyName" />
+							</div>
+							<div>
+								<label>Email ID: </label>
+								<input data-role="none" type="email" id="email_id" />
+							</div>
+							<div>
+								<label>Phone No: </label>
+								<input data-role="none" type="tel" id="phone_no" style="text-indent: 5px;" />
+							</div>
+							<div>
+								<label>Address line 1: </label>
+								<input data-role="none" type="text" id="address1" />
+							</div>
+							<div>
+								<label>Address line 2: </label>
+								<input data-role="none" type="text" id="address2" />
+							</div>
+							<div>
+								<label>Location/City/District: </label>
+								<input data-role="none" type="text" id="location" />
+							</div>
+							<div>
+								<label>Territory/State/Province: </label>
+								<input data-role="none" type="text" id="territory" />
+							</div>
+							<div>
+								<label>Country: </label>
+								<input data-role="none" type="text" id="country" />
+							</div>
+							<div>
+								<label>Title / Heading of your ad: </label>
+								<input data-role="none" type="text" id="ad_heading" />
+							</div>
+						</div>
+						<p>Description about your company and products</p>
+						<div>
+							<div>
+								<label>Company profile: </label>
+								<textarea data-role="none" id="cmpnyProfile" ></textarea>
+							</div>
+							<div>
+								<label>Product details: </label>
+								<textarea data-role="none" id="productDtls" ></textarea>
+							</div>
+							<div>
+								<label>Photos: </label>
+								<!--<input data-role="none" type="file" id="adPhotos" accept='image/*' style="border:none !important;" />-->
+								<div style="margin:auto;">
+									<div id="pickPhotos" style="text-align:center;padding:1%;" >
+										<img src="img/camera_50.png" /><br/>
+										<span style="margin:0;color:#999;font-weight:bold !important;">Choose (Max 5 photos)</span>
+									</div>
+								</div>
+								<div class="preview-area"></div>
+							</div>
+						</div>
+					</div>					
+					<div data-role="popup" id="upldPrgrs" data-dismissible="false" >
+						<div data-role="header" style="width:100%;">
+							<h1>Uploading</h1>
+						</div>
+						<div data-role="main" >						
+							<p style="font-size:5vw;color:#777;padding:0% 0% 0% 5%;" id="upldImgCount" >
+								
+							</p>
+							<div id="myProgress">
+								<div id="showProgress"></div>
+							</div>
+						</div>
+					</div>
+					<button id="btn_sbmitAd" class="cf-button">SUBMIT</button>
+					<button id="btn_updtAd" class="cf-button">UPDATE</button>
+				</div>
+			</div>
+		</div>
+		<!-- End Ad Post Form -->
+			
+		<!-- Choose Picture Dialog -->
+		<div data-role="dialog" id="dialogPage" data-close-btn="none" >
+			<div role="main" class="ui-content" style="background:#FFFFFF !important;">
+				<h1 style="font-size:1em;color:#000000;font-weight:bold;text-align: center;">
+					Choose
+				</h1>
+				<hr>
+				<p style="font-size:1em;padding:10px;color:#000000;" id="openCamera">
+					<i class="fa fa-camera" aria-hidden="true"></i> &nbsp; Camera
+				</p>
+				<p style="font-size:1em;padding:10px;color:#000000;" id="openFileManager">
+					<i class="fa fa-folder" aria-hidden="true"></i> &nbsp; Gallery
+				</p>
+				<hr>
+				<p style="font-size:1em;padding:10px;color: #555;font-weight: bold;background-color: #ecb9b9;text-align:  center;" id="cncl_dialog">
+					Cancel
+				</p>
+			</div>
+		</div>
+		<!-- Close of Choose Picture Dialog -->
+			
+		<script src="http://maps.googleapis.com/maps/api/js?libraries=places,geometry&key=AIzaSyCPLC2WagSO9xVsvC29-CZ4xnvpfMFZ2S4"></script>
+		<script src="js/jquery.geocomplete.js"></script>
+		<script type="text/javascript" src="cordova.js"></script>
+        <script type="text/javascript" src="js/ads.js"></script>
+	</body>
+</html>

@@ -1,0 +1,147 @@
+#departureDate{
+padding:4% 4% 4% 10%;
+width:100%;
+border:1px solid #f5f5f5;
+font-size:4vw;
+color:gray;
+background-image:url('../img/cal.png');
+background-repeat:no-repeat;
+background-position:left center;
+outline:0;
+}
+.ui-header .ui-btn-left{
+	top:0 !important;
+	left:0 !important;
+}
+.ui-page .ui-header {
+    background: #EA2330 !important;
+}
+.ui-btn-inner{
+	border: none !important;
+}
+.ui-bar-a{
+	/*border: none !important;*/
+}
+.titles {
+	background: transparent !important;
+	font-weight: normal !important;
+	font-size: 1rem !important;
+	color: #FFFFFF !important;
+	border:none !important;
+	border-radius: 0 !important;
+	text-shadow: none !important;
+	vertical-align: middle !important;
+}
+button{box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.58);}
+/*End form style*/
+
+/*****************************************/
+
+#btn_fndBus {
+	background-color:#2BA39F !important;
+	color: #FFFFFF !important;
+	box-shadow: none !important;
+	padding:3% !important;
+	width: 94% !important;
+	text-shadow: none !important;
+	margin-right: 3%;
+	margin-left: 3%;
+}
+#autocompletePlace, #autocompletePlace2 {
+	width: 94%;
+    margin-top: 4%;
+    margin-left: 3%;
+    margin-right: 3%;
+    padding: 2%;
+    font-size: 4.5vw;
+}
+#seats .ui-radio {
+	width: 16.5% !important;
+}
+#slctd_date {
+	background: #EA2330;
+	color: white;
+	text-shadow: none;
+	margin:0;
+	padding: 6%;
+}
+#seatInstr{
+	width: 92%;
+	padding: 3% 3% 3% 5%;
+	border-bottom: 1px solid #AAAAAA;
+}
+#seatInstr div {
+	width: 24%;
+	display:inline-block;
+	vertical-align:middle;
+}
+#seatInstr div img {
+	width:20%;
+	vertical-align:middle;
+}
+#seatInstr div span {
+	vertical-align:middle;
+	font-size:3.5vw;
+}
+#pickSeatsPage #footer {
+	width: 96%;
+	padding: 2% 2% 2% 2%;
+	background: none !important;
+	text-shadow: none !important;
+	color: #777777;
+	text-align: center;
+	border: none !important; 
+}
+#pickSeatsPage #footer p {
+	margin: 0;
+	text-shadow: none !important;
+	color: #777777;
+	text-align: center;
+	font-size: 3.6vw;
+}
+#pickSeatsPage #footer p span {
+	color: #2BA39F;
+	font-size: 3.8vw;
+}
+#pickSeatsPage #footer button {
+	background: #2BA39F;
+	color: #FFFFFF;
+	width: 92%;
+	margin: 3% 4% 2% 4%;
+	font-size: 4.5vw;
+	box-shadow:none !important;
+	text-shadow:none !important;
+}
+#boardingHeader {
+	width: 96%;
+	padding: 2%;
+	border-bottom: 1px solid #AAAAAA;
+}
+
+#boardingHeader  div{
+	display: inline-block;
+	text-align:left;
+	font-size: 4.5vw;
+	color:#777777;
+	padding:1%;
+}
+#boardingList li  p {
+	display: inline-block;
+	margin:0;
+	padding:2%;
+}
+#boardingList #brdAdrs{
+	width: 65%;
+	white-space: normal !important;
+	vertical-align: middle;
+	font-size: 4.5vw;
+}
+#boardingList #brdTime{
+	width: 45%;
+	vertical-align: middle;
+	font-size: 5.5vw;
+	color: #2BA39F;
+}
+.ui-controlgroup-controls {
+	width:100%;
+}
