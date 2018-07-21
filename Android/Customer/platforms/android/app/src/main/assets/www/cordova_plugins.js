@@ -523,7 +523,8 @@ module.exports.metadata =
   "cordova-plugin-file": "6.0.1",
   "cordova-plugin-file-transfer": "1.7.1",
   "cordova-plugin-device": "2.0.2",
-  "cordova-plugin-datetimepicker": "1.0.0"
+  "cordova-plugin-datetimepicker": "1.0.0",
+  "cordova-plugin-browsersync": "0.1.7"
 };
 // BOTTOM OF METADATA
 });

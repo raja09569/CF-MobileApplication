@@ -61,6 +61,9 @@
     },
     "cordova-plugin-datetimepicker": {
       "PACKAGE_NAME": "com.camerounfacile.customer"
+    },
+    "cordova-plugin-browsersync": {
+      "PACKAGE_NAME": "com.camerounfacile.customer"
     }
   },
   "dependent_plugins": {
