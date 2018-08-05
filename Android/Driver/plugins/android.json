@@ -60,6 +60,13 @@
     "uk.co.workingedge.phonegap.plugin.launchnavigator": {
       "OKHTTP_VERSION": "3.+",
       "PACKAGE_NAME": "com.camerounfacile.driver"
+    },
+    "phonegap-plugin-push": {
+      "FCM_VERSION": "11.0.1",
+      "PACKAGE_NAME": "com.camerounfacile.driver"
+    },
+    "cordova-plugin-request-location-accuracy": {
+      "PACKAGE_NAME": "com.camerounfacile.driver"
     }
   },
   "dependent_plugins": {

@@ -69,5 +69,9 @@
     <plugin name="uk.co.workingedge.phonegap.plugin.launchnavigator" spec="^4.2.1">
         <variable name="OKHTTP_VERSION" value="3.+" />
     </plugin>
+    <plugin name="phonegap-plugin-push" spec="^2.1.2">
+        <variable name="FCM_VERSION" value="11.0.1" />
+    </plugin>
+    <plugin name="cordova-plugin-request-location-accuracy" spec="^2.2.3" />
     <engine name="android" spec="~7.0.0" />
 </widget>

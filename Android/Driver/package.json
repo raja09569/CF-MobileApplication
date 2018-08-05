@@ -30,7 +30,11 @@
       "cordova-plugin-datetimepicker": {},
       "uk.co.workingedge.phonegap.plugin.launchnavigator": {
         "OKHTTP_VERSION": "3.+"
-      }
+      },
+      "phonegap-plugin-push": {
+        "FCM_VERSION": "11.0.1"
+      },
+      "cordova-plugin-request-location-accuracy": {}
     }
   },
   "dependencies": {
@@ -41,12 +45,14 @@
     "cordova-plugin-mauron85-background-geolocation": "^2.3.5",
     "cordova-plugin-media": "^5.0.2",
     "cordova-plugin-network-information": "^2.0.1",
+    "cordova-plugin-request-location-accuracy": "^2.2.3",
     "cordova-plugin-spinner-dialog": "^1.3.1",
     "cordova-plugin-splashscreen": "^5.0.2",
     "cordova-plugin-statusbar": "^2.4.2",
     "cordova-plugin-whitelist": "^1.3.3",
     "cordova-plugin-x-toast": "^2.6.2",
     "cordova.plugins.diagnostic": "^4.0.8",
+    "phonegap-plugin-push": "^2.1.2",
     "uk.co.workingedge.phonegap.plugin.launchnavigator": "^4.2.1"
   }
 }

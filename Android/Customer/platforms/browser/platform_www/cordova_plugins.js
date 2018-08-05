@@ -475,7 +475,8 @@ module.exports.metadata =
     "cordova-plugin-x-toast": "2.6.2",
     "cordova.plugins.diagnostic": "4.0.8",
     "phonegap-plugin-push": "2.1.3",
-    "cordova-plugin-browsersync": "0.1.7"
+    "cordova-plugin-browsersync": "0.1.7",
+    "cordova-plugin-request-location-accuracy": "2.2.3"
 }
 // BOTTOM OF METADATA
 });

@@ -1,10 +1,10 @@
 # In Customer application 
-Following plugin removed 
+Following plugin Added 
 -> cordova-plugin-request-location-accuracy
 
 
 # In Driver application
-Following plugins are removed 
+Following plugins are Added 
 -> com.phonegap.plugins.PushPlugin
 -> cordova-plugin-compat
 -> cordova-plugin-request-location-accuracy

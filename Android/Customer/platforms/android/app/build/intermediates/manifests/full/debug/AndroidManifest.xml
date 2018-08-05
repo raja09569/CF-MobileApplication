@@ -18,22 +18,30 @@
         android:xlargeScreens="true" />
 
     <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-    <uses-permission android:name="android.permission.WAKE_LOCK" />
-    <uses-permission android:name="android.permission.VIBRATE" />
-    <uses-permission android:name="android.permission.BLUETOOTH" />
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.CALL_PHONE" />
 
     <uses-feature
         android:name="android.hardware.telephony"
         android:required="false" />
 
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
 
     <uses-feature android:name="android.hardware.location.gps" />
-    <!-- for android -->
+
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.BLUETOOTH" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <!-- Required by older versions of Google Play services to create IID tokens -->
+    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
+
+    <permission
+        android:name="com.camerounfacile.customer.permission.C2D_MESSAGE"
+        android:protectionLevel="signature" />
+
+    <uses-permission android:name="com.camerounfacile.customer.permission.C2D_MESSAGE" /> <!-- for android -->
     <!-- <uses-permission android:name="com.android.launcher.permission.READ_SETTINGS"/> -->
     <!-- <uses-permission android:name="com.android.launcher.permission.WRITE_SETTINGS"/> -->
     <!-- <uses-permission android:name="com.android.launcher.permission.INSTALL_SHORTCUT" /> -->
@@ -54,14 +62,7 @@
     <uses-permission android:name="com.oppo.launcher.permission.READ_SETTINGS" />
     <uses-permission android:name="com.oppo.launcher.permission.WRITE_SETTINGS" /> <!-- for EvMe -->
     <uses-permission android:name="me.everything.badger.permission.BADGE_COUNT_READ" />
-    <uses-permission android:name="me.everything.badger.permission.BADGE_COUNT_WRITE" /> <!-- Required by older versions of Google Play services to create IID tokens -->
-    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
-
-    <permission
-        android:name="com.camerounfacile.customer.permission.C2D_MESSAGE"
-        android:protectionLevel="signature" />
-
-    <uses-permission android:name="com.camerounfacile.customer.permission.C2D_MESSAGE" />
+    <uses-permission android:name="me.everything.badger.permission.BADGE_COUNT_WRITE" />
 
     <application
         android:debuggable="true"
@@ -83,24 +84,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
-            android:name="com.adobe.phonegap.push.PushHandlerActivity"
-            android:exported="true"
-            android:permission="com.camerounfacile.customer.permission.PushHandlerActivity" />
-
-        <receiver android:name="com.adobe.phonegap.push.BackgroundActionButtonHandler" />
-        <receiver android:name="com.adobe.phonegap.push.PushDismissedHandler" />
-
-        <service android:name="com.adobe.phonegap.push.FCMService" >
-            <intent-filter>
-                <action android:name="com.google.firebase.MESSAGING_EVENT" />
-            </intent-filter>
-        </service>
-        <service android:name="com.adobe.phonegap.push.PushInstanceIDListenerService" >
-            <intent-filter>
-                <action android:name="com.google.firebase.INSTANCE_ID_EVENT" />
-            </intent-filter>
-        </service>
 
         <provider
             android:name="org.apache.cordova.camera.FileProvider"
@@ -129,6 +112,25 @@
                 android:name="android.support.FILE_PROVIDER_PATHS"
                 android:resource="@xml/sharing_paths" />
         </provider>
+
+        <activity
+            android:name="com.adobe.phonegap.push.PushHandlerActivity"
+            android:exported="true"
+            android:permission="com.camerounfacile.customer.permission.PushHandlerActivity" />
+
+        <receiver android:name="com.adobe.phonegap.push.BackgroundActionButtonHandler" />
+        <receiver android:name="com.adobe.phonegap.push.PushDismissedHandler" />
+
+        <service android:name="com.adobe.phonegap.push.FCMService" >
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+            </intent-filter>
+        </service>
+        <service android:name="com.adobe.phonegap.push.PushInstanceIDListenerService" >
+            <intent-filter>
+                <action android:name="com.google.firebase.INSTANCE_ID_EVENT" />
+            </intent-filter>
+        </service>
 
         <meta-data
             android:name="android.support.VERSION"
@@ -197,6 +199,11 @@
             android:authorities="com.camerounfacile.customer.firebaseinitprovider"
             android:exported="false"
             android:initOrder="100" />
+
+        <activity
+            android:name="com.google.android.gms.common.api.GoogleApiActivity"
+            android:exported="false"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
 
         <meta-data
             android:name="com.google.android.gms.version"

@@ -1,4 +1,7 @@
-#Thu Jul 19 16:44:51 IST 2018
-base.0=D\:\\APPS\\CF\\Android\\Driver\\platforms\\android\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\0
+#Sun Aug 05 09:17:38 IST 2018
+base.0=D\:\\Cameroun\\Mobile-App\\Android\\Driver\\platforms\\android\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\0
+renamed.1=classes2.dex
 renamed.0=classes.dex
-file.0=D\:\\APPS\\CF\\Android\\Driver\\platforms\\android\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\0\\classes.dex
+file.1=D\:\\Cameroun\\Mobile-App\\Android\\Driver\\platforms\\android\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\0\\classes2.dex
+base.1=D\:\\Cameroun\\Mobile-App\\Android\\Driver\\platforms\\android\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\0
+file.0=D\:\\Cameroun\\Mobile-App\\Android\\Driver\\platforms\\android\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\0\\classes.dex
