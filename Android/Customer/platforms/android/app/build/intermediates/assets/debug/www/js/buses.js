@@ -4,18 +4,25 @@
 
     function onDeviceReady() {
         // Handle the Cordova pause and resume events
-        document.addEventListener( 'pause', onPause.bind( this ), false );
-        document.addEventListener( 'resume', onResume.bind( this ), false );
-		
-		$.mobile.loading("show");
-		
+        document.addEventListener( 'pause', onPause.bind(this), false );
+        document.addEventListener( 'resume', onResume.bind(this), false );
+		//$.mobile.loading("show");	
     };
 
 } )();
+
+function onPause(){
+	console.log("On Pause called");
+}
+
+function onResume(){
+	console.log("On Resume called");
+}
+
 $("#back").click(function(){
-	//alert("hello");
 	window.open('index.html#main','_self');
 });
+
 var options = {
     date: new Date(),
     mode: 'date',
@@ -51,7 +58,7 @@ $("#on_gto").click(function(){
 
 $("#bus-search-form").on("pageshow", function(){
 	$.mobile.loading("hide");
-	$("#autocompletePlace")
+	/* $("#autocompletePlace")
 	.geocomplete()
 	.bind("geocode:result", function(event, result){
 		$("#on_lfrm").val(result.address_components[0].short_name);
@@ -62,7 +69,7 @@ $("#bus-search-form").on("pageshow", function(){
 	.bind("geocode:result", function(event, result){
 		$("#on_gto").val(result.address_components[0].short_name);
 		$.mobile.changePage( "#bus-search-form", { transition: "slideup", changeHash: false });
-	});
+	}); */
 });
 
 

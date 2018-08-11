@@ -1,20 +1,20 @@
 #departureDate{
-padding:4% 4% 4% 10%;
-width:100%;
-border:1px solid #f5f5f5;
-font-size:4vw;
-color:gray;
-background-image:url('../img/cal.png');
-background-repeat:no-repeat;
-background-position:left center;
-outline:0;
+	padding:4% 4% 4% 10%;
+	width:100%;
+	border:1px solid #f5f5f5;
+	font-size:4vw;
+	color:gray;
+	background-image:url('../img/cal.png');
+	background-repeat:no-repeat;
+	background-position:left center;	
+	outline:0;
 }
 .ui-header .ui-btn-left{
 	top:0 !important;
 	left:0 !important;
 }
 .ui-page .ui-header {
-    background: #EA2330 !important;
+    /* background: #EA2330 !important; */
 }
 .ui-btn-inner{
 	border: none !important;

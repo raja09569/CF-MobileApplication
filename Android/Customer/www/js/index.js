@@ -182,7 +182,7 @@ $("#cabs").click(function(){
 });
 
 $("#buses").click(function(){
-	window.location = 'bus/index.html';
+	window.location = 'buses.html';
 });
 
 $("#hotels").click(function(){

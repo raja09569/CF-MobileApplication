@@ -1,0 +1,327 @@
+<html>
+<head>
+	<meta name="format-detection" content="telephone=no">
+    <meta name="msapplication-tap-highlight" content="no">
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+    <title>Cameroun Facile</title>
+	<link rel="stylesheet" type="text/css" href="css/buses.css">
+	<link rel="stylesheet" href="css/jquery.mobile-1.4.5.min.css">
+    <script src="js/jquery-1.12.3.js"></script>
+    <script src="js/jquery.mobile-1.4.5.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+	<link rel="stylesheet" href="css/font-awesome.min.css" >
+    <script src="js/server_variable.js"></script>
+    <script src="js/main.js"></script>
+</head>
+<body>
+	<!-- Start of bus search form -->
+	<div data-role="page" id="bus-search-form">
+		<div id="bokrideheader" data-role="header" data-position="fixed">
+			<h1>
+				<div class="ui-btn-left" data-role="controlgroup" data-type="horizontal">
+					<a id="back" data-role="button" data-corner="false" class="titles" >
+						<p style="margin:0 !important;">
+							<i class="fa fa-arrow-left" aria-hidden="true"></i>
+						</p>
+					</a>
+					<a data-role="button" data-corner="false" class="titles">
+						<p style="margin:0 !important;">
+							Book a Ride
+						</p>
+					</a>
+				</div>
+				<div class="ui-btn-right" style="text-align:right;">
+					<img src="img/logo.png" class="img-logo"/>	
+				</div>
+			</h1>	
+		</div>
+		<!-- <div data-role="header"data-position="fixed">
+			<h1></h1>
+			<div class="ui-btn-left" data-role="controlgroup" data-type="horizontal">
+				<a id="back" data-role="button" data-corner="false" class="titles">
+					<img src="img/back.png" style="width:40%;"/>
+				</a>
+				<a href="#main" data-role="button" data-corner="false" class="titles">
+					<p style="margin:0 !important;">
+						Book Bus Tickets
+					</p>
+				</a>
+			</div>
+		</div> -->
+		<div data-role="content" class="ui-content">
+			<div style="width:100%;">
+				<div style="float:left;width:43%;">
+					<label style="font-size:3.5vw !important;padding:4%;color:#AAAAAA;">
+						Leaving From
+					</label>
+					<input type="text" style="color:#999;font-size:4.5vw !important;
+					border:none !important;" id="on_lfrm" readonly />
+				</div>
+				<div style="float:left;width:10%;padding-top:7%;
+				padding-bottom:3%;padding-right:2%;padding-left:2%;text-align:center;">
+					<img src="img/transfer.png" style="width:60%;" />
+				</div>
+				<div style="float:left;width:43%;">
+					<label style="font-size:3.5vw !important;padding:4%;color:#AAAAAA;">
+						Going To
+					</label>
+					<input type="text" id="on_gto" style="color:#999;font-size:4.5vw !important;
+					border:none !important;" readonly />
+				</div>
+			</div>
+			<div style="clear:both;"></div>
+			<br/>
+			<div>
+				<label style="font-size:3.5vw !important;color:#AAAAAA;">
+					Departure
+				</label>
+				<input id="departureDate" type="text" style="color:#000000;font-size:4vw !important;
+				border:none !important;margin-top:2%;" readonly />
+			</div>
+			<br/>
+			<div>
+				<label style="font-size:3.5vw !important;color:#AAAAAA;">
+					Seat(s) Required
+				</label>
+				<div data-role="controlgroup" data-type="horizontal" id="seats" style="margin-top:2%;margin-left:1%;width:100%;">
+					<input type="radio" name="radio-choice-h-2" id="radio-choice-h-2a" value="1">
+					<label for="radio-choice-h-2a">1</label>
+					<input type="radio" name="radio-choice-h-2" id="radio-choice-h-2b" value="2">
+					<label for="radio-choice-h-2b">2</label>
+					<input type="radio" name="radio-choice-h-2" id="radio-choice-h-2c" value="3">
+					<label for="radio-choice-h-2c">3</label>
+					<input type="radio" name="radio-choice-h-2" id="radio-choice-h-2d" value="4">
+					<label for="radio-choice-h-2d">4</label>
+					<input type="radio" name="radio-choice-h-2" id="radio-choice-h-2e" value="5">
+					<label for="radio-choice-h-2e">5</label>
+					<input type="radio" name="radio-choice-h-2" id="radio-choice-h-2f" value="6">
+					<label for="radio-choice-h-2f">6</label>
+				</div>
+			</div>
+			<br/>
+			<br/>
+			<br/>
+			<br/>
+			<br/>
+			<br/>
+			<button data-role="none" id="btn_fndBus">
+				FIND BUSES
+			</button>
+		</div>
+		
+	</div>
+	
+	<!-- Leaving From Page -->
+	<div data-role="page" id="leaving_frm">
+		<div data-role="header"data-position="fixed">
+			<h1></h1>
+			<div class="ui-btn-left" data-role="controlgroup" data-type="horizontal">
+				<a href="#bus-search-form" data-role="button" data-corner="false"
+				class="titles">
+					<img src="img/back.png" style="width:40%;"/>
+				</a>
+				<a href="#main" data-role="button" data-corner="false" class="titles">
+					<p style="margin:0 !important;">
+						Leaving From
+					</p>
+				</a>
+			</div>
+		</div>
+		<div data-role="main">
+			<input data-role="none" type="text" value="" id="autocompletePlace" placeholder="Leaving From" />
+		</div>
+	</div>	
+	<!-- Close of Leaving From page -->
+	
+	<!-- Going To Page -->
+	<div data-role="page" id="going_to">
+		<div data-role="header"data-position="fixed">
+			<h1></h1>
+			<div class="ui-btn-left" data-role="controlgroup" data-type="horizontal">
+				<a href="#bus-search-form" data-role="button" data-corner="false" class="titles">
+					<img src="img/back.png" style="width:40%;"/>
+				</a>
+				<a href="#main" data-role="button" data-corner="false" class="titles">
+					<p style="margin:0 !important;">
+						Going To
+					</p>
+				</a>
+			</div>
+		</div>
+		<div data-role="main">
+			<input data-role="none" type="text" value="" id="autocompletePlace2" placeholder="Going To" />
+		</div>
+	</div>	
+	<!-- Close of Going To page -->
+	
+	<!-- close of bus search form -->
+
+	<!-- Buses List Page -->
+	<div data-role="page" id="busListPage">
+		<div data-role="header"data-position="fixed">
+			<h1 style="padding:6%;"></h1>
+			<div class="ui-btn-left" data-role="controlgroup" data-type="horizontal">
+				<a href="#bus-search-form" data-role="button" data-corner="false"
+					class="titles" style="padding-top:14%">
+					<img src="img/back.png" style="width:45%;"/>
+				</a>
+				<a href="#bus-search-form" data-role="button" data-corner="false"
+					class="titles">
+					<p style="margin:0 !important;" id="busListTitle"></p>
+					<span id="noseats" style="float:left;"></span>
+				</a>
+			</div>
+		</div>
+		<div data-role="main">
+			<p id="slctd_date">12 Mar 2017</p>
+			<ul data-role="listview" id="busesList">
+				<li>
+					<a>
+						<p style="font-size:5vw;padding-top:5%;">10:45pm - 10:45pm</p>
+						<p style="font-size:3vw;padding-left:1%;">
+							<strong>
+								9hr 45mins
+							</strong>
+						</p>
+						<p style="margin-top:2%;padding-left:1%;font-size:3.5vw;color:#AAAAAA;">
+							Jabbar Travels
+						</p>
+						<p style="font-size:3.5vw;color:#AAAAAA;padding-left:1%;">
+							Non A/C Semi Sleeper (2+2)
+						</p>
+						<p class="ui-li-aside" style="font-size:5vw;color:#009688;">
+							<strong>Fcfa 3350</strong>
+						</p>
+					</a>
+				</li>
+			</ul>
+		</div>
+	</div>	
+	<!-- Close of Buses List page -->
+	
+	<!-- Pick Seats Page -->
+	<div data-role="page" id="pickSeatsPage">
+		<div data-role="header"data-position="fixed">
+			<h1></h1>
+			<div class="ui-btn-left" data-role="controlgroup" data-type="horizontal">
+				<a href="#busListPage" data-role="button" data-corner="false"
+					class="titles">
+					<img src="img/back.png" style="width:45%;"/>
+				</a>
+				<a href="#busListPage" data-role="button" data-corner="false"
+					class="titles">
+					<p style="margin:0 !important;" id="pickSeat">
+						
+					</p>
+				</a>
+			</div>
+		</div>
+		<div data-role="main">
+			<div id="seatInstr">
+				<div>
+					<img src="img/available.png"/>
+					<span>
+						Available
+					</span>
+				</div>
+				<div>
+					<img src="img/booked.png"/>
+					<span>
+						Booked
+					</span>
+				</div>
+				<div>
+					<img src="img/Ladies.png"/>
+					<span>
+						Ladies
+					</span>
+				</div>
+				<div>
+					<img src="img/selected.png"/>
+					<span>Selected</span>
+				</div>
+			</div>
+			<div id="seatArrangement">
+				
+			</div>
+		</div>
+		<div data-role="footer" data-position="fixed" id="footer">
+			<p>Bus operator has right to change seat allocation.
+				By clicking proceed,you agree to the <span>cacellation policy</span></p>
+			<button id="pick_proceed">PROCEED</button>
+		</div>
+	</div>	
+	<!-- Close of Pick Seats page -->
+	
+	<!-- Pick Boarding point Page -->
+	<div data-role="page" id="boardingPage">
+		<div data-role="header"data-position="fixed">
+			<h1></h1>
+			<div class="ui-btn-left" data-role="controlgroup" data-type="horizontal">
+				<a href="#busListPage" data-role="button" data-corner="false"
+					class="titles">
+					<img src="img/back.png" style="width:45%;"/>
+				</a>
+				<a href="#busListPage" data-role="button" data-corner="false"
+					class="titles">
+					<p style="margin:0 !important;" id="busListTitle">
+						Confirm Boarding Point
+					</p>
+				</a>
+			</div>
+		</div>
+		<div data-role="main">
+			<div id="boardingHeader">
+				<div style="width:61%;">
+					<span>
+						Complete Address
+					</span>
+				</div>
+				<div style="width:31%;">
+					<span>
+						Reporting time
+					</span>
+				</div>
+			</div>
+			<ul data-role="listview" id="boardingList">
+				<li>
+					<a>
+						<p id="brdAdrs">
+							Rkdal ka jakljf klajklf jkja jklasj jsaj l afkaj 
+							klfjak ljkdlsj fdja jsajfd jl
+						</p>
+						<p id="brdTime">
+							10:45 PM
+						</p>
+					</a>
+				</li>
+			</ul>
+		</div>
+	</div>	
+	<!-- Close of Pick Boarding point page -->
+	
+	<!-- Buses List Page -->
+	<!--<div data-role="page" id="busListPage">
+		<div data-role="header"data-position="fixed">
+			<h1></h1>
+			<div class="ui-btn-left" data-role="controlgroup" data-type="horizontal">
+				<a href="#bus-search-form" data-role="button" data-corner="false" class="titles">
+					<img src="img/back.png" style="width:40%;"/>
+				</a>
+				<a href="#bus-search-form" data-role="button" data-corner="false" class="titles">
+					<p style="margin:0 !important;" id="busListTitle"></p>
+					<span id="noseats"></span>
+				</a>
+			</div>
+		</div>
+		<div data-role="main">
+			<input type="text" value="" id="autocompletePlace" />
+		</div>
+	</div>	-->
+	<!-- Close of Buses List page -->
+	
+    <script type="text/javascript" src="cordova.js"></script>
+    <script type="text/javascript" src="js/platformOverrides.js"></script>
+    <script type="text/javascript" src="js/buses.js"></script>
+</body>
+</html>
