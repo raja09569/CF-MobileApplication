@@ -7,11 +7,12 @@
 	<link rel="stylesheet" href="css/jquery.mobile-1.4.5.min.css">
     <script type="text/javascript" src="js/jquery-1.12.3.js"></script>
     <script type="text/javascript" src="js/jquery.mobile-1.4.5.min.js"></script>
+    <script type="text/javascript" src="js/server_variable.js"></script>
 	<link rel="stylesheet" href="css/font-awesome.min.css" >
     <link rel="stylesheet" type="text/css" href="css/style.css">
 	<link rel="stylesheet" type="text/css" href="css/buses.css">
-    <script type="text/javascript" src="js/server_variable.js"></script>
     <script type="text/javascript" src="js/main.js"></script>
+    <script type="text/javascript" src="js/buses.js"></script>
 </head>
 <body>
 	<!-- Start of bus search form -->
@@ -36,70 +37,37 @@
 			</h1>	
 		</div>
 		<div data-role="content" class="ui-content">
-			<div style="width:100%;">
-				<div style="float:left;width:43%;">
-					<label style="font-size:3.5vw !important;padding:4%;color:#AAAAAA;">
-						Leaving From
-					</label>
-					<input type="text" style="color:#999;font-size:4.5vw !important;
-					border:none !important;" id="on_lfrm" readonly />
+			<div class="input-block">
+				<div>
+					<label for="bus-from">From</label>
+					<input type="text" data-role="none" id="bus-from" class="bus-input" name="bus-from" placeholder="Enter City" readonly />
+					<img src="img/city.png" />
 				</div>
-				<div style="float:left;width:10%;padding-top:7%;
-				padding-bottom:3%;padding-right:2%;padding-left:2%;text-align:center;">
-					<img src="img/transfer.png" style="width:60%;" />
+				<div>
+					<hr>
 				</div>
-				<div style="float:left;width:43%;">
-					<label style="font-size:3.5vw !important;padding:4%;color:#AAAAAA;">
-						Going To
-					</label>
-					<input type="text" id="on_gto" style="color:#999;font-size:4.5vw !important;
-					border:none !important;" readonly />
+				<div>
+					<label for="bus-to">To</label>
+					<input type="text" id="bus-to" name="bus-to" placeholder="Enter City" class="bus-input" data-role="none" readonly/>
+					<img src="img/city.png" />
 				</div>
 			</div>
-			<div style="clear:both;"></div>
-			<br/>
-			<div>
-				<label style="font-size:3.5vw !important;color:#AAAAAA;">
-					Departure
-				</label>
-				<input id="departureDate" type="text" style="color:#000000;font-size:4vw !important;
-				border:none !important;margin-top:2%;" readonly />
-			</div>
-			<br/>
-			<div>
-				<label style="font-size:3.5vw !important;color:#AAAAAA;">
-					Seat(s) Required
-				</label>
-				<div data-role="controlgroup" data-type="horizontal" id="seats" style="margin-top:2%;margin-left:1%;width:100%;">
-					<input type="radio" name="radio-choice-h-2" id="radio-choice-h-2a" value="1">
-					<label for="radio-choice-h-2a">1</label>
-					<input type="radio" name="radio-choice-h-2" id="radio-choice-h-2b" value="2">
-					<label for="radio-choice-h-2b">2</label>
-					<input type="radio" name="radio-choice-h-2" id="radio-choice-h-2c" value="3">
-					<label for="radio-choice-h-2c">3</label>
-					<input type="radio" name="radio-choice-h-2" id="radio-choice-h-2d" value="4">
-					<label for="radio-choice-h-2d">4</label>
-					<input type="radio" name="radio-choice-h-2" id="radio-choice-h-2e" value="5">
-					<label for="radio-choice-h-2e">5</label>
-					<input type="radio" name="radio-choice-h-2" id="radio-choice-h-2f" value="6">
-					<label for="radio-choice-h-2f">6</label>
+			<div class="input-block date-block">
+				<div>
+					<label>Journey Date</label>
+					<input type="text" id="journey-date" name="journey-date" placeholder="Thu, 2 Aug 2018 Today" class="bus-input" data-role="none" readonly/>
+					<img src="img/calendar.png" />
 				</div>
 			</div>
-			<br/>
-			<br/>
-			<br/>
-			<br/>
-			<br/>
-			<br/>
-			<button data-role="none" id="btn_fndBus">
-				FIND BUSES
+		</div>
+		<div data-role="footer" data-position="fixed">
+			<button id="btn_fndBus">
+				Search Buses
 			</button>
 		</div>
-		
 	</div>
 	
     <script type="text/javascript" src="cordova.js"></script>
     <script type="text/javascript" src="js/platformOverrides.js"></script>
-    <script type="text/javascript" src="js/buses.js"></script>
 </body>
 </html>

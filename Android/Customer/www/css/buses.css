@@ -1,5 +1,6 @@
 .ui-page {
 	background: #cccccc;
+	height: 100%;
 }
 .ui-footer {
 	background-color: #cccccc !important;
@@ -34,7 +35,34 @@ input[type="text"],input[type="email"],input[type="password"],input[type="tel"] 
 .date-block {
 	margin-top: 15px;
 }
+#btn_fndBus {
+	background-color:#2BA39F !important;
+	color: #FFFFFF !important;
+	box-shadow: none !important;
+	padding:3% !important;
+	width: 94% !important;
+	text-shadow: none !important;
+	margin-right: 3%;
+	margin-left: 3%;
+}
 
+
+input[type='search'][name='search-city'] {
+	width: 130px;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    background-color: white;
+    background-image: url('../img/search.png');
+    background-position: 10px 10px; 
+    background-repeat: no-repeat;
+    padding: 12px 20px 12px 40px;
+    -webkit-transition: width 0.4s ease-in-out;
+    transition: width 0.4s ease-in-out;
+}
+
+/*
 
 #departureDate {
 	padding:4% 4% 4% 10%;
@@ -48,16 +76,7 @@ input[type="text"],input[type="email"],input[type="password"],input[type="tel"] 
 	outline:0;
 }
 
-#btn_fndBus {
-	background-color:#2BA39F !important;
-	color: #FFFFFF !important;
-	box-shadow: none !important;
-	padding:3% !important;
-	width: 94% !important;
-	text-shadow: none !important;
-	margin-right: 3%;
-	margin-left: 3%;
-}
+
 #autocompletePlace, #autocompletePlace2 {
 	width: 94%;
     margin-top: 4%;
@@ -156,3 +175,4 @@ input[type="text"],input[type="email"],input[type="password"],input[type="tel"] 
 .ui-controlgroup-controls {
 	width:100%;
 }
+*/

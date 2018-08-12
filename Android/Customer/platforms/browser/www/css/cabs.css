@@ -1,3 +1,20 @@
+
+input[type="text"],input[type="email"],input[type="password"],input[type="tel"]  {
+    border: 1px solid #828999;
+    padding: 10px;
+    border-radius: 5px;
+    display: table-cell;
+    width: 100%;
+    background: #fff !important;
+    color: #999999;
+    margin-left: 20px;
+    margin-bottom: 10px;
+    outline: none;
+    transition: 0.3s;
+    text-indent: 1.5em;
+    overflow: hidden;
+}
+
 #div_pickLocation {
 	background: #FFFFFF;
 	padding: 5%;

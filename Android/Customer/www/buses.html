@@ -17,7 +17,7 @@
 <body>
 	<!-- Start of bus search form -->
 	<div data-role="page" id="bus-search-form">
-		<div id="bokrideheader" data-role="header" data-position="fixed">
+		<div data-role="header" data-position="fixed">
 			<h1>
 				<div class="ui-btn-left" data-role="controlgroup" data-type="horizontal">
 					<a id="back" data-role="button" data-corner="false" class="titles" >
@@ -40,7 +40,7 @@
 			<div class="input-block">
 				<div>
 					<label for="bus-from">From</label>
-					<input type="text" data-role="none" id="bus-from" class="bus-input" name="bus-from" placeholder="Enter City" readonly />
+					<input type="text" data-role="none" id="bus-from" class="bus-input" name="bus-from" placeholder="Enter City" onclick="selectCity(this)" readonly/>
 					<img src="img/city.png" />
 				</div>
 				<div>
@@ -48,7 +48,7 @@
 				</div>
 				<div>
 					<label for="bus-to">To</label>
-					<input type="text" id="bus-to" name="bus-to" placeholder="Enter City" class="bus-input" data-role="none" readonly/>
+					<input type="text" id="bus-to" name="bus-to" placeholder="Enter City" class="bus-input" data-role="none" onclick="selectCity(this)" readonly/>
 					<img src="img/city.png" />
 				</div>
 			</div>
@@ -64,6 +64,30 @@
 			<button id="btn_fndBus">
 				Search Buses
 			</button>
+		</div>
+	</div>
+
+	<!-- second page -->
+	<div data-role="page" id="page-cities">
+		<div data-role="header" data-position="fixed">
+			<h1>
+				<div class="ui-btn-left" data-role="controlgroup" data-type="horizontal">
+					<a href="#bus-search-form" data-role="button" data-corner="false" class="titles" >
+						<p style="margin:0 !important;">
+							<i class="fa fa-arrow-left" aria-hidden="true"></i>
+						</p>
+					</a>
+				</div>
+				<div class="ui-btn-right" style="text-align:right;">
+					<!-- <p style="margin:0 !important;padding: 9px;color: #FFF;">
+						<i class="fa fa-search" aria-hidden="true"></i>
+					</p> -->
+					<input type="search" data-role="none" name="search-city" placeholder="type here.." />
+				</div>
+			</h1>	
+		</div>
+		<div data-role="content" class="ui-content">
+			
 		</div>
 	</div>
 	
