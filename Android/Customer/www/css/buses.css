@@ -84,6 +84,28 @@ p.bus-arr-time {
 	margin: 0.6em 0 !important;
 }
 
+#page-bus-details div[data-role='header'] {
+	background: linear-gradient(0deg,rgba(16, 160, 107, 0.82),rgba(15, 128, 86, 0.82)),url(../img/bus-tour.png) !important;background-size:  cover !important;background-repeat:  no-repeat;
+}
+#page-bus-details div a.titles {
+	box-shadow: none;
+}
+#page-bus-details div div {
+	margin-top: 15px;
+}
+#page-bus-details div div p:first-child {
+	/* margin: 0; *//* padding: 0; */color:  white;font-size:  0.8em;margin-bottom: 5px;
+}
+#page-bus-details div div h1 {
+	color: #FFF;font-size: 1.2em;font-weight:  bold;margin:  0;padding: 0;
+}
+#page-bus-details div div p:last-child {
+	margin: 5px;color: #FFF;font-size: 0.8em;
+}
+#page-bus-details div p {
+	margin-left:  20px;color: #FFF;
+}
+
 /*input[type='search'][name='search-city'] {
 	width: 130px;
     box-sizing: border-box;
