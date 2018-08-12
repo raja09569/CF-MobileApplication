@@ -55,12 +55,12 @@
 			<div class="input-block date-block">
 				<div>
 					<label>Journey Date</label>
-					<input type="text" id="journey-date" name="journey-date" placeholder="Thu, 2 Aug 2018 Today" class="bus-input" data-role="none" readonly/>
+					<input type="text" id="journey-date" name="journey-date" placeholder="Thu, 2 Aug 2018" class="bus-input" data-role="none" readonly/>
 					<img src="img/calendar.png" />
 				</div>
 			</div>
 		</div>
-		<div data-role="footer" data-position="fixed">
+		<div data-role="footer" data-position="fixed" data-hide-during-focus="" data-tap-toggle="false">
 			<button id="btn_fndBus">
 				Search Buses
 			</button>
@@ -72,22 +72,110 @@
 		<div data-role="header" data-position="fixed">
 			<h1>
 				<div class="ui-btn-left" data-role="controlgroup" data-type="horizontal">
-					<a href="#bus-search-form" data-role="button" data-corner="false" class="titles" >
+					<a onclick="takeCity()" data-role="button" data-corner="false" class="titles" >
 						<p style="margin:0 !important;">
 							<i class="fa fa-arrow-left" aria-hidden="true"></i>
 						</p>
 					</a>
+					<a data-role="button" data-corner="false" class="titles">
+						<p style="margin:0 !important;">
+							Select City
+						</p>
+					</a>
 				</div>
 				<div class="ui-btn-right" style="text-align:right;">
-					<!-- <p style="margin:0 !important;padding: 9px;color: #FFF;">
-						<i class="fa fa-search" aria-hidden="true"></i>
-					</p> -->
-					<input type="search" data-role="none" name="search-city" placeholder="type here.." />
+					<img src="img/logo.png" class="img-logo"/>	
 				</div>
 			</h1>	
 		</div>
-		<div data-role="content" class="ui-content">
-			
+		<div data-role="content" class="city-search-content" data-position="fixed">
+			<div>
+				<input type="search" name="search-ctiy" placeholder="Type here.." />
+			</div>
+			<div>
+				<ul data-role="listview" data-inset="true">
+					<li data-role="list-divider">Recente Searches</li>
+					<li>
+						<a onclick="takeCity(this)">
+							<img src="img/city.png" alt="city-name" class="ui-li-icon">
+							City Name
+						</a>
+					</li>
+					<li>
+						<a>
+							<img src="img/city.png" alt="city-name" class="ui-li-icon">
+							City Name
+						</a>
+					</li>
+					<li>
+						<a>
+							<img src="img/city.png" alt="city-name" class="ui-li-icon">
+							City Name
+						</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+
+	<!-- Third page -->
+	<div data-role="page" id="page-buses">
+		<div data-role="header" data-position="fixed">
+			<h1>
+				<div class="ui-btn-left" data-role="controlgroup" data-type="horizontal">
+					<a onclick="takeCity()" data-role="button" data-corner="false" class="titles" >
+						<p style="margin:0 !important;">
+							<i class="fa fa-arrow-left" aria-hidden="true"></i>
+						</p>
+					</a>
+					<a data-role="button" data-corner="false" class="titles">
+						<p style="margin:0 !important;">
+							Hyderbad to Bangalore
+						</p>
+					</a>
+				</div>
+				<div class="ui-btn-right" style="text-align:right;">
+					<img src="img/logo.png" class="img-logo"/>	
+				</div>
+			</h1>	
+		</div>
+		<div data-role="content">
+			<ul data-role="listview">
+				<li data-role="list-divider">
+					<div class="ui-grid-b">
+						<div class="ui-block-a text-left">
+							<span><i class="fa fa-chevron-left" aria-hidden="true"></i></span>
+						</div>
+						<div class="ui-block-b text-center">
+							<span class="text-bold">Tue 12 Jun 2018</span>
+						</div>
+						<div class="ui-block-c text-right">
+							<span><i class="fa fa-chevron-right" aria-hidden="true"></i></span>
+						</div>
+					</div>
+				</li>
+				<li>
+					<p class="ui-li-aside bus-arr-time">
+						<strong>6:24</strong>PM
+					</p>
+					<p class="ui-li-aside bus-dep-time">
+						6:24PM
+					</p>
+					<h2>Morning star travels</h2>
+					<p>Scania ac multi axle semi sleeper(2+2)</p>
+					<p>
+						6 seats&nbsp;&bull;&nbsp;08:30 Hrs&nbsp;&bull;&nbsp;1 Rest stop
+					</p>
+					<p class="ui-li-aside bus-price">
+						From &#8377; 700
+					</p>
+					<p>
+						<span class="rating-btn">4.6</span>
+						&nbsp;
+						<span><strong>1893 Ratings</strong></span>
+					</p>
+				</li>
+			</ul>
 		</div>
 	</div>
 	
