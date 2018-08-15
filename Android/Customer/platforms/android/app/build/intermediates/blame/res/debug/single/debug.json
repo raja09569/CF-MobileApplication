@@ -20,20 +20,20 @@
         "source": "C:\\Users\\Rk Group of Services\\.gradle\\caches\\transforms-1\\files-1.1\\play-services-base-11.6.2.aar\\616cbac935a6b8af0ed37bf2ae388e37\\res\\drawable-mdpi-v4\\common_google_signin_btn_text_dark_normal_background.9.png"
     },
     {
-        "merged": "D:\\Cameroun\\Mobile-App\\Android\\Customer\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4_abc_list_pressed_holo_dark.9.png.flat",
-        "source": "C:\\Users\\Rk Group of Services\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-26.1.0.aar\\6370686534c49adb08cd615d29b49b37\\res\\drawable-hdpi-v4\\abc_list_pressed_holo_dark.9.png"
-    },
-    {
         "merged": "D:\\Cameroun\\Mobile-App\\Android\\Customer\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi-v4_abc_btn_radio_to_on_mtrl_000.png.flat",
         "source": "C:\\Users\\Rk Group of Services\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-26.1.0.aar\\6370686534c49adb08cd615d29b49b37\\res\\drawable-xxhdpi-v4\\abc_btn_radio_to_on_mtrl_000.png"
     },
     {
-        "merged": "D:\\Cameroun\\Mobile-App\\Android\\Customer\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable_tooltip_frame_dark.xml.flat",
-        "source": "C:\\Users\\Rk Group of Services\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-26.1.0.aar\\6370686534c49adb08cd615d29b49b37\\res\\drawable\\tooltip_frame_dark.xml"
+        "merged": "D:\\Cameroun\\Mobile-App\\Android\\Customer\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4_abc_list_pressed_holo_dark.9.png.flat",
+        "source": "C:\\Users\\Rk Group of Services\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-26.1.0.aar\\6370686534c49adb08cd615d29b49b37\\res\\drawable-hdpi-v4\\abc_list_pressed_holo_dark.9.png"
     },
     {
         "merged": "D:\\Cameroun\\Mobile-App\\Android\\Customer\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi-v4_abc_ic_commit_search_api_mtrl_alpha.png.flat",
         "source": "C:\\Users\\Rk Group of Services\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-26.1.0.aar\\6370686534c49adb08cd615d29b49b37\\res\\drawable-xxhdpi-v4\\abc_ic_commit_search_api_mtrl_alpha.png"
+    },
+    {
+        "merged": "D:\\Cameroun\\Mobile-App\\Android\\Customer\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable_tooltip_frame_dark.xml.flat",
+        "source": "C:\\Users\\Rk Group of Services\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-26.1.0.aar\\6370686534c49adb08cd615d29b49b37\\res\\drawable\\tooltip_frame_dark.xml"
     },
     {
         "merged": "D:\\Cameroun\\Mobile-App\\Android\\Customer\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4_abc_list_divider_mtrl_alpha.9.png.flat",
@@ -180,12 +180,12 @@
         "source": "C:\\Users\\Rk Group of Services\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-26.1.0.aar\\6370686534c49adb08cd615d29b49b37\\res\\drawable\\abc_list_selector_background_transition_holo_light.xml"
     },
     {
-        "merged": "D:\\Cameroun\\Mobile-App\\Android\\Customer\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\layout_abc_expanded_menu_layout.xml.flat",
-        "source": "C:\\Users\\Rk Group of Services\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-26.1.0.aar\\6370686534c49adb08cd615d29b49b37\\res\\layout\\abc_expanded_menu_layout.xml"
-    },
-    {
         "merged": "D:\\Cameroun\\Mobile-App\\Android\\Customer\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4_notification_bg_low_normal.9.png.flat",
         "source": "C:\\Users\\Rk Group of Services\\.gradle\\caches\\transforms-1\\files-1.1\\support-compat-26.1.0.aar\\96aafce3cf79eae48df7c9c84b201bb4\\res\\drawable-mdpi-v4\\notification_bg_low_normal.9.png"
+    },
+    {
+        "merged": "D:\\Cameroun\\Mobile-App\\Android\\Customer\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\layout_abc_expanded_menu_layout.xml.flat",
+        "source": "C:\\Users\\Rk Group of Services\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-26.1.0.aar\\6370686534c49adb08cd615d29b49b37\\res\\layout\\abc_expanded_menu_layout.xml"
     },
     {
         "merged": "D:\\Cameroun\\Mobile-App\\Android\\Customer\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi-v4_googleg_disabled_color_18.png.flat",
@@ -208,12 +208,12 @@
         "source": "C:\\Users\\Rk Group of Services\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-26.1.0.aar\\6370686534c49adb08cd615d29b49b37\\res\\drawable\\abc_text_cursor_material.xml"
     },
     {
-        "merged": "D:\\Cameroun\\Mobile-App\\Android\\Customer\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi-v4_abc_list_longpressed_holo.9.png.flat",
-        "source": "C:\\Users\\Rk Group of Services\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-26.1.0.aar\\6370686534c49adb08cd615d29b49b37\\res\\drawable-xxhdpi-v4\\abc_list_longpressed_holo.9.png"
-    },
-    {
         "merged": "D:\\Cameroun\\Mobile-App\\Android\\Customer\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4_abc_textfield_search_default_mtrl_alpha.9.png.flat",
         "source": "C:\\Users\\Rk Group of Services\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-26.1.0.aar\\6370686534c49adb08cd615d29b49b37\\res\\drawable-mdpi-v4\\abc_textfield_search_default_mtrl_alpha.9.png"
+    },
+    {
+        "merged": "D:\\Cameroun\\Mobile-App\\Android\\Customer\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi-v4_abc_list_longpressed_holo.9.png.flat",
+        "source": "C:\\Users\\Rk Group of Services\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-26.1.0.aar\\6370686534c49adb08cd615d29b49b37\\res\\drawable-xxhdpi-v4\\abc_list_longpressed_holo.9.png"
     },
     {
         "merged": "D:\\Cameroun\\Mobile-App\\Android\\Customer\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi_ic_action_remove.png.flat",
@@ -244,16 +244,16 @@
         "source": "C:\\Users\\Rk Group of Services\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-26.1.0.aar\\6370686534c49adb08cd615d29b49b37\\res\\drawable-xxhdpi-v4\\abc_textfield_search_default_mtrl_alpha.9.png"
     },
     {
-        "merged": "D:\\Cameroun\\Mobile-App\\Android\\Customer\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-hdpi_icon.png.flat",
-        "source": "D:\\Cameroun\\Mobile-App\\Android\\Customer\\platforms\\android\\app\\src\\main\\res\\mipmap-hdpi\\icon.png"
+        "merged": "D:\\Cameroun\\Mobile-App\\Android\\Customer\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi-v4_abc_ic_menu_paste_mtrl_am_alpha.png.flat",
+        "source": "C:\\Users\\Rk Group of Services\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-26.1.0.aar\\6370686534c49adb08cd615d29b49b37\\res\\drawable-xxhdpi-v4\\abc_ic_menu_paste_mtrl_am_alpha.png"
     },
     {
         "merged": "D:\\Cameroun\\Mobile-App\\Android\\Customer\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\layout_notification_media_action.xml.flat",
         "source": "C:\\Users\\Rk Group of Services\\.gradle\\caches\\transforms-1\\files-1.1\\support-media-compat-26.1.0.aar\\7c84cb37c4edff2571bc76091f61a64e\\res\\layout\\notification_media_action.xml"
     },
     {
-        "merged": "D:\\Cameroun\\Mobile-App\\Android\\Customer\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi-v4_abc_ic_menu_paste_mtrl_am_alpha.png.flat",
-        "source": "C:\\Users\\Rk Group of Services\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-26.1.0.aar\\6370686534c49adb08cd615d29b49b37\\res\\drawable-xxhdpi-v4\\abc_ic_menu_paste_mtrl_am_alpha.png"
+        "merged": "D:\\Cameroun\\Mobile-App\\Android\\Customer\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-hdpi_icon.png.flat",
+        "source": "D:\\Cameroun\\Mobile-App\\Android\\Customer\\platforms\\android\\app\\src\\main\\res\\mipmap-hdpi\\icon.png"
     },
     {
         "merged": "D:\\Cameroun\\Mobile-App\\Android\\Customer\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4_common_google_signin_btn_icon_light_normal_background.9.png.flat",
@@ -276,12 +276,12 @@
         "source": "C:\\Users\\Rk Group of Services\\.gradle\\caches\\transforms-1\\files-1.1\\play-services-base-11.6.2.aar\\616cbac935a6b8af0ed37bf2ae388e37\\res\\drawable-xhdpi-v4\\common_google_signin_btn_text_dark_normal_background.9.png"
     },
     {
-        "merged": "D:\\Cameroun\\Mobile-App\\Android\\Customer\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\anim_abc_popup_enter.xml.flat",
-        "source": "C:\\Users\\Rk Group of Services\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-26.1.0.aar\\6370686534c49adb08cd615d29b49b37\\res\\anim\\abc_popup_enter.xml"
-    },
-    {
         "merged": "D:\\Cameroun\\Mobile-App\\Android\\Customer\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable_abc_ratingbar_small_material.xml.flat",
         "source": "C:\\Users\\Rk Group of Services\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-26.1.0.aar\\6370686534c49adb08cd615d29b49b37\\res\\drawable\\abc_ratingbar_small_material.xml"
+    },
+    {
+        "merged": "D:\\Cameroun\\Mobile-App\\Android\\Customer\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\anim_abc_popup_enter.xml.flat",
+        "source": "C:\\Users\\Rk Group of Services\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-26.1.0.aar\\6370686534c49adb08cd615d29b49b37\\res\\anim\\abc_popup_enter.xml"
     },
     {
         "merged": "D:\\Cameroun\\Mobile-App\\Android\\Customer\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi-v4_abc_list_pressed_holo_light.9.png.flat",
@@ -372,12 +372,12 @@
         "source": "C:\\Users\\Rk Group of Services\\.gradle\\caches\\transforms-1\\files-1.1\\play-services-base-11.6.2.aar\\616cbac935a6b8af0ed37bf2ae388e37\\res\\drawable\\common_google_signin_btn_icon_dark.xml"
     },
     {
-        "merged": "D:\\Cameroun\\Mobile-App\\Android\\Customer\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\layout_abc_search_dropdown_item_icons_2line.xml.flat",
-        "source": "C:\\Users\\Rk Group of Services\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-26.1.0.aar\\6370686534c49adb08cd615d29b49b37\\res\\layout\\abc_search_dropdown_item_icons_2line.xml"
-    },
-    {
         "merged": "D:\\Cameroun\\Mobile-App\\Android\\Customer\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable_common_google_signin_btn_text_disabled.xml.flat",
         "source": "C:\\Users\\Rk Group of Services\\.gradle\\caches\\transforms-1\\files-1.1\\play-services-base-11.6.2.aar\\616cbac935a6b8af0ed37bf2ae388e37\\res\\drawable\\common_google_signin_btn_text_disabled.xml"
+    },
+    {
+        "merged": "D:\\Cameroun\\Mobile-App\\Android\\Customer\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\layout_abc_search_dropdown_item_icons_2line.xml.flat",
+        "source": "C:\\Users\\Rk Group of Services\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-26.1.0.aar\\6370686534c49adb08cd615d29b49b37\\res\\layout\\abc_search_dropdown_item_icons_2line.xml"
     },
     {
         "merged": "D:\\Cameroun\\Mobile-App\\Android\\Customer\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\color_abc_primary_text_disable_only_material_light.xml.flat",
@@ -520,12 +520,12 @@
         "source": "C:\\Users\\Rk Group of Services\\.gradle\\caches\\transforms-1\\files-1.1\\play-services-base-11.6.2.aar\\616cbac935a6b8af0ed37bf2ae388e37\\res\\drawable\\common_google_signin_btn_text_dark.xml"
     },
     {
-        "merged": "D:\\Cameroun\\Mobile-App\\Android\\Customer\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4_abc_switch_track_mtrl_alpha.9.png.flat",
-        "source": "C:\\Users\\Rk Group of Services\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-26.1.0.aar\\6370686534c49adb08cd615d29b49b37\\res\\drawable-xhdpi-v4\\abc_switch_track_mtrl_alpha.9.png"
-    },
-    {
         "merged": "D:\\Cameroun\\Mobile-App\\Android\\Customer\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4_abc_list_pressed_holo_dark.9.png.flat",
         "source": "C:\\Users\\Rk Group of Services\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-26.1.0.aar\\6370686534c49adb08cd615d29b49b37\\res\\drawable-mdpi-v4\\abc_list_pressed_holo_dark.9.png"
+    },
+    {
+        "merged": "D:\\Cameroun\\Mobile-App\\Android\\Customer\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4_abc_switch_track_mtrl_alpha.9.png.flat",
+        "source": "C:\\Users\\Rk Group of Services\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-26.1.0.aar\\6370686534c49adb08cd615d29b49b37\\res\\drawable-xhdpi-v4\\abc_switch_track_mtrl_alpha.9.png"
     },
     {
         "merged": "D:\\Cameroun\\Mobile-App\\Android\\Customer\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi-v4_abc_ab_share_pack_mtrl_alpha.9.png.flat",

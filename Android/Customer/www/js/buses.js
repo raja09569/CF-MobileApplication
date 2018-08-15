@@ -56,3 +56,27 @@ function takeCity(elem){
 	}
 	$.mobile.changePage("#bus-search-form", { transition: "slidedown", changeHash: false});
 }
+
+function showBusDetails(elem) {
+	$.mobile.changePage("#page-bus-details", { transition: "slide", changeHash: false});
+}
+function selectSeats(elem) {
+	$.mobile.changePage("#page-boarding-points", { transition: "slide", changeHash: false});
+}
+function loadboardingPlaces(){
+	$("#dropping-places").hide();
+	$("#boarding-places").show();
+}
+function loaddropingPlaces(){
+	$("#boarding-places").hide();
+	$("#dropping-places").show();
+}
+function movetoDropping(elem) {
+	$("li a[href='#boarding-places']").removeClass('ui-btn-active');
+	$("li a[href='#dropping-places']").addClass('ui-btn-active');
+	$("#boarding-places").hide();
+	$("#dropping-places").show();
+}
+function continueBooking(elem) {
+	$.mobile.changePage("#page-passenger-details", { transition: "slide", changeHash: false});
+}

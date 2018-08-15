@@ -154,7 +154,7 @@
 						</div>
 					</div>
 				</li>
-				<li>
+				<li onclick="showBusDetails(this)">
 					<p class="ui-li-aside bus-arr-time">
 						<strong>6:24</strong>PM
 					</p>
@@ -175,7 +175,7 @@
 						<span><strong>1893 Ratings</strong></span>
 					</p>
 				</li>
-				<li>
+				<li onclick="showBusDetails(this)">
 					<p class="ui-li-aside bus-arr-time">
 						<strong>6:24</strong>PM
 					</p>
@@ -196,7 +196,7 @@
 						<span><strong>1893 Ratings</strong></span>
 					</p>
 				</li>
-				<li>
+				<li onclick="showBusDetails(this)">
 					<p class="ui-li-aside bus-arr-time">
 						<strong>6:24</strong>PM
 					</p>
@@ -232,11 +232,111 @@
 				<h1>LIMOLINER</h1>
 				<p>Volvo B11R Multiaxle SemiSleeper Auto Trans(2+2)</p>
 			</div>
-			<p>
+			<p class="no-of-images">
 				<i class="fa fa-picture-o" aria-hidden="true"></i> &nbsp; 1 Image
 			</p>
 		</div>
-		<div data-role="content">
+		<div data-role="content" class="bus-details-content">
+			<div>
+				<!-- If is there lower or upper berth -->
+				<!-- if is there any price differences design will come here in two of these cases -->
+			</div>
+			<hr>
+			<div>
+				<div>
+					<table class="seat-layout">
+						<tr class="seat-info">
+							<td colspan="2">
+								<span class="color-pink">
+									<i class="fa fa-square" aria-hidden="true"></i>
+								</span>
+								<p>Ladies</p>
+							</td>
+							<td>
+								<span class="color-white">
+									<i class="fa fa-square" aria-hidden="true"></i>
+								</span>
+								<p>Seater</p>
+							</td>
+							<td colspan="2">
+								<span class="color-hash">
+									<i class="fa fa-square" aria-hidden="true"></i>
+								</span>
+								<p>Selected</p>
+							</td>
+						</tr>
+						<tr>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td>
+								<img src="img/bus-steering.png" style="width: 92%;margin: 2%;" />
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<button>1</button>
+							</td>
+							<td>
+								<button>2</button>
+							</td>
+							<td></td>
+							<td>
+								<button>3</button>
+							</td>
+							<td>
+								<button>4</button>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<button>1</button>
+							</td>
+							<td>
+								<button>2</button>
+							</td>
+							<td></td>
+							<td>
+								<button>3</button>
+							</td>
+							<td>
+								<button>4</button>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<button>1</button>
+							</td>
+							<td>
+								<button>2</button>
+							</td>
+							<td></td>
+							<td>
+								<button>3</button>
+							</td>
+							<td>
+								<button>4</button>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<button>1</button>
+							</td>
+							<td>
+								<button>2</button>
+							</td>
+							<td></td>
+							<td>
+								<button>3</button>
+							</td>
+							<td>
+								<button>4</button>
+							</td>
+						</tr>
+					</table>
+				</div>
+			</div>
 			<div data-role="navbar" data-grid="c">
 				<ul>
 					<li><a>AMENITIES</a></li>
@@ -245,6 +345,143 @@
 					<li><a>CF DEALS</a></li>
 				</ul>
 			</div>
+		</div>
+		<div data-role="footer" data-position="fixed" class="footer-bus-details">
+			<table class="selected-seats">
+				<tr>
+					<td>
+						<p>Seats : <span>45, 46, 47, 48</span></p>	
+					</td>
+					<td>
+						<p>$5,000</p>
+					</td>
+					<td onclick="selectSeats(this)">
+						DONE
+					</td>
+				</tr>
+			</table>
+		</div>
+	</div>
+
+	<!-- Fifth page -->
+	<div data-role="page" id="page-boarding-points">
+		<div data-role="header" data-position="fixed">
+			<h1>
+				<div class="ui-btn-left" data-role="controlgroup" data-type="horizontal">
+					<a onclick="takeCity()" data-role="button" data-corner="false" class="titles" >
+						<p style="margin:0 !important;">
+							<i class="fa fa-arrow-left" aria-hidden="true"></i>
+						</p>
+					</a>
+					<a data-role="button" data-corner="false" class="titles">
+						<p style="margin:0 !important;" class="page-title">
+							Hyderbad to Bangalore
+						</p>
+					</a>
+				</div>
+				<div class="ui-btn-right" style="text-align:right;">
+					<img src="img/logo.png" class="img-logo"/>	
+				</div>
+			</h1>	
+		</div>
+		<div data-role="content" class="padding-zero">
+			<div data-role="tabs">
+				<div data-role="navbar">
+					<ul>
+						<li>
+							<a href="#boarding-places" class="ui-btn-active" onclick="loadboardingPlaces()">
+								<p>BOARDING</p>
+								<span>Add Location</span>
+							</a>
+						</li>
+						<li>
+							<a href="#dropping-places" onclick="loaddropingPlaces()">
+								<p>DROPPING</p>
+								<span>Add Location</span>
+							</a>
+						</li>
+					</ul>
+				</div>
+				<div id="boarding-places" class="ui-body-d ui-content">
+					<ul data-role="listview">
+						<li>
+							<a style="padding: 5px;" onclick="movetoDropping(this)">
+								<h2>Airport toalgate</h2>
+								<p>Near air port toalgate, towards hyderabad way</p>
+								<p class="ui-li-aside">
+									06:24PM (Next day)
+								</p>					
+							</a>
+						</li>
+					</ul>
+				</div>
+				<div id="dropping-places" class="ui-body-d ui-content">
+					<ul data-role="listview">
+						<li>
+							<a style="padding: 5px;" onclick="continueBooking(this)">
+								<h2>Srinivasa Colony</h2>
+								<p>Infront of tb hospital gate, beside esi metro station</p>
+								<p class="ui-li-aside">
+									6:24PM
+								</p>					
+							</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- Sixth page -->
+	<div data-role="page" id="page-passenger-details">
+		<div data-role="header" data-position="fixed">
+			<h1>
+				<div class="ui-btn-left" data-role="controlgroup" data-type="horizontal">
+					<a onclick="takeCity()" data-role="button" data-corner="false" class="titles" >
+						<p style="margin:0 !important;">
+							<i class="fa fa-arrow-left" aria-hidden="true"></i>
+						</p>
+					</a>
+					<a data-role="button" data-corner="false" class="titles">
+						<p style="margin:0 !important;" class="page-title">
+							Hyderbad to Bangalore
+						</p>
+					</a>
+				</div>
+				<div class="ui-btn-right" style="text-align:right;">
+					<img src="img/logo.png" class="img-logo"/>	
+				</div>
+			</h1>	
+		</div>
+		<div data-role="content" class="padding-zero">
+			<form name="passenger-information">
+				<div class="contact-information">
+					<p>Contant Information</p>
+					<div class="ui-field-contain">
+						<label for="contact-email">Email Id</label>
+						<input type="email" placeholder="Email ID" name="contact-email" id="contact-email" data-role="none" />
+					</div> 
+					<div class="ui-field-contain">
+						<label for="contact-email">Email Id</label>
+						<table>
+							<tr>
+								<td style="width: 20%;">
+									<select>
+										<option>+91</option>
+										<option>+1</option>
+										<option>+62</option>
+										<option>+65</option>
+										<option>+66</option>
+									</select>
+								</td>
+								<td style="width: 80%;">
+									<input type="email" placeholder="Email ID" name="contact-email" id="contact-email" data-role="none" />
+								</td>
+							</tr>
+						</table>
+					</div> 
+				</div>
+			</form>
 		</div>
 	</div>
 	

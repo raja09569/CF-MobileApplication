@@ -102,7 +102,7 @@ p.bus-arr-time {
 #page-bus-details div div p:last-child {
 	margin: 5px;color: #FFF;font-size: 0.8em;
 }
-#page-bus-details div p {
+#page-bus-details div p.no-of-images {
 	margin-left:  20px;color: #FFF;
 }
 
@@ -125,11 +125,121 @@ p.bus-arr-time {
 	/* padding: 0px; */
 	padding-top: 0;
 }
+.bus-details-content {
+	padding: 0;
+}
+.bus-details-content div[data-role='navbar'] {
+	margin: 0;
+}
+.bus-details-content div[data-role='navbar'] ul li a {
+	font-size: 0.7em;
+}
+.seat-layout {
+	width: 80%;
+	margin: 0 10%;
+	border: 1px solid #eeeeee;
+	border-radius: 8px;
+	padding: 2% 1%;
+}
+.seat-layout tr td {
+	border: none;
+	width: 20%;
+	padding: 1%;
+}
+.seat-layout tr td button {
+	background: #FFF;
+	color: #999999;
+	font-weight: normal;
+}
+.seat-layout tr td button.active-pink {
+	background: #da8594;
+	color: #ffffff;
+	font-weight: normal;
+}
+.seat-layout tr td button.active-hash {
+	background: #999;
+	color: #ffffff;
+	font-weight: normal;
+}
+.color-pink {
+	color: #da8594;
+}
+.color-white {
+	color: #FFFFFF;
+}
+.color-hash {
+	color: #999999;
+}
+.seat-info td {
+	text-align: center;
+}
+.seat-info td span {
+	font-size: 1em;
+}
+.seat-info td p {
+	color: #444 !important;
+	font-weight: 200;
+}
+.selected-seats {
+	width: 100%;
+	border-spacing: 0;
+}
+.selected-seats tr td:first-child {
+	width: 50%;
+	background: #FFFFFF;
+	color: #444444;
+}
+.selected-seats tr td:nth-child(2) {
+	width: 25%;
+	text-align: right;
+	background: #FFFFFF;
+	color: #444444;
+}
+.selected-seats tr td:last-child {
+	width: 25%;
+	text-align: center;
+	background: #ec4e4e;
+	color: #FFF;
+	padding: 10px;
+}
+.selected-seats tr td p {
+	margin: 2px 10px;
+	overflow: hidden;
+	word-wrap: break-word;
+}
 
+/** page-boarding-points **/
+#page-boarding-points div[data-role='tabs'] {
+	margin: 0;
+	padding: 0;
+}
+#page-boarding-points div[data-role='tabs'] div[data-role='navbar'] ul li a {
+	text-align: left;
+}
+#page-boarding-points div[data-role='tabs'] div[data-role='navbar'] ul li a.ui-btn-active {
+	background-color: #ededed;
+	border: none;
+	border-bottom: 2px solid #007960;
+	color: #007960;
+	font-weight: bold;
+}
+#page-boarding-points div[data-role='tabs'] div[data-role='navbar'] ul li p {
+	margin: 0;
+}
+#page-boarding-points div[data-role='tabs'] div[data-role='navbar'] ul li span {
+	font-size: 0.9em;
+}
 
+/** CLose of page-boarding-points **/
 
+/** Common css **/
+.padding-zero {
+	padding: 0;
+}
+/** Close of common css **/
+
+/** Old css **/
 /*
-
 #departureDate {
 	padding:4% 4% 4% 10%;
 	width:100%;

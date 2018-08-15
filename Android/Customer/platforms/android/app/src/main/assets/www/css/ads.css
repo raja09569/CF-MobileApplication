@@ -1,32 +1,19 @@
-/**{
-	font-weight: normal !important;
-	font-size:4.5vw;
-	text-shadow: none;
-}*/
-/*input, select, textarea {
-	outline: 0;
-}*/
-/*.ui-header .ui-btn-left{
-	top:0 !important;
-	left:0 !important;
+
+input[type="text"],input[type="email"],input[type="password"],input[type="tel"]  {
+    border: 1px solid #828999;
+    padding: 10px;
+    border-radius: 5px;
+    display: table-cell;
+    width: 100%;
+    background: #fff !important;
+    color: #999999;
+    margin-left: 20px;
+    margin-bottom: 10px;
+    outline: none;
+    transition: 0.3s;
+    text-indent: 1.5em;
+    overflow: hidden;
 }
-.ui-page .ui-header {
-    background: #007960 !important;
-	border:none;
-}
-.ui-btn-inner{
-	border: none !important;
-}
-*/
-/*.back_button, .app_logo, .div_slctCity{
-	display: inline-block;
-	vertical-align: middle;
-}
-.div_slctCity span {
-	display: inline-block;
-	vertical-align: middle;
-	color: white;
-}*/
 
 .loading {
     position: absolute;
@@ -40,22 +27,20 @@
     transform: translate(-50%, -50%);   
 }
 
-/*.div_slctCity img{
-	display: inline-block;
-	vertical-align: middle;
-	/*width: 20px;*//*
-}*/
 #back_main {
 	width: 3%;
 	margin: 0 !important;
 }
+
 #div_categories {
 	/*text-align:center;*/
 }
+
 .div-no-categories {
 	margin: 10% auto;
 	display: none;
 }
+
 .div-catItem  {
 	display: inline-table;
     vertical-align: middle;

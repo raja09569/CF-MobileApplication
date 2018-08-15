@@ -17,7 +17,7 @@
 <body>
 	<!-- Start of bus search form -->
 	<div data-role="page" id="bus-search-form">
-		<div id="bokrideheader" data-role="header" data-position="fixed">
+		<div data-role="header" data-position="fixed">
 			<h1>
 				<div class="ui-btn-left" data-role="controlgroup" data-type="horizontal">
 					<a id="back" data-role="button" data-corner="false" class="titles" >
@@ -37,66 +37,215 @@
 			</h1>	
 		</div>
 		<div data-role="content" class="ui-content">
-			<div style="width:100%;">
-				<div style="float:left;width:43%;">
-					<label style="font-size:3.5vw !important;padding:4%;color:#AAAAAA;">
-						Leaving From
-					</label>
-					<input type="text" style="color:#999;font-size:4.5vw !important;
-					border:none !important;" id="on_lfrm" readonly />
+			<div class="input-block">
+				<div>
+					<label for="bus-from">From</label>
+					<input type="text" data-role="none" id="bus-from" class="bus-input" name="bus-from" placeholder="Enter City" onclick="selectCity(this)" readonly/>
+					<img src="img/city.png" />
 				</div>
-				<div style="float:left;width:10%;padding-top:7%;
-				padding-bottom:3%;padding-right:2%;padding-left:2%;text-align:center;">
-					<img src="img/transfer.png" style="width:60%;" />
+				<div>
+					<hr>
 				</div>
-				<div style="float:left;width:43%;">
-					<label style="font-size:3.5vw !important;padding:4%;color:#AAAAAA;">
-						Going To
-					</label>
-					<input type="text" id="on_gto" style="color:#999;font-size:4.5vw !important;
-					border:none !important;" readonly />
+				<div>
+					<label for="bus-to">To</label>
+					<input type="text" id="bus-to" name="bus-to" placeholder="Enter City" class="bus-input" data-role="none" onclick="selectCity(this)" readonly/>
+					<img src="img/city.png" />
 				</div>
 			</div>
-			<div style="clear:both;"></div>
-			<br/>
-			<div>
-				<label style="font-size:3.5vw !important;color:#AAAAAA;">
-					Departure
-				</label>
-				<input id="departureDate" type="text" style="color:#000000;font-size:4vw !important;
-				border:none !important;margin-top:2%;" readonly />
-			</div>
-			<br/>
-			<div>
-				<label style="font-size:3.5vw !important;color:#AAAAAA;">
-					Seat(s) Required
-				</label>
-				<div data-role="controlgroup" data-type="horizontal" id="seats" style="margin-top:2%;margin-left:1%;width:100%;">
-					<input type="radio" name="radio-choice-h-2" id="radio-choice-h-2a" value="1">
-					<label for="radio-choice-h-2a">1</label>
-					<input type="radio" name="radio-choice-h-2" id="radio-choice-h-2b" value="2">
-					<label for="radio-choice-h-2b">2</label>
-					<input type="radio" name="radio-choice-h-2" id="radio-choice-h-2c" value="3">
-					<label for="radio-choice-h-2c">3</label>
-					<input type="radio" name="radio-choice-h-2" id="radio-choice-h-2d" value="4">
-					<label for="radio-choice-h-2d">4</label>
-					<input type="radio" name="radio-choice-h-2" id="radio-choice-h-2e" value="5">
-					<label for="radio-choice-h-2e">5</label>
-					<input type="radio" name="radio-choice-h-2" id="radio-choice-h-2f" value="6">
-					<label for="radio-choice-h-2f">6</label>
+			<div class="input-block date-block">
+				<div>
+					<label>Journey Date</label>
+					<input type="text" id="journey-date" name="journey-date" placeholder="Thu, 2 Aug 2018" class="bus-input" data-role="none" readonly/>
+					<img src="img/calendar.png" />
 				</div>
 			</div>
-			<br/>
-			<br/>
-			<br/>
-			<br/>
-			<br/>
-			<br/>
-			<button data-role="none" id="btn_fndBus">
-				FIND BUSES
+		</div>
+		<div data-role="footer" data-position="fixed" data-hide-during-focus="" data-tap-toggle="false">
+			<button id="btn_fndBus">
+				Search Buses
 			</button>
 		</div>
-		
+	</div>
+
+	<!-- second page -->
+	<div data-role="page" id="page-cities">
+		<div data-role="header" data-position="fixed">
+			<h1>
+				<div class="ui-btn-left" data-role="controlgroup" data-type="horizontal">
+					<a onclick="takeCity()" data-role="button" data-corner="false" class="titles" >
+						<p style="margin:0 !important;">
+							<i class="fa fa-arrow-left" aria-hidden="true"></i>
+						</p>
+					</a>
+					<a data-role="button" data-corner="false" class="titles">
+						<p style="margin:0 !important;">
+							Select City
+						</p>
+					</a>
+				</div>
+				<div class="ui-btn-right" style="text-align:right;">
+					<img src="img/logo.png" class="img-logo"/>	
+				</div>
+			</h1>	
+		</div>
+		<div data-role="content" class="city-search-content" data-position="fixed">
+			<div>
+				<input type="search" name="search-ctiy" placeholder="Type here.." />
+			</div>
+			<div>
+				<ul data-role="listview" data-inset="true">
+					<li data-role="list-divider">Recente Searches</li>
+					<li>
+						<a onclick="takeCity(this)">
+							<img src="img/city.png" alt="city-name" class="ui-li-icon">
+							City Name
+						</a>
+					</li>
+					<li>
+						<a>
+							<img src="img/city.png" alt="city-name" class="ui-li-icon">
+							City Name
+						</a>
+					</li>
+					<li>
+						<a>
+							<img src="img/city.png" alt="city-name" class="ui-li-icon">
+							City Name
+						</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+
+	<!-- Third page -->
+	<div data-role="page" id="page-buses">
+		<div data-role="header" data-position="fixed">
+			<h1>
+				<div class="ui-btn-left" data-role="controlgroup" data-type="horizontal">
+					<a onclick="takeCity()" data-role="button" data-corner="false" class="titles" >
+						<p style="margin:0 !important;">
+							<i class="fa fa-arrow-left" aria-hidden="true"></i>
+						</p>
+					</a>
+					<a data-role="button" data-corner="false" class="titles">
+						<p style="margin:0 !important;">
+							Hyderbad to Bangalore
+						</p>
+					</a>
+				</div>
+				<div class="ui-btn-right" style="text-align:right;">
+					<img src="img/logo.png" class="img-logo"/>	
+				</div>
+			</h1>	
+		</div>
+		<div data-role="content">
+			<ul data-role="listview">
+				<li data-role="list-divider">
+					<div class="ui-grid-b">
+						<div class="ui-block-a text-left">
+							<span><i class="fa fa-chevron-left" aria-hidden="true"></i></span>
+						</div>
+						<div class="ui-block-b text-center">
+							<span class="text-bold">Tue 12 Jun 2018</span>
+						</div>
+						<div class="ui-block-c text-right">
+							<span><i class="fa fa-chevron-right" aria-hidden="true"></i></span>
+						</div>
+					</div>
+				</li>
+				<li>
+					<p class="ui-li-aside bus-arr-time">
+						<strong>6:24</strong>PM
+					</p>
+					<p class="ui-li-aside bus-dep-time">
+						6:24PM
+					</p>
+					<h2>Morning star travels</h2>
+					<p>Scania ac multi axle semi sleeper(2+2)</p>
+					<p>
+						6 seats&nbsp;&bull;&nbsp;08:30 Hrs&nbsp;&bull;&nbsp;1 Rest stop
+					</p>
+					<p class="ui-li-aside bus-price">
+						From &#8377; 700
+					</p>
+					<p>
+						<span class="rating-btn">4.6</span>
+						&nbsp;
+						<span><strong>1893 Ratings</strong></span>
+					</p>
+				</li>
+				<li>
+					<p class="ui-li-aside bus-arr-time">
+						<strong>6:24</strong>PM
+					</p>
+					<p class="ui-li-aside bus-dep-time">
+						6:24PM
+					</p>
+					<h2>Morning star travels</h2>
+					<p>Scania ac multi axle semi sleeper(2+2)</p>
+					<p>
+						6 seats&nbsp;&bull;&nbsp;08:30 Hrs&nbsp;&bull;&nbsp;1 Rest stop
+					</p>
+					<p class="ui-li-aside bus-price">
+						From &#8377; 700
+					</p>
+					<p>
+						<span class="rating-btn">4.6</span>
+						&nbsp;
+						<span><strong>1893 Ratings</strong></span>
+					</p>
+				</li>
+				<li>
+					<p class="ui-li-aside bus-arr-time">
+						<strong>6:24</strong>PM
+					</p>
+					<p class="ui-li-aside bus-dep-time">
+						6:24PM
+					</p>
+					<h2>Morning star travels</h2>
+					<p>Scania ac multi axle semi sleeper(2+2)</p>
+					<p>
+						6 seats&nbsp;&bull;&nbsp;08:30 Hrs&nbsp;&bull;&nbsp;1 Rest stop
+					</p>
+					<p class="ui-li-aside bus-price">
+						From &#8377; 700
+					</p>
+					<p>
+						<span class="rating-btn">4.6</span>
+						&nbsp;
+						<span><strong>1893 Ratings</strong></span>
+					</p>
+				</li>
+			</ul>
+		</div>
+	</div>
+
+	<!-- Fourth Page -->
+	<div data-role="page" id="page-bus-details">
+		<div data-role="header" data-position="fixed">
+			<a class="ui-btn-left titles" data-corner="false">
+				<i class="fa fa-arrow-left" aria-hidden="true"></i>
+			</a>
+			<div class="text-center">
+				<p>12 Aug 2018 10:00 PM</p>
+				<h1>LIMOLINER</h1>
+				<p>Volvo B11R Multiaxle SemiSleeper Auto Trans(2+2)</p>
+			</div>
+			<p>
+				<i class="fa fa-picture-o" aria-hidden="true"></i> &nbsp; 1 Image
+			</p>
+		</div>
+		<div data-role="content">
+			<div data-role="navbar" data-grid="c">
+				<ul>
+					<li><a>AMENITIES</a></li>
+					<li><a>REVIEWS</a></li>
+					<li><a>POLICIES</a></li>
+					<li><a>CF DEALS</a></li>
+				</ul>
+			</div>
+		</div>
 	</div>
 	
     <script type="text/javascript" src="cordova.js"></script>
