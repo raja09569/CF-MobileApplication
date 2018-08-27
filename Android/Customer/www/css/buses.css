@@ -5,7 +5,7 @@
 .ui-footer {
 	background-color: #cccccc !important;
 }
-input[type="text"],input[type="email"],input[type="password"],input[type="tel"]  {
+input[type="text"],input[type="email"],input[type="password"],input[type="tel"],input[type="number"]  {
 	border: none;
     padding: 10px 10px 10px 35px;
     display: table-cell;
@@ -228,6 +228,45 @@ p.bus-arr-time {
 }
 #page-boarding-points div[data-role='tabs'] div[data-role='navbar'] ul li span {
 	font-size: 0.9em;
+}
+
+input[type='email'][name='contact-email'], input[type='number'][name='contact-phone'] {
+	border: none;
+    border-bottom: 1px solid #aaaaaa;
+    padding: 10px 10px 10px 0px;
+    border-radius: 0;
+    background: transparent;
+}
+.contact-information {
+	margin: 10px;
+	padding: 10px;
+	background: #FFFFFF;
+}
+.contact-information div {
+	margin-top: 5px;
+}
+.contact-information p {
+	margin: 0px;
+}
+.passenger-table {
+	margin: 5px 10px;
+	background: #FFFFFF;
+	padding: 10px 5px 5px 5px;
+}
+.passenger-table input {
+	border: none;
+    border-bottom: 1px solid #aaaaaa;
+    padding: 10px 10px 10px 0px;
+    border-radius: 0;
+    background: transparent;
+}
+.passenger-table .ui-grid-a .ui-block-b {
+	text-align: right;
+}
+.passenger-information p,  {
+    margin-left: 10px;
+    font-weight: bold;
+    color: #007960;
 }
 
 /** CLose of page-boarding-points **/

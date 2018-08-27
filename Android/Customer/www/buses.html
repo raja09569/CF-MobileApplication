@@ -455,17 +455,15 @@
 		</div>
 		<div data-role="content" class="padding-zero">
 			<form name="passenger-information">
+				<p>Contant Information</p>
 				<div class="contact-information">
-					<p>Contant Information</p>
-					<div class="ui-field-contain">
-						<label for="contact-email">Email Id</label>
+					<div>
 						<input type="email" placeholder="Email ID" name="contact-email" id="contact-email" data-role="none" />
 					</div> 
-					<div class="ui-field-contain">
-						<label for="contact-email">Email Id</label>
+					<div>
 						<table>
 							<tr>
-								<td style="width: 20%;">
+								<td style="width: 20%;padding-right: 10px;">
 									<select>
 										<option>+91</option>
 										<option>+1</option>
@@ -475,10 +473,41 @@
 									</select>
 								</td>
 								<td style="width: 80%;">
-									<input type="email" placeholder="Email ID" name="contact-email" id="contact-email" data-role="none" />
+									<input type="number" placeholder="Phone" name="contact-phone" id="contact-phone" data-role="none" />
 								</td>
 							</tr>
 						</table>
+					</div> 
+				</div>
+				<div class="passenger-information">
+					<p>Passenger Information</p>
+					<div class="passenger-table">
+						<div class="ui-grid-a">
+							<div class="ui-block-a">
+								Primary Seat
+							</div>
+							<div class="ui-block-b">
+								Seat 36
+							</div>
+						</div>
+						<div>
+							<input type="text" name="passenger-name" id="passenger-name" placeholder="Passenger name" data-role="none" />
+						</div>
+						<div>
+							<fieldset data-role="controlgroup" data-type="horizontal">
+								<legend>Gender</legend>
+								<input type="radio" name="radio-choice-h-2" id="radio-choice-h-2a" value="male" checked="checked">
+								<label for="radio-choice-h-2a">Male</label>
+								<input type="radio" name="radio-choice-h-2" id="radio-choice-h-2b" value="female">
+								<label for="radio-choice-h-2b">Female</label>
+							</fieldset>
+						</div>
+						<div>
+							<input type="number" name="passenger-age" id="passenger-age" placeholder="Age" data-role="none" />
+						</div>
+						<div>
+							<button>Clear</button>
+						</div>
 					</div> 
 				</div>
 			</form>
