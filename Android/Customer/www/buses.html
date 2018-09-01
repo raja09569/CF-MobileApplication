@@ -224,7 +224,7 @@
 	<!-- Fourth Page -->
 	<div data-role="page" id="page-bus-details">
 		<div data-role="header" data-position="fixed">
-			<a class="ui-btn-left titles" data-corner="false">
+			<a class="ui-btn-left titles" data-corner="false" onclick="backtoBuses()">
 				<i class="fa fa-arrow-left" aria-hidden="true"></i>
 			</a>
 			<div class="text-center">
@@ -368,7 +368,7 @@
 		<div data-role="header" data-position="fixed">
 			<h1>
 				<div class="ui-btn-left" data-role="controlgroup" data-type="horizontal">
-					<a onclick="takeCity()" data-role="button" data-corner="false" class="titles" >
+					<a onclick="backtobusDtls()" data-role="button" data-corner="false" class="titles" >
 						<p style="margin:0 !important;">
 							<i class="fa fa-arrow-left" aria-hidden="true"></i>
 						</p>
@@ -437,7 +437,7 @@
 		<div data-role="header" data-position="fixed">
 			<h1>
 				<div class="ui-btn-left" data-role="controlgroup" data-type="horizontal">
-					<a onclick="takeCity()" data-role="button" data-corner="false" class="titles" >
+					<a onclick="backtoboardingPoints()" data-role="button" data-corner="false" class="titles" >
 						<p style="margin:0 !important;">
 							<i class="fa fa-arrow-left" aria-hidden="true"></i>
 						</p>
@@ -507,15 +507,197 @@
 						<div>
 							<input type="number" name="passenger-age" id="passenger-age" placeholder="Age" data-role="none" />
 						</div>
-						<div>
-							<button>Clear</button>
+						<div style="margin-top:10px;">
+							<button class="clear-button" data-role="none">Clear</button>
 						</div>
 					</div> 
 				</div>
 			</form>
 		</div>
+		<div data-role="footer" data-position="fixed">
+			<button class="clear-button continue-btn" data-role="none" onclick="nexttravelDetails()">
+				continue booking
+			</button>
+		</div>
 	</div>
-	
+	<!-- End of sixth page -->
+
+	<!-- Seventh page -->
+	<div data-role="page" id="travel-details">
+		<div data-role="header" data-position="fixed">
+			<h1>
+				<div class="ui-btn-left" data-role="controlgroup" data-type="horizontal">
+					<a onclick="backtoPassengerDtls()" data-role="button" data-corner="false" class="titles" >
+						<p style="margin:0 !important;">
+							<i class="fa fa-arrow-left" aria-hidden="true"></i>
+						</p>
+					</a>
+					<a data-role="button" data-corner="false" class="titles">
+						<p style="margin:0 !important;" class="page-title">
+							Hyderbad to Bangalore
+						</p>
+					</a>
+				</div>
+				<div class="ui-btn-right" style="text-align:right;">
+					<img src="img/logo.png" class="img-logo"/>	
+				</div>
+			</h1>	
+		</div>
+		<div data-role="content">
+			<div class="details-travel">
+				<div class="text-center">
+					<h4>Travel Details</h4>
+				</div>
+				<div class="bus-details">
+					<p>SRS Travels</p>
+					<p>15 aug at 02:30 PM</p>
+					<p>Scania AC Multiaxle Semi sleeper(2/2)</p>
+					<p><strong>Boarding point: </strong>Lakdikapool</p>
+					<p><strong>Dropping point: </strong>Devanhalli Bypass</p>
+				</div>
+				<div class="pass-details">
+					<div class="text-center">
+						<h4>Passenger Details</h4>
+					</div>
+					<div>
+						<p style="float:left;">Rajashekar Makam</p>
+						<p style="float:right;">49</p>
+						<div class="clear"></div>
+						<p>M, 26 years</p>
+					</div>
+				</div>
+				<div class="fair-details">
+					<div class="text-center">
+						<h4 class="marg0 pad5">Fair Details</h4>
+					</div>
+					<div>
+						<p style="float:left;">Rajashekar Makam</p>
+						<p style="float:right;">49</p>
+						<div class="clear"></div>
+						<p style="float:left;">Rajashekar Makam</p>
+						<p style="float:right;">49</p>
+						<div class="clear"></div>
+						<p style="float:left;">Rajashekar Makam</p>
+						<p style="float:right;">49</p>
+						<div class="clear"></div>
+						<p style="float:left;">Rajashekar Makam</p>
+						<p style="float:right;">49</p>
+						<div class="clear"></div>
+					</div>
+				</div>
+			</div>
+			<p class="side-label">Payment Opitons</p>
+			<div class="paymeny-options">
+				<div class="debit-section">
+					<div class="ui-grid-a" onclick="activeType(this)">
+						<div class="ui-block-a width10">
+							<img src="img/radio_uncheck.png"/>
+						</div>
+						<div class="ui-block-b width80">
+							<p><i class="fa fa-credit-card" aria-hidden="true"></i> Debit Card</p>
+						</div>
+					</div>
+					<div class="debit-card">
+						<div class="pad5">
+							<select>
+								<option>Please select bank</option>
+							</select>
+						</div>
+						<div class="pad5">
+							<label>Card Number</label>
+							<input type="number" data-role="none" placeholder="0000 0000 0000 0000" name="cardNumber" />
+						</div>
+						<div class="ui-grid-a pad5">
+							<div class="ui-block-a pad-right5">
+								<label>Expiry Date</label>
+								<input type="number" data-role="none" placeholder="0000 0000 0000 0000" name="cardNumber" />
+							</div>
+							<div class="ui-block-b pad-left5">
+								<label>CVV</label>
+								<input type="number" data-role="none" placeholder="CVV" name="cvvNumber" />
+							</div>
+						</div>
+						<div class="pad5">
+							<label>Card Holder's Name</label>
+							<input type="number" data-role="none" placeholder="0000 0000 0000 0000" name="cardNumber" />
+						</div>
+					</div>
+				</div>
+				<div class="debit-section">
+					<div class="ui-grid-a" onclick="activeType(this)">
+						<div class="ui-block-a width10">
+							<img src="img/radio_uncheck.png"/>
+						</div>
+						<div class="ui-block-b width80">
+							<p><i class="fa fa-credit-card-alt" aria-hidden="true"></i> Credit Card</p>
+						</div>
+					</div>
+					<div class="debit-card">
+						<div class="pad5">
+							<select>
+								<option>Please select bank</option>
+							</select>
+						</div>
+						<div class="pad5">
+							<label>Card Number</label>
+							<input type="number" data-role="none" placeholder="0000 0000 0000 0000" name="cardNumber" />
+						</div>
+						<div class="ui-grid-a pad5">
+							<div class="ui-block-a pad-right5">
+								<label>Expiry Date</label>
+								<input type="number" data-role="none" placeholder="0000 0000 0000 0000" name="cardNumber" />
+							</div>
+							<div class="ui-block-b pad-left5">
+								<label>CVV</label>
+								<input type="number" data-role="none" placeholder="CVV" name="cvvNumber" />
+							</div>
+						</div>
+						<div class="pad5">
+							<label>Card Holder's Name</label>
+							<input type="number" data-role="none" placeholder="0000 0000 0000 0000" name="cardNumber" />
+						</div>
+					</div>
+				</div>
+				<div class="debit-section">
+					<div class="ui-grid-a border-bottom-none" onclick="activeType(this)">
+						<div class="ui-block-a width10">
+							<img src="img/radio_uncheck.png"/>
+						</div>
+						<div class="ui-block-b width80">
+							<p><i class="fa fa-globe" aria-hidden="true"></i> Net Banking</p>
+						</div>
+					</div>
+					<div class="debit-card">
+						<div class="pad5">
+							<select>
+								<option>Please select bank</option>
+							</select>
+						</div>
+						<div class="pad5">
+							<label>Card Number</label>
+							<input type="number" data-role="none" placeholder="0000 0000 0000 0000" name="cardNumber" />
+						</div>
+						<div class="ui-grid-a pad5">
+							<div class="ui-block-a pad-right5">
+								<label>Expiry Date</label>
+								<input type="number" data-role="none" placeholder="0000 0000 0000 0000" name="cardNumber" />
+							</div>
+							<div class="ui-block-b pad-left5">
+								<label>CVV</label>
+								<input type="number" data-role="none" placeholder="CVV" name="cvvNumber" />
+							</div>
+						</div>
+						<div class="pad5">
+							<label>Card Holder's Name</label>
+							<input type="number" data-role="none" placeholder="0000 0000 0000 0000" name="cardNumber" />
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- End of seventh page -->
+
     <script type="text/javascript" src="cordova.js"></script>
     <script type="text/javascript" src="js/platformOverrides.js"></script>
 </body>

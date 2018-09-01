@@ -54,7 +54,7 @@ function takeCity(elem){
 			$("input[type='text'][name='bus-to']").val(city);
 		}
 	}
-	$.mobile.changePage("#bus-search-form", { transition: "slidedown", changeHash: false});
+	$.mobile.changePage("#bus-search-form", { transition: "slide", changeHash: false, reverse: true});
 }
 
 function showBusDetails(elem) {
@@ -79,4 +79,25 @@ function movetoDropping(elem) {
 }
 function continueBooking(elem) {
 	$.mobile.changePage("#page-passenger-details", { transition: "slide", changeHash: false});
+}
+function nexttravelDetails() {
+	$.mobile.changePage("#travel-details", { transition: "slide", changeHash: false});
+}
+function activeType(elem){
+	$(".debit-section img").attr("src", "img/radio_uncheck.png");
+	$(elem).find('img').attr("src", "img/radio_check.png");
+	$(".debit-section .debit-card").hide();
+	$(elem).parent().find('div.debit-card').show();
+}
+function backtoPassengerDtls() {
+	$.mobile.changePage("#page-passenger-details", { transition: "slide", changeHash: false, reverse: true});
+}
+function backtoboardingPoints() {
+	$.mobile.changePage("#page-boarding-points", { transition: "slide", changeHash: false, reverse: true});
+}
+function backtobusDtls() {
+	$.mobile.changePage("#page-bus-details", { transition: "slide", changeHash: false, reverse: true});
+}
+function backtoBuses() {
+	$.mobile.changePage("#page-buses", { transition: "slide", changeHash: false, reverse: true});
 }
