@@ -235,19 +235,18 @@ input[type='email'][name='contact-email'], input[type='number'][name='contact-ph
     border-bottom: 1px solid #aaaaaa;
     padding: 10px 10px 10px 0px;
     border-radius: 0;
-    background: transparent;
+	background: transparent;
+	font-size: 16px;
 }
-.contact-information {
+.contact-information > div {
 	margin: 10px;
 	padding: 10px;
 	background: #FFFFFF;
 }
-.contact-information div {
+.contact-information > div > div {
 	margin-top: 5px;
 }
-.contact-information p {
-	margin: 0px;
-}
+
 .passenger-table {
 	margin: 5px 10px;
 	background: #FFFFFF;
@@ -258,12 +257,13 @@ input[type='email'][name='contact-email'], input[type='number'][name='contact-ph
     border-bottom: 1px solid #aaaaaa;
     padding: 10px 10px 10px 0px;
     border-radius: 0;
-    background: transparent;
+	background: transparent;
+	font-size: 16px;
 }
 .passenger-table .ui-grid-a .ui-block-b {
 	text-align: right;
 }
-.passenger-information p,  {
+.passenger-information p, .contact-information p {
     margin-left: 10px;
     font-weight: bold;
     color: #007960;
