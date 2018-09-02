@@ -22,7 +22,7 @@ function onResume(){
 $(document).on("pageinit", "#bus-search-form", function(event){
 	//console.log(" Bus search form page is opened");
 	$("#btn_fndBus").on("click", function(){
-		/*$("input[type='text']").css('border', 'none');
+		$("input[type='text']").css('border', 'none');
 		var busFrom = $("input[type='text'][name='bus-from']").val();
 		var busTo = $("input[type='text'][name='bus-to']").val();
 		if(busFrom == ""){
@@ -32,27 +32,91 @@ $(document).on("pageinit", "#bus-search-form", function(event){
 		if(busTo == ""){
 			$("input[type='text'][name='bus-to']").css('border', '1px solid red');
 			return;
-		}*/
+		}
 		$.mobile.changePage("#page-buses", { transition: "slide", changeHash: false});	
 	});
 });
 
-function selectCity(elem){
-	var elemIs = $(elem).attr('name');
-	//console.log("Element is "+elemIs);
-	window.sessionStorage.setItem('elemIs', elemIs);
-	$.mobile.changePage("#page-cities", { transition: "slideup", changeHash: false});
+$(document).on("pageinit", "#page-boarding", function(event){
+	var type = "board_point";
+	loadCities(type, "");
+	$("input[type='search'][name='search-boarding']").on('input', function(){
+		var query = $(this).val();
+		loadCities(type, query);
+	});
+});
+
+$(document).on("pageinit", "#page-dropping", function(event){
+	var type = "drop_point";
+	loadCities(type, "");
+	$("input[type='search'][name='search-dropping']").on('input', function(){
+		var query = $(this).val();
+		loadCities(type, query);
+	});
+});
+
+function loadCities(type, term){
+	$.ajax({
+		url: server_url+"bus/search_city.php",
+		type: "POST",
+		data: {type: type, term: term},
+		success: function(msg){
+			//console.log("Message is "+JSON.stringify(msg));
+			$(".search-results ul").empty();
+			msg = JSON.parse(msg);
+			if(msg.length > 0){
+				for(var i=0; i<msg.length; i++){
+					var data = "<li>";
+					data += "<a onclick='takeCity(this, &quot;"+type+"&quot;)'>";
+					data += "<img src='img/city.png' alt='city-name' class='ui-li-icon'>";
+					data += msg[i].label;
+					data += "</a>";
+					data += "</li>";
+					//console.log(data);
+					if(type == "board_point"){
+						$("#boardingList").append(data);
+						$("#boardingList").listview("refresh");
+					}else{
+						$("#droppingList").append(data);
+						$("#droppingList").listview("refresh");
+					}
+				}
+			}else{
+				var data = "<li> No Records found </li>";
+				if(type == "board_point"){
+					$("#boardingList").append(data);
+					$("#boardingList").listview("refresh");
+				}else{
+					$("#droppingList").append(data);
+					$("#droppingList").listview("refresh");
+				}
+			}
+		},
+		error: function(err){
+			if(err.status == "0"){
+				alert("Unable to connect server, Try again.");
+			}else{
+				alert("Something went wrong, Try again.");
+			}
+		}
+	});
 }
 
-function takeCity(elem){
+function selectCity(elem){
+	var elemIs = $(elem).attr('name');
+	if(elemIs == "bus-from"){
+		$.mobile.changePage("#page-boarding", { transition: "slideup", changeHash: false });
+	}else{
+		$.mobile.changePage("#page-dropping", { transition: "slideup", changeHash: false });
+	}
+}
+
+function takeCity(elem, type){
 	var city = $(elem).text().trim();
-	var elemIs = window.sessionStorage.getItem('elemIs');
-	if(elemIs != null){
-		if(elemIs == "bus-from"){
-			$("input[type='text'][name='bus-from']").val(city);		
-		}else{
-			$("input[type='text'][name='bus-to']").val(city);
-		}
+	if(type == "board_point"){
+		$("input[type='text'][name='bus-from']").val(city);		
+	}else{
+		$("input[type='text'][name='bus-to']").val(city);
 	}
 	$.mobile.changePage("#bus-search-form", { transition: "slide", changeHash: false, reverse: true});
 }

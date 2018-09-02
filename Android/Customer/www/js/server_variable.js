@@ -1,9 +1,10 @@
-var local = false;
+var local = true;
 
 if(local == true){
-	var server_url = "http://192.168.137.1/Cameroun/app/App_1.0.0/Customer/";
-	var ad_category_icon_url = "http://192.168.137.1/cameroun/web/Admin/";
-	var ad_attachment_url = "http://192.168.137.1/cameroun/web/";
+	var base_url = "http://localhost/";
+	var server_url = base_url+"Cameroun/app/App_1.0.0/Customer/";
+	var ad_category_icon_url = base_url+"cameroun/web/Admin/";
+	var ad_attachment_url = base_url+"cameroun/web/";
 }else{
 	var base_url = "http://camerounfacile.com/";
 	var server_url = base_url+"app/App_1.0.0/Customer/";

@@ -17,7 +17,7 @@
 <body>
 	<!-- Start of bus search form -->
 	<div data-role="page" id="bus-search-form">
-		<div id="bokrideheader" data-role="header" data-position="fixed">
+		<div data-role="header" data-position="fixed">
 			<h1>
 				<div class="ui-btn-left" data-role="controlgroup" data-type="horizontal">
 					<a id="back" data-role="button" data-corner="false" class="titles" >
@@ -40,7 +40,7 @@
 			<div class="input-block">
 				<div>
 					<label for="bus-from">From</label>
-					<input type="text" data-role="none" id="bus-from" class="bus-input" name="bus-from" placeholder="Enter City" readonly />
+					<input type="text" data-role="none" id="bus-from" class="bus-input" name="bus-from" placeholder="Enter City" onclick="selectCity(this)" readonly/>
 					<img src="img/city.png" />
 				</div>
 				<div>
@@ -48,25 +48,656 @@
 				</div>
 				<div>
 					<label for="bus-to">To</label>
-					<input type="text" id="bus-to" name="bus-to" placeholder="Enter City" class="bus-input" data-role="none" readonly/>
+					<input type="text" id="bus-to" name="bus-to" placeholder="Enter City" class="bus-input" data-role="none" onclick="selectCity(this)" readonly/>
 					<img src="img/city.png" />
 				</div>
 			</div>
 			<div class="input-block date-block">
 				<div>
 					<label>Journey Date</label>
-					<input type="text" id="journey-date" name="journey-date" placeholder="Thu, 2 Aug 2018 Today" class="bus-input" data-role="none" readonly/>
+					<input type="text" id="journey-date" name="journey-date" placeholder="Thu, 2 Aug 2018" class="bus-input" data-role="none" readonly/>
 					<img src="img/calendar.png" />
 				</div>
 			</div>
 		</div>
-		<div data-role="footer" data-position="fixed">
+		<div data-role="footer" data-position="fixed" data-hide-during-focus="" data-tap-toggle="false">
 			<button id="btn_fndBus">
 				Search Buses
 			</button>
 		</div>
 	</div>
-	
+
+	<!-- second page -->
+	<div data-role="page" id="page-cities">
+		<div data-role="header" data-position="fixed">
+			<h1>
+				<div class="ui-btn-left" data-role="controlgroup" data-type="horizontal">
+					<a onclick="takeCity()" data-role="button" data-corner="false" class="titles" >
+						<p style="margin:0 !important;">
+							<i class="fa fa-arrow-left" aria-hidden="true"></i>
+						</p>
+					</a>
+					<a data-role="button" data-corner="false" class="titles">
+						<p style="margin:0 !important;">
+							Select City
+						</p>
+					</a>
+				</div>
+				<div class="ui-btn-right" style="text-align:right;">
+					<img src="img/logo.png" class="img-logo"/>	
+				</div>
+			</h1>	
+		</div>
+		<div data-role="content" class="city-search-content" data-position="fixed">
+			<div class="search-div">
+				<input type="search" name="search-city" data-role="none" placeholder="Type here.." />
+			</div>
+			<div class="search-results">
+				<ul data-role="listview" data-inset="true">
+					<li data-role="list-divider">Recente Searches</li>
+					<li>
+						<a onclick="takeCity(this)">
+							<img src="img/city.png" alt="city-name" class="ui-li-icon">
+							City Name
+						</a>
+					</li>
+					<li>
+						<a>
+							<img src="img/city.png" alt="city-name" class="ui-li-icon">
+							City Name
+						</a>
+					</li>
+					<li>
+						<a>
+							<img src="img/city.png" alt="city-name" class="ui-li-icon">
+							City Name
+						</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+
+	<!-- Third page -->
+	<div data-role="page" id="page-buses">
+		<div data-role="header" data-position="fixed">
+			<h1>
+				<div class="ui-btn-left" data-role="controlgroup" data-type="horizontal">
+					<a onclick="takeCity()" data-role="button" data-corner="false" class="titles" >
+						<p style="margin:0 !important;">
+							<i class="fa fa-arrow-left" aria-hidden="true"></i>
+						</p>
+					</a>
+					<a data-role="button" data-corner="false" class="titles">
+						<p style="margin:0 !important;">
+							Hyderbad to Bangalore
+						</p>
+					</a>
+				</div>
+				<div class="ui-btn-right" style="text-align:right;">
+					<img src="img/logo.png" class="img-logo"/>	
+				</div>
+			</h1>	
+		</div>
+		<div data-role="content">
+			<ul data-role="listview">
+				<li data-role="list-divider">
+					<div class="ui-grid-b">
+						<div class="ui-block-a text-left">
+							<span><i class="fa fa-chevron-left" aria-hidden="true"></i></span>
+						</div>
+						<div class="ui-block-b text-center">
+							<span class="text-bold">Tue 12 Jun 2018</span>
+						</div>
+						<div class="ui-block-c text-right">
+							<span><i class="fa fa-chevron-right" aria-hidden="true"></i></span>
+						</div>
+					</div>
+				</li>
+				<li onclick="showBusDetails(this)">
+					<p class="ui-li-aside bus-arr-time">
+						<strong>6:24</strong>PM
+					</p>
+					<p class="ui-li-aside bus-dep-time">
+						6:24PM
+					</p>
+					<h2>Morning star travels</h2>
+					<p>Scania ac multi axle semi sleeper(2+2)</p>
+					<p>
+						6 seats&nbsp;&bull;&nbsp;08:30 Hrs&nbsp;&bull;&nbsp;1 Rest stop
+					</p>
+					<p class="ui-li-aside bus-price">
+						From &#8377; 700
+					</p>
+					<p>
+						<span class="rating-btn">4.6</span>
+						&nbsp;
+						<span><strong>1893 Ratings</strong></span>
+					</p>
+				</li>
+				<li onclick="showBusDetails(this)">
+					<p class="ui-li-aside bus-arr-time">
+						<strong>6:24</strong>PM
+					</p>
+					<p class="ui-li-aside bus-dep-time">
+						6:24PM
+					</p>
+					<h2>Morning star travels</h2>
+					<p>Scania ac multi axle semi sleeper(2+2)</p>
+					<p>
+						6 seats&nbsp;&bull;&nbsp;08:30 Hrs&nbsp;&bull;&nbsp;1 Rest stop
+					</p>
+					<p class="ui-li-aside bus-price">
+						From &#8377; 700
+					</p>
+					<p>
+						<span class="rating-btn">4.6</span>
+						&nbsp;
+						<span><strong>1893 Ratings</strong></span>
+					</p>
+				</li>
+				<li onclick="showBusDetails(this)">
+					<p class="ui-li-aside bus-arr-time">
+						<strong>6:24</strong>PM
+					</p>
+					<p class="ui-li-aside bus-dep-time">
+						6:24PM
+					</p>
+					<h2>Morning star travels</h2>
+					<p>Scania ac multi axle semi sleeper(2+2)</p>
+					<p>
+						6 seats&nbsp;&bull;&nbsp;08:30 Hrs&nbsp;&bull;&nbsp;1 Rest stop
+					</p>
+					<p class="ui-li-aside bus-price">
+						From &#8377; 700
+					</p>
+					<p>
+						<span class="rating-btn">4.6</span>
+						&nbsp;
+						<span><strong>1893 Ratings</strong></span>
+					</p>
+				</li>
+			</ul>
+		</div>
+	</div>
+
+	<!-- Fourth Page -->
+	<div data-role="page" id="page-bus-details">
+		<div data-role="header" data-position="fixed">
+			<a class="ui-btn-left titles" data-corner="false" onclick="backtoBuses()">
+				<i class="fa fa-arrow-left" aria-hidden="true"></i>
+			</a>
+			<div class="text-center">
+				<p>12 Aug 2018 10:00 PM</p>
+				<h1>LIMOLINER</h1>
+				<p>Volvo B11R Multiaxle SemiSleeper Auto Trans(2+2)</p>
+			</div>
+			<p class="no-of-images">
+				<i class="fa fa-picture-o" aria-hidden="true"></i> &nbsp; 1 Image
+			</p>
+		</div>
+		<div data-role="content" class="bus-details-content">
+			<div>
+				<!-- If is there lower or upper berth -->
+				<!-- if is there any price differences design will come here in two of these cases -->
+			</div>
+			<hr>
+			<div>
+				<div>
+					<table class="seat-layout">
+						<tr class="seat-info">
+							<td colspan="2">
+								<span class="color-pink">
+									<i class="fa fa-square" aria-hidden="true"></i>
+								</span>
+								<p>Ladies</p>
+							</td>
+							<td>
+								<span class="color-white">
+									<i class="fa fa-square" aria-hidden="true"></i>
+								</span>
+								<p>Seater</p>
+							</td>
+							<td colspan="2">
+								<span class="color-hash">
+									<i class="fa fa-square" aria-hidden="true"></i>
+								</span>
+								<p>Selected</p>
+							</td>
+						</tr>
+						<tr>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td>
+								<img src="img/bus-steering.png" style="width: 92%;margin: 2%;" />
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<button>1</button>
+							</td>
+							<td>
+								<button>2</button>
+							</td>
+							<td></td>
+							<td>
+								<button>3</button>
+							</td>
+							<td>
+								<button>4</button>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<button>1</button>
+							</td>
+							<td>
+								<button>2</button>
+							</td>
+							<td></td>
+							<td>
+								<button>3</button>
+							</td>
+							<td>
+								<button>4</button>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<button>1</button>
+							</td>
+							<td>
+								<button>2</button>
+							</td>
+							<td></td>
+							<td>
+								<button>3</button>
+							</td>
+							<td>
+								<button>4</button>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<button>1</button>
+							</td>
+							<td>
+								<button>2</button>
+							</td>
+							<td></td>
+							<td>
+								<button>3</button>
+							</td>
+							<td>
+								<button>4</button>
+							</td>
+						</tr>
+					</table>
+				</div>
+			</div>
+			<div data-role="navbar" data-grid="c">
+				<ul>
+					<li><a>AMENITIES</a></li>
+					<li><a>REVIEWS</a></li>
+					<li><a>POLICIES</a></li>
+					<li><a>CF DEALS</a></li>
+				</ul>
+			</div>
+		</div>
+		<div data-role="footer" data-position="fixed" class="footer-bus-details">
+			<table class="selected-seats">
+				<tr>
+					<td>
+						<p>Seats : <span>45, 46, 47, 48</span></p>	
+					</td>
+					<td>
+						<p>$5,000</p>
+					</td>
+					<td onclick="selectSeats(this)">
+						DONE
+					</td>
+				</tr>
+			</table>
+		</div>
+	</div>
+
+	<!-- Fifth page -->
+	<div data-role="page" id="page-boarding-points">
+		<div data-role="header" data-position="fixed">
+			<h1>
+				<div class="ui-btn-left" data-role="controlgroup" data-type="horizontal">
+					<a onclick="backtobusDtls()" data-role="button" data-corner="false" class="titles" >
+						<p style="margin:0 !important;">
+							<i class="fa fa-arrow-left" aria-hidden="true"></i>
+						</p>
+					</a>
+					<a data-role="button" data-corner="false" class="titles">
+						<p style="margin:0 !important;" class="page-title">
+							Hyderbad to Bangalore
+						</p>
+					</a>
+				</div>
+				<div class="ui-btn-right" style="text-align:right;">
+					<img src="img/logo.png" class="img-logo"/>	
+				</div>
+			</h1>	
+		</div>
+		<div data-role="content" class="padding-zero">
+			<div data-role="tabs">
+				<div data-role="navbar">
+					<ul>
+						<li>
+							<a href="#boarding-places" class="ui-btn-active" onclick="loadboardingPlaces()">
+								<p>BOARDING</p>
+								<span>Add Location</span>
+							</a>
+						</li>
+						<li>
+							<a href="#dropping-places" onclick="loaddropingPlaces()">
+								<p>DROPPING</p>
+								<span>Add Location</span>
+							</a>
+						</li>
+					</ul>
+				</div>
+				<div id="boarding-places" class="ui-body-d ui-content">
+					<ul data-role="listview">
+						<li>
+							<a style="padding: 5px;" onclick="movetoDropping(this)">
+								<h2>Airport toalgate</h2>
+								<p>Near air port toalgate, towards hyderabad way</p>
+								<p class="ui-li-aside">
+									06:24PM (Next day)
+								</p>					
+							</a>
+						</li>
+					</ul>
+				</div>
+				<div id="dropping-places" class="ui-body-d ui-content">
+					<ul data-role="listview">
+						<li>
+							<a style="padding: 5px;" onclick="continueBooking(this)">
+								<h2>Srinivasa Colony</h2>
+								<p>Infront of tb hospital gate, beside esi metro station</p>
+								<p class="ui-li-aside">
+									6:24PM
+								</p>					
+							</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- Sixth page -->
+	<div data-role="page" id="page-passenger-details">
+		<div data-role="header" data-position="fixed">
+			<h1>
+				<div class="ui-btn-left" data-role="controlgroup" data-type="horizontal">
+					<a onclick="backtoboardingPoints()" data-role="button" data-corner="false" class="titles" >
+						<p style="margin:0 !important;">
+							<i class="fa fa-arrow-left" aria-hidden="true"></i>
+						</p>
+					</a>
+					<a data-role="button" data-corner="false" class="titles">
+						<p style="margin:0 !important;" class="page-title">
+							Hyderbad to Bangalore
+						</p>
+					</a>
+				</div>
+				<div class="ui-btn-right" style="text-align:right;">
+					<img src="img/logo.png" class="img-logo"/>	
+				</div>
+			</h1>	
+		</div>
+		<div data-role="content" class="padding-zero">
+			<form name="passenger-information">
+				<div class="contact-information">
+					<p>Contant Information</p>
+					<div>
+						<div>
+							<input type="email" placeholder="Email ID" name="contact-email" id="contact-email" data-role="none" />
+						</div> 
+						<div>
+							<table>
+								<tr>
+									<td style="width: 20%;padding-right: 10px;">
+										<select>
+											<option>+91</option>
+											<option>+1</option>
+											<option>+62</option>
+											<option>+65</option>
+											<option>+66</option>
+										</select>
+									</td>
+									<td style="width: 80%;">
+										<input type="number" placeholder="Phone" name="contact-phone" id="contact-phone" data-role="none" />
+									</td>
+								</tr>
+							</table>
+						</div>
+					</div> 
+				</div>
+				<div class="passenger-information">
+					<p>Passenger Information</p>
+					<div class="passenger-table">
+						<div class="ui-grid-a">
+							<div class="ui-block-a">
+								Primary Seat
+							</div>
+							<div class="ui-block-b">
+								Seat 36
+							</div>
+						</div>
+						<div>
+							<input type="text" name="passenger-name" id="passenger-name" placeholder="Passenger name" data-role="none" />
+						</div>
+						<div>
+							<fieldset data-role="controlgroup" data-type="horizontal">
+								<legend>Gender</legend>
+								<input type="radio" name="radio-choice-h-2" id="radio-choice-h-2a" value="male" checked="checked">
+								<label for="radio-choice-h-2a">Male</label>
+								<input type="radio" name="radio-choice-h-2" id="radio-choice-h-2b" value="female">
+								<label for="radio-choice-h-2b">Female</label>
+							</fieldset>
+						</div>
+						<div>
+							<input type="number" name="passenger-age" id="passenger-age" placeholder="Age" data-role="none" />
+						</div>
+						<div style="margin-top:10px;">
+							<button class="clear-button" data-role="none">Clear</button>
+						</div>
+					</div> 
+				</div>
+			</form>
+		</div>
+		<div data-role="footer" data-position="fixed">
+			<button class="clear-button continue-btn" data-role="none" onclick="nexttravelDetails()">
+				continue booking
+			</button>
+		</div>
+	</div>
+	<!-- End of sixth page -->
+
+	<!-- Seventh page -->
+	<div data-role="page" id="travel-details">
+		<div data-role="header" data-position="fixed">
+			<h1>
+				<div class="ui-btn-left" data-role="controlgroup" data-type="horizontal">
+					<a onclick="backtoPassengerDtls()" data-role="button" data-corner="false" class="titles" >
+						<p style="margin:0 !important;">
+							<i class="fa fa-arrow-left" aria-hidden="true"></i>
+						</p>
+					</a>
+					<a data-role="button" data-corner="false" class="titles">
+						<p style="margin:0 !important;" class="page-title">
+							Hyderbad to Bangalore
+						</p>
+					</a>
+				</div>
+				<div class="ui-btn-right" style="text-align:right;">
+					<img src="img/logo.png" class="img-logo"/>	
+				</div>
+			</h1>	
+		</div>
+		<div data-role="content">
+			<div class="details-travel">
+				<div class="text-center">
+					<h4>Travel Details</h4>
+				</div>
+				<div class="bus-details">
+					<p>SRS Travels</p>
+					<p>15 aug at 02:30 PM</p>
+					<p>Scania AC Multiaxle Semi sleeper(2/2)</p>
+					<p><strong>Boarding point: </strong>Lakdikapool</p>
+					<p><strong>Dropping point: </strong>Devanhalli Bypass</p>
+				</div>
+				<div class="pass-details">
+					<div class="text-center">
+						<h4>Passenger Details</h4>
+					</div>
+					<div>
+						<p style="float:left;">Rajashekar Makam</p>
+						<p style="float:right;">49</p>
+						<div class="clear"></div>
+						<p>M, 26 years</p>
+					</div>
+				</div>
+				<div class="fair-details">
+					<div class="text-center">
+						<h4 class="marg0 pad5">Fair Details</h4>
+					</div>
+					<div>
+						<p style="float:left;">Rajashekar Makam</p>
+						<p style="float:right;">49</p>
+						<div class="clear"></div>
+						<p style="float:left;">Rajashekar Makam</p>
+						<p style="float:right;">49</p>
+						<div class="clear"></div>
+						<p style="float:left;">Rajashekar Makam</p>
+						<p style="float:right;">49</p>
+						<div class="clear"></div>
+						<p style="float:left;">Rajashekar Makam</p>
+						<p style="float:right;">49</p>
+						<div class="clear"></div>
+					</div>
+				</div>
+			</div>
+			<p class="side-label">Payment Opitons</p>
+			<div class="paymeny-options">
+				<div class="debit-section">
+					<div class="ui-grid-a" onclick="activeType(this)">
+						<div class="ui-block-a width10">
+							<img src="img/radio_uncheck.png"/>
+						</div>
+						<div class="ui-block-b width80">
+							<p><i class="fa fa-credit-card" aria-hidden="true"></i> Debit Card</p>
+						</div>
+					</div>
+					<div class="debit-card">
+						<div class="pad5">
+							<select>
+								<option>Please select bank</option>
+							</select>
+						</div>
+						<div class="pad5">
+							<label>Card Number</label>
+							<input type="number" data-role="none" placeholder="0000 0000 0000 0000" name="cardNumber" />
+						</div>
+						<div class="ui-grid-a pad5">
+							<div class="ui-block-a pad-right5">
+								<label>Expiry Date</label>
+								<input type="number" data-role="none" placeholder="0000 0000 0000 0000" name="cardNumber" />
+							</div>
+							<div class="ui-block-b pad-left5">
+								<label>CVV</label>
+								<input type="number" data-role="none" placeholder="CVV" name="cvvNumber" />
+							</div>
+						</div>
+						<div class="pad5">
+							<label>Card Holder's Name</label>
+							<input type="number" data-role="none" placeholder="0000 0000 0000 0000" name="cardNumber" />
+						</div>
+					</div>
+				</div>
+				<div class="debit-section">
+					<div class="ui-grid-a" onclick="activeType(this)">
+						<div class="ui-block-a width10">
+							<img src="img/radio_uncheck.png"/>
+						</div>
+						<div class="ui-block-b width80">
+							<p><i class="fa fa-credit-card-alt" aria-hidden="true"></i> Credit Card</p>
+						</div>
+					</div>
+					<div class="debit-card">
+						<div class="pad5">
+							<select>
+								<option>Please select bank</option>
+							</select>
+						</div>
+						<div class="pad5">
+							<label>Card Number</label>
+							<input type="number" data-role="none" placeholder="0000 0000 0000 0000" name="cardNumber" />
+						</div>
+						<div class="ui-grid-a pad5">
+							<div class="ui-block-a pad-right5">
+								<label>Expiry Date</label>
+								<input type="number" data-role="none" placeholder="0000 0000 0000 0000" name="cardNumber" />
+							</div>
+							<div class="ui-block-b pad-left5">
+								<label>CVV</label>
+								<input type="number" data-role="none" placeholder="CVV" name="cvvNumber" />
+							</div>
+						</div>
+						<div class="pad5">
+							<label>Card Holder's Name</label>
+							<input type="number" data-role="none" placeholder="0000 0000 0000 0000" name="cardNumber" />
+						</div>
+					</div>
+				</div>
+				<div class="debit-section">
+					<div class="ui-grid-a border-bottom-none" onclick="activeType(this)">
+						<div class="ui-block-a width10">
+							<img src="img/radio_uncheck.png"/>
+						</div>
+						<div class="ui-block-b width80">
+							<p><i class="fa fa-globe" aria-hidden="true"></i> Net Banking</p>
+						</div>
+					</div>
+					<div class="debit-card">
+						<div class="pad5">
+							<select>
+								<option>Please select bank</option>
+							</select>
+						</div>
+						<div class="pad5">
+							<label>Card Number</label>
+							<input type="number" data-role="none" placeholder="0000 0000 0000 0000" name="cardNumber" />
+						</div>
+						<div class="ui-grid-a pad5">
+							<div class="ui-block-a pad-right5">
+								<label>Expiry Date</label>
+								<input type="number" data-role="none" placeholder="0000 0000 0000 0000" name="cardNumber" />
+							</div>
+							<div class="ui-block-b pad-left5">
+								<label>CVV</label>
+								<input type="number" data-role="none" placeholder="CVV" name="cvvNumber" />
+							</div>
+						</div>
+						<div class="pad5">
+							<label>Card Holder's Name</label>
+							<input type="number" data-role="none" placeholder="0000 0000 0000 0000" name="cardNumber" />
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- End of seventh page -->
+
     <script type="text/javascript" src="cordova.js"></script>
     <script type="text/javascript" src="js/platformOverrides.js"></script>
 </body>

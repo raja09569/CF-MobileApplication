@@ -68,7 +68,7 @@
 	</div>
 
 	<!-- second page -->
-	<div data-role="page" id="page-cities">
+	<div data-role="page" id="page-boarding">
 		<div data-role="header" data-position="fixed">
 			<h1>
 				<div class="ui-btn-left" data-role="controlgroup" data-type="horizontal">
@@ -89,13 +89,13 @@
 			</h1>	
 		</div>
 		<div data-role="content" class="city-search-content" data-position="fixed">
-			<div>
-				<input type="search" name="search-ctiy" placeholder="Type here.." />
+			<div class="search-div">
+				<input type="search" name="search-boarding" data-role="none" placeholder="Type here.." />
 			</div>
-			<div>
-				<ul data-role="listview" data-inset="true">
-					<li data-role="list-divider">Recente Searches</li>
-					<li>
+			<div class="search-results">
+				<ul data-role="listview" data-inset="true" id="boardingList">
+					<!-- <li data-role="list-divider">Recente Searches</li> -->
+					<!-- <li>
 						<a onclick="takeCity(this)">
 							<img src="img/city.png" alt="city-name" class="ui-li-icon">
 							City Name
@@ -112,7 +112,58 @@
 							<img src="img/city.png" alt="city-name" class="ui-li-icon">
 							City Name
 						</a>
+					</li> -->
+				</ul>
+			</div>
+		</div>
+	</div>
+
+	<!-- Dropping page -->
+	<div data-role="page" id="page-dropping">
+		<div data-role="header" data-position="fixed">
+			<h1>
+				<div class="ui-btn-left" data-role="controlgroup" data-type="horizontal">
+					<a onclick="takeCity()" data-role="button" data-corner="false" class="titles" >
+						<p style="margin:0 !important;">
+							<i class="fa fa-arrow-left" aria-hidden="true"></i>
+						</p>
+					</a>
+					<a data-role="button" data-corner="false" class="titles">
+						<p style="margin:0 !important;">
+							Select City
+						</p>
+					</a>
+				</div>
+				<div class="ui-btn-right" style="text-align:right;">
+					<img src="img/logo.png" class="img-logo"/>	
+				</div>
+			</h1>	
+		</div>
+		<div data-role="content" class="city-search-content" data-position="fixed">
+			<div class="search-div">
+				<input type="search" name="search-droping" data-role="none" placeholder="Type here.." />
+			</div>
+			<div class="search-results">
+				<ul data-role="listview" data-inset="true" id="droppingList">
+					<!-- <li data-role="list-divider">Recente Searches</li> -->
+					<!-- <li>
+						<a onclick="takeCity(this)">
+							<img src="img/city.png" alt="city-name" class="ui-li-icon">
+							City Name
+						</a>
 					</li>
+					<li>
+						<a>
+							<img src="img/city.png" alt="city-name" class="ui-li-icon">
+							City Name
+						</a>
+					</li>
+					<li>
+						<a>
+							<img src="img/city.png" alt="city-name" class="ui-li-icon">
+							City Name
+						</a>
+					</li> -->
 				</ul>
 			</div>
 		</div>
