@@ -180,8 +180,8 @@
 						</p>
 					</a>
 					<a data-role="button" data-corner="false" class="titles">
-						<p style="margin:0 !important;">
-							Hyderbad to Bangalore
+						<p style="margin:0 !important;" class="head-title">
+							
 						</p>
 					</a>
 				</div>
@@ -194,18 +194,22 @@
 			<ul data-role="listview">
 				<li data-role="list-divider">
 					<div class="ui-grid-b">
-						<div class="ui-block-a text-left">
+						<div class="ui-block-a text-left" onclick="preDate()">
 							<span><i class="fa fa-chevron-left" aria-hidden="true"></i></span>
 						</div>
 						<div class="ui-block-b text-center">
-							<span class="text-bold">Tue 12 Jun 2018</span>
+							<span class="text-bold" id="selectedDate">
+								
+							</span>
 						</div>
-						<div class="ui-block-c text-right">
+						<div class="ui-block-c text-right" onclick="nextDate()">
 							<span><i class="fa fa-chevron-right" aria-hidden="true"></i></span>
 						</div>
 					</div>
 				</li>
-				<li onclick="showBusDetails(this)">
+			</ul>
+			<ul data-role="listview" id="bus_list">
+				<!-- <li onclick="showBusDetails(this)">
 					<p class="ui-li-aside bus-arr-time">
 						<strong>6:24</strong>PM
 					</p>
@@ -267,7 +271,7 @@
 						&nbsp;
 						<span><strong>1893 Ratings</strong></span>
 					</p>
-				</li>
+				</li> -->
 			</ul>
 		</div>
 	</div>
@@ -279,11 +283,17 @@
 				<i class="fa fa-arrow-left" aria-hidden="true"></i>
 			</a>
 			<div class="text-center">
-				<p>12 Aug 2018 10:00 PM</p>
-				<h1>LIMOLINER</h1>
-				<p>Volvo B11R Multiaxle SemiSleeper Auto Trans(2+2)</p>
+				<p class="selectedTime">
+
+				</p>
+				<h1 class="selectedBusName">
+					
+				</h1>
+				<p class="selectedBusType">
+					
+				</p>
 			</div>
-			<p class="no-of-images">
+			<p class="no-of-images" style="display:none;">
 				<i class="fa fa-picture-o" aria-hidden="true"></i> &nbsp; 1 Image
 			</p>
 		</div>
@@ -325,66 +335,31 @@
 								<img src="img/bus-steering.png" style="width: 92%;margin: 2%;" />
 							</td>
 						</tr>
-						<tr>
-							<td>
-								<button>1</button>
-							</td>
-							<td>
-								<button>2</button>
-							</td>
-							<td></td>
-							<td>
-								<button>3</button>
-							</td>
-							<td>
-								<button>4</button>
-							</td>
-						</tr>
-						<tr>
-							<td>
-								<button>1</button>
-							</td>
-							<td>
-								<button>2</button>
-							</td>
-							<td></td>
-							<td>
-								<button>3</button>
-							</td>
-							<td>
-								<button>4</button>
-							</td>
-						</tr>
-						<tr>
-							<td>
-								<button>1</button>
-							</td>
-							<td>
-								<button>2</button>
-							</td>
-							<td></td>
-							<td>
-								<button>3</button>
-							</td>
-							<td>
-								<button>4</button>
-							</td>
-						</tr>
-						<tr>
-							<td>
-								<button>1</button>
-							</td>
-							<td>
-								<button>2</button>
-							</td>
-							<td></td>
-							<td>
-								<button>3</button>
-							</td>
-							<td>
-								<button>4</button>
-							</td>
-						</tr>
+						<tbody id="seat-alignment">
+							<!-- <tr>
+								<td>
+									<div class="bus-seat" onclick="selectSeat(this)">
+										<img src="img/seat-icon.png" alt="1" />
+									</div>
+								</td>
+								<td>
+									<div class="bus-seat" onclick="selectSeat(this)">
+										<img src="img/seat-icon.png" alt="2" />
+									</div>
+								</td>
+								<td></td>
+								<td>
+									<div class="bus-seat ladies-seat" onclick="selectSeat(this)">
+										<img src="img/seat-icon.png" alt="3" />
+									</div>
+								</td>
+								<td>
+									<div class="bus-seat" onclick="selectSeat(this)">
+										<img src="img/seat-icon.png" alt="4" />
+									</div>
+								</td>
+							</tr> -->
+						</tbody>
 					</table>
 				</div>
 			</div>
@@ -397,14 +372,14 @@
 				</ul>
 			</div>
 		</div>
-		<div data-role="footer" data-position="fixed" class="footer-bus-details">
+		<div data-role="footer" data-position="fixed" class="footer-bus-details" data-hide-during-focus="" data-tap-toggle="false">
 			<table class="selected-seats">
 				<tr>
 					<td>
-						<p>Seats : <span>45, 46, 47, 48</span></p>	
+						<p>Seats : <span class="seat-numbers"></span></p>	
 					</td>
 					<td>
-						<p>$5,000</p>
+						<p class="seat-price"></p>
 					</td>
 					<td onclick="selectSeats(this)">
 						DONE

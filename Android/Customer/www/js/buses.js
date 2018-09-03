@@ -33,9 +33,37 @@ $(document).on("pageinit", "#bus-search-form", function(event){
 			$("input[type='text'][name='bus-to']").css('border', '1px solid red');
 			return;
 		}
-		$.mobile.changePage("#page-buses", { transition: "slide", changeHash: false});	
+
+		$("#page-buses .head-title").text(busFrom+" to "+busTo);
+
+		var selectedDate = new Date().toString();
+		var dates = selectedDate.split(" ");
+		selectedDate = dates[0]+" "+dates[1]+" "+dates[2]+" "+dates[3];
+		$("#selectedDate").text(selectedDate);
+		$.mobile.changePage("#page-buses", { transition: "slide", changeHash: false});
 	});
 });
+
+
+function selectCity(elem){
+	var elemIs = $(elem).attr('name');
+	if(elemIs == "bus-from"){
+		$.mobile.changePage("#page-boarding", { transition: "slideup", changeHash: false });
+	}else{
+		$.mobile.changePage("#page-dropping", { transition: "slideup", changeHash: false });
+	}
+}
+
+function takeCity(elem, type){
+	var city = $(elem).text().trim();
+	if(type == "board_point"){
+		$("input[type='text'][name='bus-from']").val(city);		
+	}else{
+		$("input[type='text'][name='bus-to']").val(city);
+	}
+	$.mobile.changePage("#bus-search-form", { transition: "slide", changeHash: false, reverse: true});
+}
+
 
 $(document).on("pageinit", "#page-boarding", function(event){
 	var type = "board_point";
@@ -54,6 +82,7 @@ $(document).on("pageinit", "#page-dropping", function(event){
 		loadCities(type, query);
 	});
 });
+
 
 function loadCities(type, term){
 	$.ajax({
@@ -102,31 +131,164 @@ function loadCities(type, term){
 	});
 }
 
-function selectCity(elem){
-	var elemIs = $(elem).attr('name');
-	if(elemIs == "bus-from"){
-		$.mobile.changePage("#page-boarding", { transition: "slideup", changeHash: false });
-	}else{
-		$.mobile.changePage("#page-dropping", { transition: "slideup", changeHash: false });
+
+$(document).on("pageinit", "#page-buses", function(event){
+	loadBuses();
+});
+
+function preDate(){
+	var activeDate = $("#selectedDate").text();
+	activeDate = new Date(activeDate).getTime();
+	var now = new Date().getTime();
+	if(activeDate <= now){
+		return;
 	}
+	activeDate = new Date(activeDate);
+	activeDate.setDate(activeDate.getDate() - 1);
+	activeDate = activeDate.toString();
+	var dates = activeDate.split(" ");
+	activeDate = dates[0]+" "+dates[1]+" "+dates[2]+" "+dates[3];
+	$("#selectedDate").text(activeDate);
+	loadBuses();
 }
 
-function takeCity(elem, type){
-	var city = $(elem).text().trim();
-	if(type == "board_point"){
-		$("input[type='text'][name='bus-from']").val(city);		
-	}else{
-		$("input[type='text'][name='bus-to']").val(city);
-	}
-	$.mobile.changePage("#bus-search-form", { transition: "slide", changeHash: false, reverse: true});
+function nextDate(){
+	var activeDate = $("#selectedDate").text();
+	activeDate = new Date(activeDate);
+	activeDate.setDate(activeDate.getDate() + 1);
+	activeDate = activeDate.toString();
+	var dates = activeDate.split(" ");
+	activeDate = dates[0]+" "+dates[1]+" "+dates[2]+" "+dates[3];
+	$("#selectedDate").text(activeDate);
+	loadBuses();
 }
 
-function showBusDetails(elem) {
+function loadBuses(){
+	var route = $("#page-buses .head-title").text();
+	var routes = route.split(" ");
+	var busFrom = routes[0];
+	var busTo = routes[2];
+	var booking_date = $("#selectedDate").text();
+	$.ajax({
+		url: server_url+"bus/select_bus.php",
+		type: "POST",
+		data: {board_point: busFrom, drop_point: busTo, booking_date: booking_date},
+		success: function(msg){
+			var a = JSON.parse(msg);
+			$("#bus_list").empty();
+			if(a.length > 0){
+				for(var i=0; i<a.length; i++){
+					var data = '<li onclick="showBusDetails(this, &quot;'+a[i].busName+'&quot;, &quot;'+a[i].busType+'&quot;, &quot;'+booking_date+'&nbsp;'+a[i].board_time+'&quot;)">';
+					data += '<p class="ui-li-aside bus-arr-time">';
+					data += '<strong>'+a[i].board_time+'</strong>';
+					data += '</p>';
+					data += '<p class="ui-li-aside bus-dep-time">';
+					data += a[i].drop_time;
+					data += '</p>';
+					data += '<h2>'+a[i].busName+'</h2>';
+					data += '<p>'+a[i].busType+'</p>';
+					data += '<p>';
+					data += a[i].leftSeat+' seats';
+					data += '&nbsp;&bull;&nbsp;'+a[i].timeDuration+' Hrs';
+					if(a[i].timeDuration != "0"){
+						data += '&nbsp;&bull;&nbsp;'+a[i].timeDuration+' Rest stop';
+					}
+					data += '</p>';
+					data += '<p class="ui-li-aside bus-price">';
+					data += 'From &#x24; '+a[i].fare+'';
+					data += '</p>';
+					data += '<p>';
+					if(a[i].average != "0"){
+						data += '<span class="rating-btn">'+a[i].average+'</span>';
+					}
+					data += '&nbsp;';
+					if(a[i].noofRatings != "0"){
+						data += '<span><strong>'+a[i].noofRatings+' Ratings</strong></span>';
+					}
+					data += '</p>';
+					data += '</li>';
+					$("#bus_list").append(data);
+					$("#bus_list").listview("refresh");
+				}
+			}else{
+				var data = '<li class="text-center"> No Bus Found </li>';
+				$("#bus_list").append(data);
+				$("#bus_list").listview("refresh");
+			}
+		},
+		error: function(err){
+			if(err.status == "0"){
+				alert("Unable to connect server, Try again.");
+			}else{
+				alert("Something went wrong, Try again.");
+			}
+		}
+	});	
+}
+
+function showBusDetails(elem, name, type, time) {
+	$(".selectedTime").text(time);
+	$(".selectedBusName").text(name);
+	$(".selectedBusType").text(type);
 	$.mobile.changePage("#page-bus-details", { transition: "slide", changeHash: false});
 }
+
+$(document).on('pageinit', "#page-bus-details", function(event){
+	$("#seat-alignment").empty();
+	for(var i=0; i<5; i++){
+		var data = '<tr>';
+		data += '<td>';
+		data += '<div class="bus-seat" onclick="selectSeat(this)">';
+		data += '<img src="img/seat-icon.png" alt="1" />';
+		data += '</div>';
+		data += '</td>';
+		data += '<td>';
+		data += '<div class="bus-seat" onclick="selectSeat(this)">';
+		data += '<img src="img/seat-icon.png" alt="2" />';
+		data += '</div>';
+		data += '</td>'
+		data += '<td></td>';
+		data += '<td>';
+		data += '<div class="bus-seat ladies-seat" onclick="selectSeat(this)">';
+		data += '<img src="img/seat-icon.png" alt="3" />';
+		data += '</div>';
+		data += '</td>';
+		data += '<td>';
+		data += '<div class="bus-seat" onclick="selectSeat(this)">';
+		data += '<img src="img/seat-icon.png" alt="4" />';
+		data += '</div>';
+		data += '</td>';
+		data += '</tr>';
+		$("#seat-alignment").append(data);
+	}
+});
+
+var selectedSeats = [];
+function selectSeat(elem){
+	if($(elem).hasClass('selected-seat')){
+		$(elem).removeClass("selected-seat");
+		var index = selectedSeats.indexOf($(elem).find('img').attr('alt'));
+		if (index > -1) {
+			selectedSeats.splice(index, 1);
+		}
+		$(".selected-seats .seat-numbers").text(selectedSeats.toString());
+		var price = selectedSeats.length * 1000;
+		$(".selected-seats .seat-price").html("&#x24;"+price);
+	}else{
+		$(elem).addClass("selected-seat");
+		selectedSeats.push($(elem).find('img').attr('alt'));
+		$(".selected-seats .seat-numbers").text(selectedSeats.toString());
+		var price = selectedSeats.length * 1000;
+		$(".selected-seats .seat-price").html("&#x24;"+price);
+	}
+}
+
 function selectSeats(elem) {
 	$.mobile.changePage("#page-boarding-points", { transition: "slide", changeHash: false});
 }
+
+
+
 function loadboardingPlaces(){
 	$("#dropping-places").hide();
 	$("#boarding-places").show();
