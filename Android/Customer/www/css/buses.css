@@ -92,7 +92,7 @@ p.bus-arr-time {
 	box-shadow: none;
 }
 #page-bus-details div div {
-	margin-top: 15px;
+	/* margin-top: 15px; */
 }
 #page-bus-details div div p:first-child {
 	/* margin: 0; *//* padding: 0; */color:  white;font-size:  0.8em;margin-bottom: 5px;
@@ -106,7 +106,9 @@ p.bus-arr-time {
 #page-bus-details div p.no-of-images {
 	margin-left:  20px;color: #FFF;
 }
-
+.footer-bus-details {
+	display: none;
+}
 /*input[type='search'][name='search-city'] {
 	width: 130px;
     box-sizing: border-box;
@@ -121,6 +123,17 @@ p.bus-arr-time {
     -webkit-transition: width 0.4s ease-in-out;
     transition: width 0.4s ease-in-out;
 }*/
+.div-seat {
+	border: 1px solid #ffffff;
+    margin: 10px 40px 5px 40px;
+}
+.seat-system {
+	display: flex;
+}
+.seat-system > div {
+	width: 25%;
+	margin: 0px 5px;
+}
 
 .city-search-content {
 	/* padding: 0px; */
@@ -136,11 +149,8 @@ p.bus-arr-time {
 	font-size: 0.7em;
 }
 .seat-layout {
-	width: 80%;
-	margin: 0 10%;
-	border: 1px solid #eeeeee;
-	border-radius: 8px;
-	padding: 2% 1%;
+	width: 100%;
+    padding: 10px;
 }
 .seat-layout tr td {
 	border: none;
@@ -357,6 +367,7 @@ input[type='email'][name='contact-email'], input[type='number'][name='contact-ph
 .bus-seat {
 	padding: 5px;
 	background: #FFFFFF;
+	margin: 5px;
 }
 .bus-seat > img {
 	width: 100%;
@@ -367,6 +378,25 @@ input[type='email'][name='contact-email'], input[type='number'][name='contact-ph
 .selected-seat {
 	background: #999999;
 }
+
+.div-amenities {
+    margin: 10px 15px;
+    background: #FFF;
+	padding: 10px;
+	text-align: center;
+}
+.div-amenities > h3 {
+	font-weight: bold;
+	color: #777777;
+}
+.div-amenities > ul {
+	text-align: left;
+	list-style: none;
+}
+.div-amenities > ul > li {
+	padding: 0px 5px;
+}
+
 /** Common css **/
 .padding-zero {
 	padding: 0;

@@ -1,7 +1,7 @@
 var local = true;
 
 if(local == true){
-	var base_url = "http://localhost:8080/";
+	var base_url = "http://localhost/";
 	var server_url = base_url+"Cameroun/app/App_1.0.0/Customer/";
 	var ad_category_icon_url = base_url+"cameroun/web/Admin/";
 	var ad_attachment_url = base_url+"cameroun/web/";

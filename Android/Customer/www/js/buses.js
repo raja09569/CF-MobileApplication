@@ -178,7 +178,7 @@ function loadBuses(){
 			$("#bus_list").empty();
 			if(a.length > 0){
 				for(var i=0; i<a.length; i++){
-					var data = '<li onclick="showBusDetails(this, &quot;'+a[i].busName+'&quot;, &quot;'+a[i].busType+'&quot;, &quot;'+booking_date+'&nbsp;'+a[i].board_time+'&quot;)">';
+					var data = '<li onclick="showBusDetails(&quot;'+a[i].busId+'&quot;, &quot;'+a[i].busName+'&quot;, &quot;'+a[i].busType+'&quot;, &quot;'+booking_date+'&nbsp;'+a[i].board_time+'&quot;)">';
 					data += '<p class="ui-li-aside bus-arr-time">';
 					data += '<strong>'+a[i].board_time+'</strong>';
 					data += '</p>';
@@ -226,45 +226,110 @@ function loadBuses(){
 	});	
 }
 
-function showBusDetails(elem, name, type, time) {
+function showBusDetails(busId, name, type, time) {
 	$(".selectedTime").text(time);
 	$(".selectedBusName").text(name);
 	$(".selectedBusType").text(type);
+	$(".selectedBusType").attr("data-busId", busId);
 	$.mobile.changePage("#page-bus-details", { transition: "slide", changeHash: false});
 }
 
 $(document).on('pageinit', "#page-bus-details", function(event){
-	$("#seat-alignment").empty();
-	for(var i=0; i<5; i++){
-		var data = '<tr>';
-		data += '<td>';
-		data += '<div class="bus-seat" onclick="selectSeat(this)">';
-		data += '<img src="img/seat-icon.png" alt="1" />';
-		data += '</div>';
-		data += '</td>';
-		data += '<td>';
-		data += '<div class="bus-seat" onclick="selectSeat(this)">';
-		data += '<img src="img/seat-icon.png" alt="2" />';
-		data += '</div>';
-		data += '</td>'
-		data += '<td></td>';
-		data += '<td>';
-		data += '<div class="bus-seat ladies-seat" onclick="selectSeat(this)">';
-		data += '<img src="img/seat-icon.png" alt="3" />';
-		data += '</div>';
-		data += '</td>';
-		data += '<td>';
-		data += '<div class="bus-seat" onclick="selectSeat(this)">';
-		data += '<img src="img/seat-icon.png" alt="4" />';
-		data += '</div>';
-		data += '</td>';
-		data += '</tr>';
-		$("#seat-alignment").append(data);
-	}
+	//return;
+	var busId = $(".selectedBusType").attr("data-busId");
+	$.ajax({
+		url: server_url+"bus/bus-details.php",
+		type: "POST",
+		data: {busId: busId},
+		success: function(msg){
+			//console.log("Message is "+msg);
+			var a = JSON.parse(msg);
+			var fare = a[0].fare;
+			var layout = JSON.parse(a[0].layout);
+			var zero = layout["0"];
+			var one = layout["1"];
+			var two = layout["2"];
+			var three = layout["3"];
+			var four = layout["4"];
+			if(zero.length > 0){
+				$(".seat-one").empty();
+				for(var i=0; i<zero.length; i++){
+					var data = '<div class="bus-seat" onclick="selectSeat(this, '+fare+')">';
+					if(zero[i].type == "sleeeper"){
+						data += '<img src="img/sleeper-seat-icon.png" alt="'+zero[i].seat_no+'" />';
+					}else{
+						data += '<img src="img/seat-icon.png" alt="'+zero[i].seat_no+'" />';
+					}
+					data += '</div>';
+					$(".seat-one").append(data);	
+				}
+			}
+			if(one.length > 0){
+				$(".seat-two").empty();
+				for(var i=0; i<one.length; i++){
+					var data = '<div class="bus-seat" onclick="selectSeat(this, '+fare+')">';
+					if(one[i].type == "sleeeper"){
+						data += '<img src="img/sleeper-seat-icon.png" alt="'+one[i].seat_no+'" />';
+					}else{
+						data += '<img src="img/seat-icon.png" alt="'+one[i].seat_no+'" />';
+					}
+					data += '</div>';
+					$(".seat-two").append(data);	
+				}
+			}
+			if(two.length > 0){
+				$(".seat-three").empty();
+				for(var i=0; i<two.length; i++){
+					var data = '<div class="bus-seat" onclick="selectSeat(this, '+fare+')">';
+					if(two[i].type == "sleeeper"){
+						data += '<img src="img/sleeper-seat-icon.png" alt="'+two[i].seat_no+'" />';
+					}else{
+						data += '<img src="img/seat-icon.png" alt="'+two[i].seat_no+'" />';
+					}
+					data += '</div>';
+					$(".seat-three").append(data);	
+				}
+			}
+			if(three.length > 0){
+				$(".seat-four").empty();
+				for(var i=0; i<three.length; i++){
+					var data = '<div class="bus-seat" onclick="selectSeat(this, '+fare+')">';
+					if(three[i].type == "sleeeper"){
+						data += '<img src="img/sleeper-seat-icon.png" alt="'+three[i].seat_no+'" />';
+					}else{
+						data += '<img src="img/seat-icon.png" alt="'+three[i].seat_no+'" />';
+					}
+					data += '</div>';
+					$(".seat-four").append(data);	
+				}
+			}
+			if(four.length > 0){
+				$(".seat-five").empty();
+				for(var i=0; i<four.length; i++){
+					var data = '<div class="bus-seat" onclick="selectSeat(this, '+fare+')">';
+					if(four[i].type == "sleeeper"){
+						data += '<img src="img/sleeper-seat-icon.png" alt="'+four[i].seat_no+'" />';
+					}else{
+						data += '<img src="img/seat-icon.png" alt="'+four[i].seat_no+'" />';
+					}
+					data += '</div>';
+					$(".seat-five").append(data);	
+				}
+			}
+			
+		},
+		error: function(err){
+			if(err.status == "0"){
+				console.log("Unable to connect to server, Try again");
+			}else{
+				console.log("Something went wrong, Try again");
+			}
+		}
+	});
 });
 
 var selectedSeats = [];
-function selectSeat(elem){
+function selectSeat(elem, fare){
 	if($(elem).hasClass('selected-seat')){
 		$(elem).removeClass("selected-seat");
 		var index = selectedSeats.indexOf($(elem).find('img').attr('alt'));
@@ -272,13 +337,13 @@ function selectSeat(elem){
 			selectedSeats.splice(index, 1);
 		}
 		$(".selected-seats .seat-numbers").text(selectedSeats.toString());
-		var price = selectedSeats.length * 1000;
+		var price = selectedSeats.length * fare;
 		$(".selected-seats .seat-price").html("&#x24;"+price);
 	}else{
 		$(elem).addClass("selected-seat");
 		selectedSeats.push($(elem).find('img').attr('alt'));
 		$(".selected-seats .seat-numbers").text(selectedSeats.toString());
-		var price = selectedSeats.length * 1000;
+		var price = selectedSeats.length * fare;
 		$(".selected-seats .seat-price").html("&#x24;"+price);
 	}
 }
